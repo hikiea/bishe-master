@@ -1,4 +1,4 @@
-package com.lzy.springbootjwtcaptcha.modules.base.model.entity;
+package com.lzy.bishe.modules.base.model.entity;
 
 import lombok.Data;
 

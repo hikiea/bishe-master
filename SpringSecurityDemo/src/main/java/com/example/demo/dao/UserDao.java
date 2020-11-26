@@ -2,14 +2,16 @@ package com.example.demo.dao;
 
 import com.example.demo.model.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
+import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RestController;
 
 @Mapper
+@Repository
 public interface UserDao {
 
-    void insertUser(User user);
-    void updateUser(User user);
-    User findUserByUserId(Integer id);
-    User findUserByUserName(String name);
-    void deleteUser(Integer id);
+    @Select("select * from user where username = #{username}")
+    User findUserByUserName(String username);
+
 }

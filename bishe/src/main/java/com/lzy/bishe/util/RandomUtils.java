@@ -1,4 +1,4 @@
-package com.lzy.springbootjwtcaptcha.util;
+package com.lzy.bishe.util;
 
 import java.awt.*;
 import java.util.Random;

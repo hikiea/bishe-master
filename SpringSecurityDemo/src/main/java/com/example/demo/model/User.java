@@ -6,7 +6,7 @@ import lombok.Data;
 public class User {
     //用户表
     Integer id;             //用户id
-    String name;            //用户名
+    String username;            //用户名
     String password;        //用户密码
     String sex;             //用户性别
     String tel;             //用户电话
@@ -14,5 +14,5 @@ public class User {
     String headUrl;         //用户头像链接 当注册时是房产证/租赁合同的url
     String communityId;     //用户所属小区编号
     String address;         //用户详细住址
-    String role;            //用户权限
+    String roles;            //用户权限
 }

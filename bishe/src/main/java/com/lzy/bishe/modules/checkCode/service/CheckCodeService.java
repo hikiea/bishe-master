@@ -1,18 +1,18 @@
-package com.lzy.springbootjwtcaptcha.modules.checkCode.service;
+package com.lzy.bishe.modules.checkCode.service;
 
+import com.lzy.bishe.modules.checkCode.model.entity.CheckCode;
+import com.lzy.bishe.util.RandomUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Random;
-import javax.imageio.ImageIO;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
-import com.lzy.springbootjwtcaptcha.modules.checkCode.model.entity.CheckCode;
-import com.lzy.springbootjwtcaptcha.util.RandomUtils;
 
 
 /**

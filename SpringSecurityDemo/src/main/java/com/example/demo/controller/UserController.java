@@ -1,63 +1,38 @@
 package com.example.demo.controller;
 
-import com.example.demo.dto.ResultDTO;
-import com.example.demo.exception.CustomErrorCode;
-import com.example.demo.model.User;
-import com.example.demo.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin
 @RestController
 public class UserController {
 
-    @Autowired
-    UserService userService;
-
-    BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-
-
-    @GetMapping("/user/userInfo")
-    public ResultDTO<User> getUserInfo(){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String username = authentication.getName();//当前登录的用户名
-        Integer userId = userService.getUserId(username);
-        User userInfo = userService.getUserInfo(userId);
-        userInfo.setPassword("");
-        return ResultDTO.okOf("用户信息",userInfo);
+    @GetMapping("/guest/get")
+    public String getUserContext(){
+        return "这里不需要权限";
     }
 
-    @PutMapping("/user/userInfo")
-    public ResultDTO<String> UpdateUserInfo(@RequestBody User newUserInfo){
+    @GetMapping("/user/get")
+    public String getUserContext2(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();//当前登录的用户名
-        Integer userId = userService.getUserId(username);
-        User oldUserInfo = userService.getUserInfo(userId);
-
-        //username userId communityId都不能变更！
-        newUserInfo.setName(username);
-        newUserInfo.setId(userId);
-        newUserInfo.setCommunityId(oldUserInfo.getCommunityId());
-
-        boolean matches = false;
-        try {
-            matches = bCryptPasswordEncoder.matches(newUserInfo.getPassword(),oldUserInfo.getPassword());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        if (!matches) {
-            return ResultDTO.errorOf(CustomErrorCode.PASSWORD_WRONG);
-        }
-
-        String password=newUserInfo.getPassword();
-        newUserInfo.setPassword(bCryptPasswordEncoder.encode(password));
-        userService.updateUserInfo(newUserInfo);
-        return ResultDTO.okOf();
+        return "当前用户名：" + username + "，当前使用了user权限";
     }
+
+    @GetMapping("/admin/get")
+    public String getUserContext3(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();//当前登录的用户名
+        return "当前用户名：" + username + "，当前使用了admin权限";
+    }
+
+    @GetMapping("/root/get")
+    public String getUserContext4(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();//当前登录的用户名
+        return "当前用户名：" + username + "，当前使用了root权限";
+    }
+
 }

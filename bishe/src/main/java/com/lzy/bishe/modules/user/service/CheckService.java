@@ -1,21 +1,18 @@
-package com.lzy.springbootjwtcaptcha.modules.user.service;
+package com.lzy.bishe.modules.user.service;
 
-import javax.servlet.http.HttpServletRequest;
-
-import com.lzy.springbootjwtcaptcha.modules.checkCode.model.entity.CheckCode;
-import com.lzy.springbootjwtcaptcha.modules.checkCode.service.CheckCodeService;
-import com.lzy.springbootjwtcaptcha.util.RedisUtil;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import com.alibaba.fastjson.JSONObject;
 import com.auth0.jwt.JWT;
-import com.lzy.springbootjwtcaptcha.modules.user.model.dto.responseDTO.UserInfoResponseDTO;
-import com.lzy.springbootjwtcaptcha.modules.user.model.entity.User;
-import com.lzy.springbootjwtcaptcha.modules.base.model.entity.ResultDTO;
-import com.lzy.springbootjwtcaptcha.modules.user.model.dto.requestDTO.UserLoginDTO;
-import com.lzy.springbootjwtcaptcha.modules.jwt.service.TokenService;
-
+import com.lzy.bishe.modules.base.model.entity.ResultDTO;
+import com.lzy.bishe.modules.jwt.service.TokenService;
+import com.lzy.bishe.modules.user.model.dto.requestDTO.UserLoginDTO;
+import com.lzy.bishe.modules.user.model.dto.responseDTO.UserInfoResponseDTO;
+import com.lzy.bishe.modules.user.model.entity.User;
+import com.lzy.bishe.util.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author lizhongyi

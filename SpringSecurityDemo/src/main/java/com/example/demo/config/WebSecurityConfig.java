@@ -5,7 +5,6 @@ import com.alibaba.fastjson.JSON;
 
 import com.example.demo.component.SecurityCodeProvider;
 import com.example.demo.dto.ResultDTO;
-import com.example.demo.exception.CustomErrorCode;
 //import com.example.demo.service.MyUserDetailsService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -49,7 +48,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //    代码大幅参考自 https://www.jianshu.com/p/62a0a9a78530
 //    https://zhuanlan.zhihu.com/p/47584036
 
-    protected Log log = LogFactory.getLog(this.getClass());
 
     @Autowired
     private AuthenticationDetailsSource<HttpServletRequest, WebAuthenticationDetails> authenticationDetailsSource;
@@ -73,17 +71,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors()
                 .and()
                 .authorizeRequests()
-                .antMatchers("/guest/**",
-                        // 测试用，以后删
-//                        "/**/**",
-                        //下为swagger的页面
-                        "/v2/api-docs", "/configuration/ui", "/swagger-resources",
-                        "/configuration/security", "/swagger-ui.html", "/webjars/**",
-                        "/swagger-resources/configuration/ui","/swagge‌​r-ui.html").permitAll()//所有人都能访问登录页面
-//                .antMatchers("/user/**").hasAnyRole("user","admin","pmcAdmin")//发帖回帖限制
-//                .antMatchers("/admin/**","/email/**").hasAnyRole("admin")//管理员接口限制
-//                .antMatchers("/work/**").hasAnyRole("admin","worker","pmcAdmin")//工人接口限制
-//                .antMatchers("/pmcAdmin/**").hasAnyRole("admin","pmcAdmin")//管理员接口限制
+                .antMatchers("/guest/**").permitAll()
+                .antMatchers("/user/**").hasAnyRole("USER","ADMIN","ROOT")
+                .antMatchers("/admin/**").hasAnyRole("ADMIN","ROOT")
+                .antMatchers("/root/**").hasAnyRole("ROOT")
                 .anyRequest().authenticated()//每个请求都必须被认证
                 .and()
                     .formLogin()
@@ -109,8 +100,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private class ApiLoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler{
         @Override
         public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-//            super.onAuthenticationSuccess(request, response, authentication);
-            log.info("用户[" + SecurityContextHolder.getContext().getAuthentication().getPrincipal() +"]登录成功！");
 
             //登录成功后移除session中验证码信息
             request.getSession().removeAttribute("codeValue");
@@ -129,7 +118,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private class ApiLoginFailureHandler extends SimpleUrlAuthenticationFailureHandler {
         @Override
         public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
-//            log.info("[" + SecurityContextHolder.getContext().getAuthentication().getPrincipal() +"]登录失败！");
+
             //登录失败后移除session中验证码信息
             request.getSession().removeAttribute("codeValue");
             request.getSession().removeAttribute("codeTime");
@@ -151,8 +140,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
             response.setContentType("application/json;charset=utf-8");
             PrintWriter out = response.getWriter();
-            String s = (String) JSON.toJSON(ResultDTO.okOf("登出成功"));
-            out.write(s);
+            ResultDTO resultDTO = ResultDTO.okOf("登出成功");
+            out.write(resultDTO.getMessage());
             out.flush();
             out.close();
         }
@@ -171,13 +160,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return source;
     }
 
-//    @Bean
-//    CorsConfigurationSource corsConfigurationSource() {
-//        CorsConfiguration configuration = new CorsConfiguration();
-//        configuration.setAllowedOrigins(Arrays.asList("*"));
-//        configuration.setAllowedMethods(Arrays.asList("*"));
-//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-//        source.registerCorsConfiguration("/**", configuration);
-//        return source;
-//    }
 }

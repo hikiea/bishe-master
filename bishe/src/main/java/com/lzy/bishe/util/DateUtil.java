@@ -1,13 +1,12 @@
-package com.lzy.springbootjwtcaptcha.util;
+package com.lzy.bishe.util;
+
+import org.springframework.stereotype.Component;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 /**
  * @author lizhongyi

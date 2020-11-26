@@ -56,11 +56,6 @@ public class MyWebAuthenticationDetails extends WebAuthenticationDetails {
         password = (String) map.get("password");
         validCode = (String) map.get("validCode");
 
-//        下面代码用于伪装验证码生成
-//        String codeValue = "123";
-//        Long codeTime = Long.valueOf(123);
-//        request.getSession().setAttribute("codeValue", codeValue);
-//        request.getSession().setAttribute("codeTime", codeTime);
 
         sessionCodeValue = (String) request.getSession().getAttribute("codeValue");
         sessionCodeTime = (Long) request.getSession().getAttribute("codeTime");

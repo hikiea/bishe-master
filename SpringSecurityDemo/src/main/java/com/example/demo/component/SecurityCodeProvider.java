@@ -26,6 +26,7 @@ public class SecurityCodeProvider implements AuthenticationProvider {
     protected Log log = LogFactory.getLog(this.getClass());
 
     private static UserDao userDao;
+
     @Autowired
     private void setUserDao(UserDao userDao) {
         SecurityCodeProvider.userDao = userDao;
@@ -52,10 +53,10 @@ public class SecurityCodeProvider implements AuthenticationProvider {
         MyWebAuthenticationDetails details = (MyWebAuthenticationDetails) authentication.getDetails();
 
         //校验码判断
-        if (!details.getValidCode().equals(details.getSessionCodeValue())) {
-            log.info("验证码错误");
-            throw new BadCredentialsException("验证码错误");
-        }
+//        if (!details.getValidCode().equals(details.getSessionCodeValue())) {
+//            log.info("验证码错误");
+//            throw new BadCredentialsException("验证码错误");
+//        }
 
         //测试需要，临时关闭
         //校验码有效期
@@ -81,7 +82,7 @@ public class SecurityCodeProvider implements AuthenticationProvider {
         }
 
         Collection<GrantedAuthority> auths = new ArrayList<>();
-        SimpleGrantedAuthority user_role = new SimpleGrantedAuthority(user.getRole());
+        SimpleGrantedAuthority user_role = new SimpleGrantedAuthority(user.getRoles());
         auths.add(user_role);
         return new UsernamePasswordAuthenticationToken
                 (details.getUsername(), details.getPassword(), auths);

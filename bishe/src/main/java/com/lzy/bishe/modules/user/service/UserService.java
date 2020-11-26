@@ -1,22 +1,20 @@
-package com.lzy.springbootjwtcaptcha.modules.user.service;
+package com.lzy.bishe.modules.user.service;
 
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import com.alibaba.fastjson.JSONObject;
 import com.auth0.jwt.JWT;
-import com.lzy.springbootjwtcaptcha.modules.user.model.dto.responseDTO.UserInfoResponseDTO;
-import com.lzy.springbootjwtcaptcha.modules.user.model.entity.RedisBlackToken;
-import com.lzy.springbootjwtcaptcha.modules.user.model.entity.User;
-import com.lzy.springbootjwtcaptcha.modules.base.model.entity.ResultDTO;
-import com.lzy.springbootjwtcaptcha.modules.user.mapper.UserMapper;
-import com.lzy.springbootjwtcaptcha.util.DateUtil;
-import com.lzy.springbootjwtcaptcha.util.RedisUtil;
-
+import com.lzy.bishe.modules.base.model.entity.ResultDTO;
+import com.lzy.bishe.modules.user.mapper.UserMapper;
+import com.lzy.bishe.modules.user.model.dto.responseDTO.UserInfoResponseDTO;
+import com.lzy.bishe.modules.user.model.entity.RedisBlackToken;
+import com.lzy.bishe.modules.user.model.entity.User;
+import com.lzy.bishe.util.DateUtil;
+import com.lzy.bishe.util.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 
 /**

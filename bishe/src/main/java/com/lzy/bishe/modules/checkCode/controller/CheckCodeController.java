@@ -1,19 +1,19 @@
-package com.lzy.springbootjwtcaptcha.modules.checkCode.controller;
+package com.lzy.bishe.modules.checkCode.controller;
 
-import java.io.IOException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import com.lzy.springbootjwtcaptcha.util.RedisUtil;
+import com.lzy.bishe.annotation.PassToken;
+import com.lzy.bishe.modules.checkCode.model.entity.CheckCode;
+import com.lzy.bishe.modules.checkCode.service.CheckCodeService;
+import com.lzy.bishe.util.RedisUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.lzy.springbootjwtcaptcha.annotation.PassToken;
-import com.lzy.springbootjwtcaptcha.modules.checkCode.model.entity.CheckCode;
-import com.lzy.springbootjwtcaptcha.modules.checkCode.service.CheckCodeService;
-import lombok.extern.slf4j.Slf4j;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 
 /**

@@ -1,6 +1,5 @@
-package com.lzy.springbootjwtcaptcha.config;
+package com.lzy.bishe.config;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;

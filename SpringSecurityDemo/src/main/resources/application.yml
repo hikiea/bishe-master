@@ -1,1 +1,14 @@
+server:
+  port: 8933
 
+spring:
+  datasource:
+    username: root
+    password: 1234
+    url: jdbc:mysql://116.62.15.76/springsecurity?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
+
+mybatis:
+  mapper-locations: classpath:static/mapper/*
+  #打印sql，方便调试
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

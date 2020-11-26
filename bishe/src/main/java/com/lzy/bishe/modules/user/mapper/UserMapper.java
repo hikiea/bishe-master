@@ -1,12 +1,12 @@
-package com.lzy.springbootjwtcaptcha.modules.user.mapper;
+package com.lzy.bishe.modules.user.mapper;
 
-import java.util.List;
-
+import com.lzy.bishe.modules.user.model.dto.responseDTO.UserInfoResponseDTO;
+import com.lzy.bishe.modules.user.model.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
-import com.lzy.springbootjwtcaptcha.modules.user.model.dto.responseDTO.UserInfoResponseDTO;
-import com.lzy.springbootjwtcaptcha.modules.user.model.entity.User;
+
+import java.util.List;
 
 
 /**

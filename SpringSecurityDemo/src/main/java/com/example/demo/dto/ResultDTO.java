@@ -1,6 +1,6 @@
 package com.example.demo.dto;
 
-import com.example.demo.exception.CustomErrorCode;
+
 import lombok.Data;
 
 @Data
@@ -32,9 +32,6 @@ public class ResultDTO<T> {
         return resultDTO;
     }
 
-    public static ResultDTO errorOf(CustomErrorCode errorCode) {
-        return errorOf(errorCode.getCode(),errorCode.getMessage());
-    }
 
     public static ResultDTO errorOf(Integer code,String message) {
         ResultDTO resultDTO = new ResultDTO();

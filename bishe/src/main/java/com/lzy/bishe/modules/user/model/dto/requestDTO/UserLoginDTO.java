@@ -1,4 +1,4 @@
-package com.lzy.springbootjwtcaptcha.modules.user.model.dto.requestDTO;
+package com.lzy.bishe.modules.user.model.dto.requestDTO;
 
 import lombok.Data;
 

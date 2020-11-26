@@ -1,15 +1,15 @@
-package com.lzy.springbootjwtcaptcha.modules.user.controller;
+package com.lzy.bishe.modules.user.controller;
 
-import javax.servlet.http.HttpServletRequest;
+import com.lzy.bishe.annotation.UserLoginToken;
+import com.lzy.bishe.modules.base.model.entity.ResultDTO;
+import com.lzy.bishe.modules.user.model.dto.requestDTO.UserLoginDTO;
+import com.lzy.bishe.modules.user.service.CheckService;
+import com.lzy.bishe.modules.user.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.lzy.springbootjwtcaptcha.annotation.UserLoginToken;
-import com.lzy.springbootjwtcaptcha.modules.base.model.entity.ResultDTO;
-import com.lzy.springbootjwtcaptcha.modules.user.model.dto.requestDTO.UserLoginDTO;
-import com.lzy.springbootjwtcaptcha.modules.user.service.CheckService;
-import com.lzy.springbootjwtcaptcha.modules.user.service.UserService;
 
-import lombok.extern.slf4j.Slf4j;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author lizhongyi
