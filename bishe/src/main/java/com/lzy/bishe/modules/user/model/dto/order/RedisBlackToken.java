@@ -1,4 +1,4 @@
-package com.lzy.bishe.modules.user.model.entity;
+package com.lzy.bishe.modules.user.model.dto.order;
 
 import lombok.Data;
 

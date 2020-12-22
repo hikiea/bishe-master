@@ -1,20 +1,20 @@
 package com.lzy.bishe.modules.user.service;
 
-import com.alibaba.fastjson.JSONObject;
 import com.auth0.jwt.JWT;
 import com.lzy.bishe.modules.base.model.entity.ResultDTO;
 import com.lzy.bishe.modules.user.mapper.UserMapper;
-import com.lzy.bishe.modules.user.model.dto.responseDTO.UserInfoResponseDTO;
-import com.lzy.bishe.modules.user.model.entity.RedisBlackToken;
+import com.lzy.bishe.modules.user.model.dto.responseDTO.UpdateUserInfoDTO;
+import com.lzy.bishe.modules.user.model.dto.order.RedisBlackToken;
 import com.lzy.bishe.modules.user.model.entity.User;
+import com.lzy.bishe.redis.RedisTokenUtil;
 import com.lzy.bishe.util.DateUtil;
-import com.lzy.bishe.util.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
+import java.time.LocalDateTime;
+import java.util.UUID;
 
 
 /**
@@ -31,7 +31,7 @@ public class UserService {
     private CheckService checkService;
 
     @Autowired
-    private RedisUtil redisUtil;
+    private RedisTokenUtil redisTokenUtil;
 
     public User findByUsername(String username){
         return userMapper.findByUsernameToToken(username);
@@ -42,23 +42,12 @@ public class UserService {
     }
 
     public ResultDTO getUserMessage(HttpServletRequest httpServletRequest) {
-        JSONObject jsonObject=new JSONObject();
-        String token = httpServletRequest.getHeader("token");
-        String username = JWT.decode(token).getAudience().get(1);
-        String power = JWT.decode(token).getAudience().get(2);
-        jsonObject.put("用户名：",username);
-        jsonObject.put("当前权限：",power);
-        return ResultDTO.successOf("用户获取成功！",jsonObject);
+        String id = JWT.decode(httpServletRequest.getHeader("token")).getAudience().get(0);
+        User userMessage = userMapper.getUserMessage(id);
+        userMessage.setPassword(null);
+        return ResultDTO.successOf("用户获取成功！",userMessage);
     }
 
-    public ResultDTO getAllUserByAdmin(HttpServletRequest httpServletRequest) {
-        if (checkService.checkPowerByAdmin(httpServletRequest)){
-            List<UserInfoResponseDTO> users = userMapper.findUser();
-            return ResultDTO.successOf("所有用户获取成功",users);
-        }else{
-            return ResultDTO.errorOf(500,"权限不足");
-        }
-    }
 
     public ResultDTO logout(HttpServletRequest httpServletRequest) {
         String token = httpServletRequest.getHeader("token");
@@ -67,9 +56,29 @@ public class UserService {
         blackToken.setUsername(JWT.decode(token).getAudience().get(1));
         blackToken.setPower(JWT.decode(token).getAudience().get(2));
         blackToken.setTime(DateUtil.getNowDate());
-        redisUtil.set(token,blackToken);
+        redisTokenUtil.set(token,blackToken);
         log.info("用户：" + JWT.decode(token).getAudience().get(1) + "已登出");
         return ResultDTO.successOf("登出成功");
+    }
+
+    public ResultDTO registerUser(User user) {
+        if (checkEqualUsername(user.getUsername()) != null){
+            return ResultDTO.errorOf(500,"用户名不可重复");
+        }else{
+            user.setCreateTime(LocalDateTime.now());
+            user.setNickname(UUID.randomUUID().toString());
+            userMapper.registerUser(user);
+            return ResultDTO.successOf("用户注册成功","请及时更改昵称");
+        }
+    }
+
+    public ResultDTO updateUserMessage(UpdateUserInfoDTO userInfo) {
+        userMapper.updateUserMessage(userInfo);
+        return ResultDTO.successOf("修改成功");
+    }
+
+    public User checkEqualUsername(String username){
+        return userMapper.checkEqualUsername(username);
     }
 
 }

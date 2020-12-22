@@ -7,11 +7,11 @@ import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.lzy.bishe.annotation.PassToken;
 import com.lzy.bishe.annotation.UserLoginToken;
-import com.lzy.bishe.modules.user.model.entity.RedisBlackToken;
+import com.lzy.bishe.modules.user.model.dto.order.RedisBlackToken;
 import com.lzy.bishe.modules.user.model.entity.User;
 import com.lzy.bishe.modules.user.service.UserService;
+import com.lzy.bishe.redis.RedisTokenUtil;
 import com.lzy.bishe.util.DateUtil;
-import com.lzy.bishe.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -31,7 +31,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
     private UserService userService;
 
     @Autowired
-    private RedisUtil redisUtil;
+    private RedisTokenUtil redisTokenUtil;
 
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object object) throws Exception {
@@ -63,7 +63,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                 if (token == null) {
                     throw new RuntimeException("无token，请重新登录");
                 }
-                if (redisUtil.get(token) != null){
+                if (redisTokenUtil.get(token) != null){
                     throw new RuntimeException("token失效，请重新登录");
                 }
                 // 验证 token 是否已过期
@@ -75,7 +75,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                         blackToken.setUsername(JWT.decode(token).getAudience().get(1));
                         blackToken.setPower(JWT.decode(token).getAudience().get(2));
                         blackToken.setTime(DateUtil.getNowDate());
-                        redisUtil.set(token,blackToken);
+                        redisTokenUtil.set(token,blackToken);
                         throw new RuntimeException("token超过存活时间，已失效，请重新登录");
                     }
                 }catch (JWTDecodeException j){

@@ -27,6 +27,8 @@ public class ResultDTO<T> {
         return resultDTO;
     }
 
+
+
     public static <T>ResultDTO successOf(String message,T data){
         ResultDTO resultDTO=new ResultDTO();
         resultDTO.setCode(200);

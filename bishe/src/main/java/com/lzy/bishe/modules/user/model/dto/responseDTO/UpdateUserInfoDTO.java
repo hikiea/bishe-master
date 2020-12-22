@@ -1,32 +1,25 @@
-package com.lzy.bishe.modules.user.model.entity;
+package com.lzy.bishe.modules.user.model.dto.responseDTO;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-
 
 /**
  * @author lizhongyi
  */
 @Data
 @NoArgsConstructor
-@EqualsAndHashCode(callSuper = false)
-public class User {
+@ApiModel(value = "UpdateUserInfoDTO",description = "用户修改请求对象")
+public class UpdateUserInfoDTO {
 
     @ApiModelProperty(notes = "主键id")
     private Integer id;
 
-    @ApiModelProperty(notes = "用户名")
-    private String username;
-
     @ApiModelProperty(notes = "密码")
     private String password;
-
-    @ApiModelProperty(notes = "权限")
-    private String power;
 
     @ApiModelProperty(notes = "昵称")
     private String nickname;
@@ -38,12 +31,9 @@ public class User {
     private String headUrl;
 
     @ApiModelProperty(notes = "小区id")
-    private Integer communityId;
+    private String communityId;
 
     @ApiModelProperty(notes = "门牌号")
     private String address;
-
-    @ApiModelProperty(notes = "昵称")
-    private LocalDateTime createTime;
 
 }

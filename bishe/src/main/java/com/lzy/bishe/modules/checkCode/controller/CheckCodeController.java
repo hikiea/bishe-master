@@ -3,7 +3,7 @@ package com.lzy.bishe.modules.checkCode.controller;
 import com.lzy.bishe.annotation.PassToken;
 import com.lzy.bishe.modules.checkCode.model.entity.CheckCode;
 import com.lzy.bishe.modules.checkCode.service.CheckCodeService;
-import com.lzy.bishe.util.RedisUtil;
+import com.lzy.bishe.redis.RedisCodeUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,7 +30,7 @@ public class CheckCodeController {
     private CheckCodeService checkCodeService;
 
     @Autowired
-    private RedisUtil redisUtil;
+    private RedisCodeUtil redisCodeUtil;
 
     @PassToken
     @GetMapping("/checkCode")
@@ -41,7 +41,7 @@ public class CheckCodeController {
             String code = checkCode.getCode();
             //将VerifyCode绑定session
             request.getSession().setAttribute("code", code);
-            redisUtil.set(code,code);
+            redisCodeUtil.set(code,code);
             System.out.println("获取验证码图片接口中的值:" + request.getSession().getAttribute("code"));
             //设置响应头
             response.setHeader("Pragma", "no-cache");
