@@ -7,7 +7,7 @@ import com.lzy.bishe.modules.base.model.entity.ResultDTO;
 import com.lzy.bishe.modules.user.mapper.UserMapper;
 import com.lzy.bishe.modules.user.model.dto.requestDTO.UserLoginDTO;
 import com.lzy.bishe.modules.user.model.entity.User;
-import com.lzy.bishe.modules.user.service.CheckService;
+import com.lzy.bishe.modules.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,12 +29,12 @@ public class AdminService {
     private UserMapper userMapper;
 
     @Autowired
-    private CheckService checkService;
+    private UserService userService;
 
     public ResultDTO adminLogin(UserLoginDTO userLoginInfo) {
         User user = userMapper.checkEqualUsername(userLoginInfo.getUsername());
         if (user.getPower().equals("admin")){
-            return checkService.checkLogin(userLoginInfo);
+            return userService.checkLogin(userLoginInfo);
         }else{
             return ResultDTO.errorOf(403,"权限不足");
         }

@@ -5,7 +5,6 @@ import com.lzy.bishe.modules.base.model.entity.ResultDTO;
 import com.lzy.bishe.modules.user.model.dto.requestDTO.UserLoginDTO;
 import com.lzy.bishe.modules.user.model.dto.responseDTO.UpdateUserInfoDTO;
 import com.lzy.bishe.modules.user.model.entity.User;
-import com.lzy.bishe.modules.user.service.CheckService;
 import com.lzy.bishe.modules.user.service.UserService;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -27,14 +26,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private CheckService checkService;
 
     @PostMapping("/login")
     @CrossOrigin
     @ApiOperation(value = "用户登录接口", notes = "登录")
     public ResultDTO login(@RequestBody UserLoginDTO userLoginInfo){
-        ResultDTO resultDTO = checkService.checkLogin(userLoginInfo);
+        ResultDTO resultDTO = userService.checkLogin(userLoginInfo);
         return resultDTO;
     }
 

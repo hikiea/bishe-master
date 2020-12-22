@@ -6,10 +6,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -577,6 +574,29 @@ public class RedisCodeUtil {
         //绑定操作
         BoundListOperations<String, Object> boundValueOperations = redisTemplate2.boundListOps(listKey);
         return boundValueOperations.rightPop();
+    }
+
+    /*清理所有缓存*/
+    public Map<String, Object> cleanRedis() {
+        Map<String, Object> map = new HashMap<>();
+        try {
+            // 获取所有key
+            Set<String> keys = redisTemplate2.keys("*");
+            assert keys != null;
+            // 迭代
+            Iterator<String> it1 = keys.iterator();
+            while (it1.hasNext()) {
+                // 循环删除
+                redisTemplate2.delete(it1.next());
+            }
+            map.put("code", 1);
+            map.put("msg", "清理全局缓存成功");
+            return map;
+        } catch (Exception e) {
+            map.put("code", -1);
+            map.put("msg", "清理全局缓存失败");
+            return map;
+        }
     }
 
 
