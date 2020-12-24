@@ -1,6 +1,6 @@
 package com.lzy.bishe.common;
 
-public interface ICustomErrorCode {
+public interface BaseCode {
     String getMessage();
     Integer getCode();
 }

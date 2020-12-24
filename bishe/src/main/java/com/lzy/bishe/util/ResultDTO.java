@@ -1,4 +1,4 @@
-package com.lzy.bishe.modules.base.model.entity;
+package com.lzy.bishe.util;
 
 import lombok.Data;
 

@@ -60,7 +60,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
 
             if (userLoginToken.required()) {
                 // 执行认证
-                if (token == null) {
+                if (token.equals("")) {
                     throw new RuntimeException("无token，请重新登录");
                 }
                 if (redisTokenUtil.get(token) != null){
@@ -79,7 +79,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                         throw new RuntimeException("token超过存活时间，已失效，请重新登录");
                     }
                 }catch (JWTDecodeException j){
-                    throw new RuntimeException("401");
+                    throw new RuntimeException("请重新登录");
                 }
                 // 获取 token 中的 user id
                 String userId;

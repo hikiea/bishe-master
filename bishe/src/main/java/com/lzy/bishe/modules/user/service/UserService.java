@@ -2,7 +2,7 @@ package com.lzy.bishe.modules.user.service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.auth0.jwt.JWT;
-import com.lzy.bishe.modules.base.model.entity.ResultDTO;
+import com.lzy.bishe.util.ResultDTO;
 import com.lzy.bishe.modules.jwt.service.TokenService;
 import com.lzy.bishe.modules.user.mapper.UserMapper;
 import com.lzy.bishe.modules.user.model.dto.requestDTO.UserLoginDTO;
@@ -58,13 +58,11 @@ public class UserService {
         return ResultDTO.successOf("用户获取成功！",userMessage);
     }
 
-
     public ResultDTO logout(HttpServletRequest httpServletRequest) {
         String token = httpServletRequest.getHeader("token");
         RedisBlackToken blackToken = new RedisBlackToken();
         blackToken.setId(JWT.decode(token).getAudience().get(0));
         blackToken.setUsername(JWT.decode(token).getAudience().get(1));
-        blackToken.setPower(JWT.decode(token).getAudience().get(2));
         blackToken.setTime(DateUtil.getNowDate());
         redisTokenUtil.set(token,blackToken);
         log.info("用户：" + JWT.decode(token).getAudience().get(1) + "已登出");
@@ -77,6 +75,8 @@ public class UserService {
         }else{
             user.setCreateTime(LocalDateTime.now());
             user.setNickname(UUID.randomUUID().toString());
+            user.setPower("user");
+            user.setStatus(0);
             userMapper.registerUser(user);
             return ResultDTO.successOf("用户注册成功","请及时更改昵称");
         }
@@ -95,10 +95,10 @@ public class UserService {
         Object code2 = redisCodeUtil.get(userLoginInfo.getCode());
         String code = userLoginInfo.getCode();
         JSONObject jsonObject=new JSONObject();
-        if (!code.equals(code2)){
+/*        if (!code.equals(code2)){
             redisCodeUtil.del(code);
             return ResultDTO.errorOf(500,"验证码错误");
-        }
+        }*/
         User userForBase=userService.findByUsername(userLoginInfo.getUsername());
         if(userForBase==null){
             redisCodeUtil.del(code);

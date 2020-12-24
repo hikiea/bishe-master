@@ -1,4 +1,4 @@
-package com.lzy.bishe.timing;
+package com.lzy.bishe.modules.timing;
 
 import com.lzy.bishe.redis.RedisCodeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ public class CleanCodeRedis {
     @Autowired
     private RedisCodeUtil redisCodeUtil;
 
-    @Scheduled(fixedDelay = 10000)
+    @Scheduled(fixedDelay = 60000)
     public void fixedDelayJob() throws InterruptedException {
         redisCodeUtil.cleanRedis();
         System.out.println("清理验证码:" + new Date());

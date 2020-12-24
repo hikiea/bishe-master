@@ -1,6 +1,6 @@
 package com.lzy.bishe.interceptor;
 
-import com.lzy.bishe.modules.base.model.entity.ResultDTO;
+import com.lzy.bishe.util.ResultDTO;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;

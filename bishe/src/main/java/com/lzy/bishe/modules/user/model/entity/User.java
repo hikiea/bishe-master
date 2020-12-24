@@ -43,7 +43,12 @@ public class User {
     @ApiModelProperty(notes = "门牌号")
     private String address;
 
-    @ApiModelProperty(notes = "昵称")
+    @ApiModelProperty(notes = "创建时间")
     private LocalDateTime createTime;
 
+    @ApiModelProperty(notes = "性别")
+    private String sex;
+
+    @ApiModelProperty(notes = "状态")
+    private Integer status;
 }
