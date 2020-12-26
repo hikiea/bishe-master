@@ -22,7 +22,7 @@ public class PictureService {
             String hToken = UUID.randomUUID().toString();
             
             //防止图片名字重复
-            String resultName = hToken + fileName ;
+            String resultName = hToken + ".jpg";
             // 地址改成服务器地址就ok了
             String filePath = "C:\\Users\\Lzy\\Desktop\\img\\";
 //            String filePath = "C:\\Users\\Administrator\\Desktop\\img\\";
