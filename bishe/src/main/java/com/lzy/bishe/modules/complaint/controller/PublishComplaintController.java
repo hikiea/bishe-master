@@ -1,15 +1,18 @@
-package com.lzy.bishe.modules.Complaint.controller;
+package com.lzy.bishe.modules.complaint.controller;
 
 
-import com.lzy.bishe.modules.Complaint.model.entry.PublishComplaint;
-import com.lzy.bishe.modules.Complaint.service.PublishComplaintService;
+import com.lzy.bishe.modules.complaint.model.entry.PublishComplaint;
+import com.lzy.bishe.modules.complaint.service.PublishComplaintService;
 import com.lzy.bishe.util.ResultDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
+/**
+ * @author Lzy
+ */
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/api/user/")
 public class PublishComplaintController {
 
     @Autowired

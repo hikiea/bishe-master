@@ -1,4 +1,4 @@
-package com.lzy.bishe.modules.Complaint.model.entry;
+package com.lzy.bishe.modules.complaint.model.entry;
 
 import lombok.Data;
 

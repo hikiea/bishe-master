@@ -1,10 +1,10 @@
-package com.lzy.bishe.modules.Complaint.service;
+package com.lzy.bishe.modules.complaint.service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.lzy.bishe.modules.Complaint.mapper.RespondComplaintDao;
-import com.lzy.bishe.modules.Complaint.model.entry.Complaint;
-import com.lzy.bishe.modules.Complaint.model.entry.RespondComplaint;
+import com.lzy.bishe.modules.complaint.mapper.RespondComplaintDao;
+import com.lzy.bishe.modules.complaint.model.entry.Complaint;
+import com.lzy.bishe.modules.complaint.model.entry.RespondComplaint;
 import com.lzy.bishe.util.ResultDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

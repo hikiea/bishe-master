@@ -1,13 +1,16 @@
-package com.lzy.bishe.modules.Complaint.mapper;
+package com.lzy.bishe.modules.complaint.mapper;
 
 
-import com.lzy.bishe.modules.Complaint.model.entry.Complaint;
-import com.lzy.bishe.modules.Complaint.model.entry.PublishComplaint;
+import com.lzy.bishe.modules.complaint.model.entry.Complaint;
+import com.lzy.bishe.modules.complaint.model.entry.PublishComplaint;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * @author Lzy
+ */
 @Mapper
 @Repository
 public interface PublishComplaintDao {

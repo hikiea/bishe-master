@@ -1,15 +1,18 @@
-package com.lzy.bishe.modules.Complaint.controller;
+package com.lzy.bishe.modules.complaint.controller;
 
-import com.lzy.bishe.modules.Complaint.model.entry.RespondComplaint;
-import com.lzy.bishe.modules.Complaint.service.RespondComplaintService;
+import com.lzy.bishe.modules.complaint.model.entry.RespondComplaint;
+import com.lzy.bishe.modules.complaint.service.RespondComplaintService;
 import com.lzy.bishe.modules.tie.mapper.TieDao;
 import com.lzy.bishe.util.ResultDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
+/**
+ * @author Lzy
+ */
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("/api/admin")
 public class RespondComplaintController {
 
     @Autowired

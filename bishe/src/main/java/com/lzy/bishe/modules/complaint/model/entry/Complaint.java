@@ -1,11 +1,19 @@
-package com.lzy.bishe.modules.Complaint.model.entry;
+package com.lzy.bishe.modules.complaint.model.entry;
 
 import lombok.Data;
 
 @Data
-public class RespondComplaint extends Complaint {
+public class Complaint {
 
     private Integer complaintId;
+    private Integer userId;
+    private String username;
+    private String complaintContent;
+    private Integer communityId;
+    private String complaintTime;
+    private String userEmail;
+    private String userPhone;
+
     private Integer respondComplaintUserId;
     private String respondComplaintUsername;
     private String respondComplaintContent;
