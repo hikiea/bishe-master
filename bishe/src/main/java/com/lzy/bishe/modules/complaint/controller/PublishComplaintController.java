@@ -1,11 +1,15 @@
 package com.lzy.bishe.modules.complaint.controller;
 
 
+import com.lzy.bishe.annotation.UserLoginToken;
 import com.lzy.bishe.modules.complaint.model.entry.PublishComplaint;
 import com.lzy.bishe.modules.complaint.service.PublishComplaintService;
+import com.lzy.bishe.util.JWTInfo;
 import com.lzy.bishe.util.ResultDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 
 /**
@@ -20,6 +24,8 @@ public class PublishComplaintController {
 
     /* 发表投诉 */
     @PostMapping("/publish")
+    @UserLoginToken
+    @CrossOrigin
     public ResultDTO doPublishRealNameComplaint(@RequestBody PublishComplaint publishComplaint){
         ResultDTO resultDTO = publishComplaintService.publishComplaint(publishComplaint);
         return resultDTO;
@@ -27,16 +33,19 @@ public class PublishComplaintController {
 
     /* 查看我发表的投诉 */
     @GetMapping("/queryByMe")
-    public ResultDTO doSelectComplaint(@PathVariable("userId") Integer userId,
+    @UserLoginToken @CrossOrigin
+    public ResultDTO doSelectComplaint(HttpServletRequest httpServletRequest,
                                        @RequestParam(name = "page",defaultValue = "1") Integer page,
                                        @RequestParam(name = "size",defaultValue = "5") Integer size
                                        ){
+        Integer userId = JWTInfo.getUserIdINT(httpServletRequest);
         ResultDTO resultDTO = publishComplaintService.selectMyComplaint(userId, page, size);
         return resultDTO;
     }
 
     /* 查看小区所有投诉 */
     @GetMapping("/queryByCommunityId/{communityId}")
+    @UserLoginToken @CrossOrigin
     public ResultDTO doSelectCommunityComplaint(@PathVariable("communityId") Integer communityId,
                                                 @RequestParam(name = "page",defaultValue = "1") Integer page,
                                                 @RequestParam(name = "size",defaultValue = "5") Integer size){
@@ -46,6 +55,7 @@ public class PublishComplaintController {
 
     /* 修改投诉建议 */
     @PostMapping("/update/{complaintId}")
+    @UserLoginToken @CrossOrigin
     public ResultDTO doUpdateMyComplaint(@PathVariable("complaintId") Integer complaintId,
                                          @RequestBody PublishComplaint publishComplaint){
         ResultDTO resultDTO = publishComplaintService.updateMyComplaint(complaintId, publishComplaint);
@@ -54,6 +64,7 @@ public class PublishComplaintController {
 
     /* 删除投诉建议 */
     @PostMapping("/delete/{complaintId}")
+    @UserLoginToken @CrossOrigin
     public ResultDTO doDeleteMyComplaint(@PathVariable("complaintId") Integer complaintId){
         ResultDTO resultDTO = publishComplaintService.deleteMyComplaint(complaintId);
         return resultDTO;

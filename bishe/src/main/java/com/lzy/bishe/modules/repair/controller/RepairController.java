@@ -1,6 +1,7 @@
 package com.lzy.bishe.modules.repair.controller;
 
 
+import com.lzy.bishe.annotation.UserLoginToken;
 import com.lzy.bishe.modules.repair.model.entry.Repair;
 import com.lzy.bishe.modules.repair.service.RepairService;
 import com.lzy.bishe.util.ResultDTO;
@@ -16,6 +17,8 @@ public class RepairController {
     private RepairService repairService;
 
     /* 用户报修发布 */
+    @UserLoginToken
+    @CrossOrigin
     @PostMapping("/repair")
     public ResultDTO doPublishRepair(@RequestBody Repair repair){
         ResultDTO resultDTO = repairService.publishRepair(repair);
@@ -23,6 +26,7 @@ public class RepairController {
     }
 
     /* 用户报修删除 */
+    @UserLoginToken @CrossOrigin
     @DeleteMapping("/repair/{repairId}")
     public ResultDTO doDeleteRepair(@PathVariable("repairId") Integer repairId){
         ResultDTO resultDTO = repairService.deleteRepair(repairId);
@@ -30,13 +34,15 @@ public class RepairController {
     }
 
     /* 完成维修后用户修改状态 */
-    @PutMapping("/repair/ok/{repairId}")
+    @UserLoginToken @CrossOrigin
+    @PostMapping("/repair/ok/{repairId}")
     public ResultDTO repairFinish(@PathVariable("repairId") Integer repairId){
         ResultDTO resultDTO = repairService.repairFinished(repairId);
         return resultDTO;
     }
 
     /* 查看自己所有的报修记录 */
+    @UserLoginToken @CrossOrigin
     @GetMapping("/repair/{repairUserId}")
     public ResultDTO selectMyRepair(@PathVariable("repairUserId") Integer repairUserId,
                                     @RequestParam(name = "page",defaultValue = "1") Integer page,

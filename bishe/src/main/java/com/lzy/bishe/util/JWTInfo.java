@@ -26,4 +26,11 @@ public class JWTInfo<T> {
         return username;
     }
 
+    public static Integer getUserIdINT(HttpServletRequest httpServletRequest){
+        String id = JWT.decode(httpServletRequest.getHeader("token")).getAudience().get(0);
+        int i = Integer.parseInt(id);
+        return i;
+    }
+
+
 }
