@@ -9,6 +9,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @author lizhongyi
  */
@@ -31,8 +33,7 @@ public class AdminController {
 
 
     @GetMapping("/allUser")
-    @UserLoginToken
-    @CrossOrigin
+    @UserLoginToken @CrossOrigin
     @ApiOperation(value = "获取所有用户信息", notes = "获取所有用户信息")
     public ResultDTO getAllUserInfo(@RequestParam(name = "page", defaultValue = "1") Integer page,
                                     @RequestParam(name = "size", defaultValue = "5") Integer size){
@@ -41,8 +42,7 @@ public class AdminController {
     }
 
     @GetMapping("/update")
-    @UserLoginToken
-    @CrossOrigin
+    @UserLoginToken @CrossOrigin
     @ApiOperation(value = "更改用户状态", notes = "更改用户状态")
     public ResultDTO updateUserStatus(@RequestParam(name = "id") Integer id,
                                       @RequestParam(name = "status") Integer status){
@@ -50,13 +50,29 @@ public class AdminController {
         return allUserInfo;
     }
 
-    @GetMapping("/delete/{id}")
-    @UserLoginToken
-    @CrossOrigin
+    @GetMapping("/deleteUser/{id}")
+    @UserLoginToken @CrossOrigin
     @ApiOperation(value = "删除用户", notes = "删除用户")
     public ResultDTO deleteUser(@PathVariable("id") Integer id){
         ResultDTO allUserInfo = adminService.deleteUser(id);
         return allUserInfo;
     }
+
+    @GetMapping("/deleteTie/{tieId}")
+    @UserLoginToken @CrossOrigin
+    @ApiOperation(value = "删除帖子与评论", notes = "删除帖子与评论")
+    public ResultDTO deleteTie(@PathVariable("tieId") Integer tieId, HttpServletRequest httpServletRequest){
+        ResultDTO allUserInfo = adminService.deleteTie(tieId,httpServletRequest);
+        return allUserInfo;
+    }
+
+    @GetMapping("/deleteComment/{id}")
+    @UserLoginToken @CrossOrigin
+    @ApiOperation(value = "删除评论", notes = "删除评论")
+    public ResultDTO deleteComment(@PathVariable("id") Integer id, HttpServletRequest httpServletRequest){
+        ResultDTO allUserInfo = adminService.deleteComment(id,httpServletRequest);
+        return allUserInfo;
+    }
+
 
 }

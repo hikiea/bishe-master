@@ -24,8 +24,8 @@ public interface UserMapper {
     @Select("SELECT * FROM user where id=#{id}")
     User findUserById(String id);
 
-    @Insert("insert into user(username,password,power,nickname,tel,headUrl,communityId,address,createTime,sex,status) " +
-            "values(#{username},#{password},#{power},#{nickname},#{tel},#{headUrl},#{communityId},#{address},#{createTime},#{sex},#{status})")
+    @Insert("insert into user(username,password,power,nickname,tel,headUrl,communityId,address,createTime,sex,status,email) " +
+            "values(#{username},#{password},#{power},#{nickname},#{tel},#{headUrl},#{communityId},#{address},#{createTime},#{sex},#{status},#{email})")
     void registerUser(User user);
 
     @Select("select * from user where id = #{id}")

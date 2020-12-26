@@ -51,4 +51,7 @@ public class User {
 
     @ApiModelProperty(notes = "状态")
     private Integer status;
+
+    @ApiModelProperty(notes = "EMail")
+    private String email;
 }

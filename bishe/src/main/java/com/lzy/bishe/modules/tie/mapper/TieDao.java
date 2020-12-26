@@ -5,18 +5,20 @@ import com.lzy.bishe.modules.tie.model.entry.Tie;
 import com.lzy.bishe.modules.user.model.entity.User;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
+/**
+ * @author Lzy
+ */
 @Mapper
 @Repository
 public interface TieDao {
 
     /*发帖*/
     @Insert("insert into tie " +
-            "(userId,username,communityId,title,content,label,publishTime,picture,tieTypes) " +
+            "(userId,username,communityId,title,content,label,publishTime,picture,tieTypes,tieStatus) " +
             "values " +
-            "(#{userId},#{username},#{communityId},#{title},#{content},#{label},#{publishTime},#{picture},#{tieTypes})")
+            "(#{userId},#{username},#{communityId},#{title},#{content},#{label},#{publishTime},#{picture},#{tieTypes},#{tieStatus})")
     void publish(Tie tie);
 
     /*删帖*/

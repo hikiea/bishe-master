@@ -1,9 +1,20 @@
 package com.lzy.bishe.modules.tie.model.entry;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
+/**
+ * @author Lzy
+ */
 @Data
+@NoArgsConstructor
+@EqualsAndHashCode(callSuper = false)
 public class Tie {
+
+    @ApiModelProperty(notes = "主键id")
+    private Integer id;
 
     /*帖子表*/
     private Integer tieId;   // 帖子id
@@ -18,6 +29,9 @@ public class Tie {
     private Integer browse;  //浏览次数
     private Integer tieTypes;  //帖子类型
     private Integer likes;  //点赞次数
+
+    @ApiModelProperty(notes = "帖子属性")
+    private String tieStatus;
 
 
 

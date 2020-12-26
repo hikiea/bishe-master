@@ -1,11 +1,14 @@
 package com.lzy.bishe.modules.repair.controller;
 
+import com.lzy.bishe.modules.notify.service.NotifyService;
 import com.lzy.bishe.modules.repair.model.entry.Repair;
 import com.lzy.bishe.modules.repair.service.OkRepairServer;
 import com.lzy.bishe.modules.repair.service.RepairService;
 import com.lzy.bishe.util.ResultDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -20,8 +23,8 @@ public class OkRepairController {
     @Autowired
     private RepairService repairService;
 
-/*    @Autowired
-    private NotificationService notificationService;*/
+    @Autowired
+    private NotifyService notifyService;
 
     /* 查询未修理的报修 */
     @GetMapping("/not/repair")
@@ -32,24 +35,17 @@ public class OkRepairController {
     }
 
     /* 接单，去维修 */
-    @PutMapping("/repair/{repairId}")
+    @PostMapping("/repair/{repairId}")
     public ResultDTO acceptRepair(@PathVariable("repairId") Integer repairId,
-                                  @RequestBody Repair repair){
-
-/*        Repair result = repairService.findByUserId(userId);
-        notificationService.sendNotification(
-                userId,
-                result.getRepairUserId(),
-                COMMENT_NOTICE,
-                username + " 已经接单，会尽快联系您！");*/
-
+                                  @RequestBody Repair repair,
+                                  HttpServletRequest httpServletRequest){
         /*获取当前时间*/
         Date date = new Date();
         String nowTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
         repair.setRepairStatus("等待师傅上门维修");
         repair.setOkRepairTime(nowTime);
         repair.setRepairId(repairId);
-        ResultDTO resultDTO = okRepairServer.doAcceptRepair(repair, repairId);
+        ResultDTO resultDTO = okRepairServer.doAcceptRepair(repair, httpServletRequest);
         return resultDTO;
     }
 

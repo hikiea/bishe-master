@@ -12,21 +12,21 @@ import org.springframework.web.bind.annotation.*;
  * @author Lzy
  */
 @RestController
-@RequestMapping("/api/user/")
+@RequestMapping("/api/complaint/")
 public class PublishComplaintController {
 
     @Autowired
     private PublishComplaintService publishComplaintService;
 
     /* 发表投诉 */
-    @PostMapping("/complaint")
+    @PostMapping("/publish")
     public ResultDTO doPublishRealNameComplaint(@RequestBody PublishComplaint publishComplaint){
         ResultDTO resultDTO = publishComplaintService.publishComplaint(publishComplaint);
         return resultDTO;
     }
 
     /* 查看我发表的投诉 */
-    @GetMapping("/complaint/{userId}")
+    @GetMapping("/queryByMe")
     public ResultDTO doSelectComplaint(@PathVariable("userId") Integer userId,
                                        @RequestParam(name = "page",defaultValue = "1") Integer page,
                                        @RequestParam(name = "size",defaultValue = "5") Integer size
@@ -36,7 +36,7 @@ public class PublishComplaintController {
     }
 
     /* 查看小区所有投诉 */
-    @GetMapping("/community/complaint/{communityId}")
+    @GetMapping("/queryByCommunityId/{communityId}")
     public ResultDTO doSelectCommunityComplaint(@PathVariable("communityId") Integer communityId,
                                                 @RequestParam(name = "page",defaultValue = "1") Integer page,
                                                 @RequestParam(name = "size",defaultValue = "5") Integer size){
@@ -45,7 +45,7 @@ public class PublishComplaintController {
     }
 
     /* 修改投诉建议 */
-    @PostMapping("/complaint/{complaintId}")
+    @PostMapping("/update/{complaintId}")
     public ResultDTO doUpdateMyComplaint(@PathVariable("complaintId") Integer complaintId,
                                          @RequestBody PublishComplaint publishComplaint){
         ResultDTO resultDTO = publishComplaintService.updateMyComplaint(complaintId, publishComplaint);
@@ -53,7 +53,7 @@ public class PublishComplaintController {
     }
 
     /* 删除投诉建议 */
-    @PostMapping("/complaint/{complaintId}")
+    @PostMapping("/delete/{complaintId}")
     public ResultDTO doDeleteMyComplaint(@PathVariable("complaintId") Integer complaintId){
         ResultDTO resultDTO = publishComplaintService.deleteMyComplaint(complaintId);
         return resultDTO;

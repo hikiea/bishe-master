@@ -2,10 +2,14 @@ package com.lzy.bishe.modules.complaint.controller;
 
 import com.lzy.bishe.modules.complaint.model.entry.RespondComplaint;
 import com.lzy.bishe.modules.complaint.service.RespondComplaintService;
+import com.lzy.bishe.modules.notify.model.entry.Notify;
+import com.lzy.bishe.modules.notify.service.NotifyService;
 import com.lzy.bishe.modules.tie.mapper.TieDao;
 import com.lzy.bishe.util.ResultDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 
 /**
@@ -18,26 +22,18 @@ public class RespondComplaintController {
     @Autowired
     private RespondComplaintService respondComplaintService;
 
-/*
     @Autowired
-    private NotificationService notificationService;*/
+    private NotifyService notifyService;
 
     @Autowired
     private TieDao tieDao;
 
     /* 跟进投诉建议 */
-    @PutMapping("/complaint/{complaintId}")
+    @PostMapping("/complaint/{complaintId}")
     public ResultDTO doRespondComplaintByComplaintId(@PathVariable("complaintId") Integer complaintId,
-                                                     @RequestBody RespondComplaint respondComplaint){
-
-/*        Complaint result = respondComplaintService.selectByComplaintId(complaintId);
-        notificationService.sendNotification(
-                userId,
-                result.getUserId(),
-                COMMENT_NOTICE,
-                username + "已经收到您的投诉建议，请等待联系");*/
-
-        ResultDTO resultDTO = respondComplaintService.respondComplainByComplaintId(respondComplaint,complaintId);
+                                                     @RequestBody RespondComplaint respondComplaint,
+                                                     HttpServletRequest httpServletRequest){
+        ResultDTO resultDTO = respondComplaintService.respondComplainByComplaintId(respondComplaint,complaintId,httpServletRequest);
         return resultDTO;
     }
 

@@ -2,6 +2,7 @@ package com.lzy.bishe.modules.user.service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.auth0.jwt.JWT;
+import com.lzy.bishe.modules.email.service.EmailService;
 import com.lzy.bishe.util.ResultDTO;
 import com.lzy.bishe.modules.jwt.service.TokenService;
 import com.lzy.bishe.modules.user.mapper.UserMapper;
@@ -43,6 +44,9 @@ public class UserService {
     @Autowired
     private RedisTokenUtil redisTokenUtil;
 
+    @Autowired
+    private EmailService emailService;
+
     public User findByUsername(String username){
         return userMapper.findByUsernameToToken(username);
     }
@@ -78,6 +82,7 @@ public class UserService {
             user.setPower("user");
             user.setStatus(0);
             userMapper.registerUser(user);
+            emailService.sendEmail(user.getEmail(),"大小一家欢迎您","大小一家欢迎您的加入，请体验我们的服务");
             return ResultDTO.successOf("用户注册成功","请及时更改昵称");
         }
     }

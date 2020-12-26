@@ -25,21 +25,18 @@ public class TieService {
         String nowTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
         tie.setPublishTime(nowTime);
         tieDao.publish(tie);
-        ResultDTO resultDTO = new ResultDTO();
         return ResultDTO.successOf("发帖成功");
     }
 
     /*删帖操作*/
     public ResultDTO delete(Integer tieId){
         tieDao.deleteTie(tieId);
-        ResultDTO resultDTO = new ResultDTO();
         return ResultDTO.successOf("删帖成功");
     }
 
     /* 修改操作 */
     public ResultDTO update(Tie tie) {
         tieDao.updateTie(tie);
-        ResultDTO resultDTO = new ResultDTO();
         return ResultDTO.successOf("修改成功",tie);
     }
 
@@ -48,7 +45,6 @@ public class TieService {
         PageHelper.startPage(page,size);
         List<Tie> ties = tieDao.selectAllTie();
         PageInfo pageInfo = new PageInfo(ties);
-        ResultDTO resultDTO = new ResultDTO();
         return ResultDTO.successOf("查询成功",pageInfo);
     }
 
@@ -57,7 +53,6 @@ public class TieService {
         PageHelper.startPage(page,size);
         List<Tie> ties = tieDao.selectPersonTie(userId);
         PageInfo pageInfo = new PageInfo(ties);
-        ResultDTO resultDTO = new ResultDTO();
         return ResultDTO.successOf("查询成功",pageInfo);
     }
 
@@ -66,7 +61,6 @@ public class TieService {
         Tie tie = tieDao.selectOneTie(tieId);
         int sum = tie.getBrowse()+1;
         tieDao.rememberBrowse(sum,tieId);
-        ResultDTO resultDTO = new ResultDTO();
         return ResultDTO.successOf("查询成功",tie);
     }
 
@@ -75,7 +69,6 @@ public class TieService {
         PageHelper.startPage(page,size);
         List<Tie> ties = tieDao.selectCommunityTie(communityId);
         PageInfo pageInfo = new PageInfo(ties);
-        ResultDTO resultDTO = new ResultDTO();
         return ResultDTO.successOf("获取成功",pageInfo);
 
     }
@@ -84,7 +77,6 @@ public class TieService {
         Tie tie = tieDao.selectOneTie(tieId);
         Integer likes = tie.getLikes() + 1;
         tieDao.likeTie(likes,tieId);
-        ResultDTO resultDTO = new ResultDTO();
         return ResultDTO.successOf("点赞成功");
     }
 
@@ -92,7 +84,6 @@ public class TieService {
         Tie tie = tieDao.selectOneTie(tieId);
         Integer likes = tie.getLikes() - 1;
         tieDao.likeTie(likes,tieId);
-        ResultDTO resultDTO = new ResultDTO();
         return ResultDTO.successOf("取消点赞成功");
     }
 

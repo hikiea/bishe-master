@@ -1,4 +1,4 @@
-package com.lzy.bishe.modules.checkCode.model.entity;
+package com.lzy.bishe.modules.checkcode.model.entity;
 
 import lombok.Data;
 

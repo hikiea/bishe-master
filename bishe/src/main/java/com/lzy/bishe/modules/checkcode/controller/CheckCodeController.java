@@ -1,8 +1,8 @@
-package com.lzy.bishe.modules.checkCode.controller;
+package com.lzy.bishe.modules.checkcode.controller;
 
 import com.lzy.bishe.annotation.PassToken;
-import com.lzy.bishe.modules.checkCode.model.entity.CheckCode;
-import com.lzy.bishe.modules.checkCode.service.CheckCodeService;
+import com.lzy.bishe.modules.checkcode.model.entity.CheckCode;
+import com.lzy.bishe.modules.checkcode.service.CheckCodeService;
 import com.lzy.bishe.redis.RedisCodeUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

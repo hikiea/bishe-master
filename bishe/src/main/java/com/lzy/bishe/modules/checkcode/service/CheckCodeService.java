@@ -1,6 +1,6 @@
-package com.lzy.bishe.modules.checkCode.service;
+package com.lzy.bishe.modules.checkcode.service;
 
-import com.lzy.bishe.modules.checkCode.model.entity.CheckCode;
+import com.lzy.bishe.modules.checkcode.model.entity.CheckCode;
 import com.lzy.bishe.util.RandomUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
