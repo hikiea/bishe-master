@@ -82,7 +82,11 @@ public class UserService {
             user.setPower("user");
             user.setStatus(0);
             userMapper.registerUser(user);
-            emailService.sendEmail(user.getEmail(),"大小一家欢迎您","大小一家欢迎您的加入，请体验我们的服务");
+            try{
+//                emailService.sendEmail(user.getEmail(),"大小一家欢迎您","大小一家欢迎您的加入，请体验我们的服务");
+            }catch (Exception e){
+                return ResultDTO.errorOf(500,"邮件服务调用失败");
+            }
             return ResultDTO.successOf("用户注册成功","请及时更改昵称");
         }
     }

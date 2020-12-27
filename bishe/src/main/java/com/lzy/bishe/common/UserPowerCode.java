@@ -1,10 +1,10 @@
 package com.lzy.bishe.common;
 
 public enum UserPowerCode implements BaseCode{
-    ADMIN(0,"管理员"),
+    ADMIN(0,"系统管理员"),
     USER(1,"用户"),
     WORKER(2,"维修工人"),
-
+    COMMUNITY_ADMIN(3,"小区管理员"),
     ;
 
 

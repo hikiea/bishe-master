@@ -61,7 +61,6 @@ public class UserController {
     @GetMapping("/logout")
     @ApiOperation(value = "用户登出",notes = "用户登出")
     public ResultDTO logout(HttpServletRequest httpServletRequest){
-        System.out.println("243423432414");
         ResultDTO logout = userService.logout(httpServletRequest);
         return logout;
     }

@@ -32,7 +32,7 @@ build/
 ### VS Code ###
 .vscode/
 
-application-win.yml
+
 application-linux.yml
 
 springbootdemo.log

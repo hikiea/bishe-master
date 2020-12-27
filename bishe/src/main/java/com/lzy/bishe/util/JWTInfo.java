@@ -12,24 +12,23 @@ import javax.servlet.http.HttpServletRequest;
 public class JWTInfo<T> {
 
     public static String getUserId(HttpServletRequest httpServletRequest){
-        String id = JWT.decode(httpServletRequest.getHeader("token")).getAudience().get(0);
-        return id;
-    }
-
-    public static String getPower(HttpServletRequest httpServletRequest){
-        String power = JWT.decode(httpServletRequest.getHeader("token")).getAudience().get(2);
-        return power;
-    }
-
-    public static String getUserName(HttpServletRequest httpServletRequest){
-        String username = JWT.decode(httpServletRequest.getHeader("token")).getAudience().get(3);
-        return username;
+        return JWT.decode(httpServletRequest.getHeader("token")).getAudience().get(0);
     }
 
     public static Integer getUserIdINT(HttpServletRequest httpServletRequest){
-        String id = JWT.decode(httpServletRequest.getHeader("token")).getAudience().get(0);
-        int i = Integer.parseInt(id);
-        return i;
+        return  Integer.parseInt(JWT.decode(httpServletRequest.getHeader("token")).getAudience().get(0));
+    }
+
+    public static String getPower(HttpServletRequest httpServletRequest){
+        return JWT.decode(httpServletRequest.getHeader("token")).getAudience().get(2);
+    }
+
+    public static String getUserName(HttpServletRequest httpServletRequest){
+        return JWT.decode(httpServletRequest.getHeader("token")).getAudience().get(3);
+    }
+
+    public static String getUserNickName(HttpServletRequest httpServletRequest){
+        return JWT.decode(httpServletRequest.getHeader("token")).getAudience().get(4);
     }
 
 

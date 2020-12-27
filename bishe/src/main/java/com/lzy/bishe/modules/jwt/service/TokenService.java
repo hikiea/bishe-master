@@ -25,7 +25,7 @@ public class TokenService {
             // 将 需要的信息 保存到 token 里面
             token= JWT.create()
                     // 承载用户信息
-                    .withAudience(userId,uuid,user.getPower(),user.getUsername())
+                    .withAudience(userId,uuid,user.getPower(),user.getUsername(),user.getNickname())
                     // 生成 签名的时间
                     .withIssuedAt(new Date())
                     // 生成 签名的有效期,分钟
