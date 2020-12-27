@@ -19,6 +19,10 @@ public class JWTInfo<T> {
         return  Integer.parseInt(JWT.decode(httpServletRequest.getHeader("token")).getAudience().get(0));
     }
 
+    public static String getAddress(HttpServletRequest httpServletRequest){
+        return JWT.decode(httpServletRequest.getHeader("token")).getAudience().get(1);
+    }
+
     public static String getPower(HttpServletRequest httpServletRequest){
         return JWT.decode(httpServletRequest.getHeader("token")).getAudience().get(2);
     }

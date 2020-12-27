@@ -1,5 +1,6 @@
 package com.lzy.bishe.modules.complaint.model.entry;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -25,12 +26,14 @@ public class Complaint {
     private String complaintContent;
 
     @ApiModelProperty(notes = "投诉时间")
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private LocalDateTime complaintTime;
 
     @ApiModelProperty(notes = "当前状态")
     private String status;
 
     @ApiModelProperty(notes = "完成时间")
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private LocalDateTime finishTime;
 
 }

@@ -27,7 +27,7 @@ public class TokenService {
                     // 承载用户信息
                     .withAudience(
                             userId,
-                            uuid,
+                            user.getAddress(),
                             user.getPower(),
                             user.getUsername(),
                             user.getNickname(),
