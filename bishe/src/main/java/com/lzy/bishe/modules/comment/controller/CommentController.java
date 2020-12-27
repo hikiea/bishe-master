@@ -3,14 +3,12 @@ package com.lzy.bishe.modules.comment.controller;
 import com.lzy.bishe.annotation.UserLoginToken;
 import com.lzy.bishe.modules.comment.model.entry.Comment;
 import com.lzy.bishe.modules.comment.model.entry.SecondComment;
+import com.lzy.bishe.modules.comment.model.entry.V_CommentUser;
 import com.lzy.bishe.modules.comment.service.CommentService;
-import com.lzy.bishe.modules.comment.service.SecondCommentService;
 import com.lzy.bishe.modules.notify.service.NotifyService;
 import com.lzy.bishe.modules.tie.mapper.TieDao;
-import com.lzy.bishe.modules.tie.model.entry.Tie;
 import com.lzy.bishe.modules.tie.model.entry.V_TieUser;
-import com.lzy.bishe.modules.tie.service.TieService;
-import com.lzy.bishe.modules.user.service.UserService;
+import com.lzy.bishe.util.JWTInfo;
 import com.lzy.bishe.util.ResultDTO;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,16 +28,7 @@ public class CommentController {
     private CommentService commentService;
 
     @Autowired
-    private SecondCommentService secondCommentService;
-
-    @Autowired
     private NotifyService notifyService;
-
-    @Autowired
-    private TieService tieService;
-
-    @Autowired
-    private UserService userService;
 
     @Autowired
     private TieDao tieDao;
@@ -53,7 +42,7 @@ public class CommentController {
         V_TieUser tie = tieDao.selectOneTie(comment.getTieId());
         notifyService.send(
                 httpServletRequest,
-                comment.getCommentUsername()+" 评论了你：" + comment.getCommentContent(),
+                JWTInfo.getUserName(httpServletRequest)+" 评论了你：" + comment.getCommentContent(),
                 tie.getUserId());
         ResultDTO resultDTO = commentService.doPublishComment(comment);
         return resultDTO;
@@ -80,12 +69,12 @@ public class CommentController {
     @UserLoginToken @CrossOrigin
     public ResultDTO doPublishSecondComment(@RequestBody SecondComment secondComment,
                                             HttpServletRequest httpServletRequest){
-        Comment info = commentService.selectByComplaintId(secondComment.getCommentId());
+        V_CommentUser info = commentService.selectByComplaintId(secondComment.getCommentId());
         notifyService.send(
                 httpServletRequest,
-                secondComment.getCommentUsername()+" 评论了你：" + secondComment.getCommentContent(),
+                JWTInfo.getUserName(httpServletRequest)+" 评论了你：" + secondComment.getCommentContent(),
                 info.getCommentId());
-        ResultDTO resultDTO = secondCommentService.doPublishSecondComment(secondComment);
+        ResultDTO resultDTO = commentService.doPublishSecondComment(secondComment);
         return resultDTO;
     }
 
@@ -93,7 +82,7 @@ public class CommentController {
     @GetMapping("/second/comment/{replyCommentId}")
     @UserLoginToken @CrossOrigin
     public ResultDTO doSelectSecondComment(@PathVariable("replyCommentId") Integer replyCommentId){
-        ResultDTO resultDTO = secondCommentService.doSelectSecondComment(replyCommentId);
+        ResultDTO resultDTO = commentService.doSelectSecondComment(replyCommentId);
         return resultDTO;
     }
 

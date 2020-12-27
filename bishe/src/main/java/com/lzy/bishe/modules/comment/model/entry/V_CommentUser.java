@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class Comment {
+public class V_CommentUser {
 
     @ApiModelProperty(notes = "主键id")
     public Integer commentId;
@@ -36,5 +36,11 @@ public class Comment {
 
     @ApiModelProperty(notes = "评论图片")
     public String commentPicture;
+
+    @ApiModelProperty(notes = "目标评论id")
+    public Integer replyCommentId;
+
+    @ApiModelProperty(notes = "评论人昵称")
+    public String nickname;
 
 }
