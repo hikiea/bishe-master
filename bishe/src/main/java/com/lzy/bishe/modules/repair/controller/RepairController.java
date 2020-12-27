@@ -34,7 +34,7 @@ public class RepairController {
     }
 
     @UserLoginToken @CrossOrigin
-    @DeleteMapping("/repair/{repairId}")
+    @GetMapping("/repair/{repairId}")
     @ApiOperation(value = "用户报修删除", notes = "用户报修删除")
     public ResultDTO doDeleteRepair(@PathVariable("repairId") Integer repairId){
         ResultDTO resultDTO = repairService.deleteRepair(repairId);

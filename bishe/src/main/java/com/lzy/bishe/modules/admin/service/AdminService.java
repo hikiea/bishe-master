@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.lzy.bishe.modules.admin.mapper.AdminMapper;
 import com.lzy.bishe.modules.comment.mapper.CommentDao;
 import com.lzy.bishe.modules.comment.model.entry.Comment;
+import com.lzy.bishe.modules.comment.model.entry.V_CommentUser;
 import com.lzy.bishe.modules.notify.service.NotifyService;
 import com.lzy.bishe.modules.tie.mapper.TieDao;
 import com.lzy.bishe.modules.tie.model.entry.Tie;
@@ -92,7 +93,7 @@ public class AdminService {
     public ResultDTO deleteComment(Integer id, HttpServletRequest httpServletRequest) {
         String userName = JWTInfo.getUserName(httpServletRequest);
         commentDao.deleteTieComment(id);
-        Comment comment = commentDao.selectOneComment(id);
+        V_CommentUser comment = commentDao.selectOneComment(id);
         String data = "您的回复已被管理员："+ userName + "删除";
         notifyService.send(httpServletRequest,data,comment.getCommentUserId());
         return ResultDTO.successOf("评论已删除成功，并通知当事人");

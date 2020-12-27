@@ -5,6 +5,7 @@ import com.lzy.bishe.modules.checkcode.model.entity.CheckCode;
 import com.lzy.bishe.modules.checkcode.service.CheckCodeService;
 import com.lzy.bishe.redis.RedisCodeUtil;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,6 +37,7 @@ public class CheckCodeController {
 
     @PassToken
     @GetMapping("/checkCode")
+    @ApiOperation(value = "获取验证码", notes = "获取验证码")
     public void verifyCode(HttpServletRequest request, HttpServletResponse response) {
         try {
             //设置长宽

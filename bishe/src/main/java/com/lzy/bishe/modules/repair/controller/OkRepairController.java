@@ -7,6 +7,7 @@ import com.lzy.bishe.modules.repair.service.OkRepairServer;
 import com.lzy.bishe.modules.repair.service.RepairService;
 import com.lzy.bishe.util.ResultDTO;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,6 +34,7 @@ public class OkRepairController {
     @UserLoginToken
     @CrossOrigin
     @GetMapping("/not/repair")
+    @ApiOperation(value = "查询未修理的报修", notes = "查询未修理的报修")
     public ResultDTO doSelectNoRepair(@RequestParam(name = "page",defaultValue = "1") Integer page,
                                       @RequestParam(name = "size",defaultValue = "5") Integer size){
         ResultDTO resultDTO = okRepairServer.doSelectNoRepair(page, size);
@@ -40,6 +42,7 @@ public class OkRepairController {
     }
 
     /* 接单，去维修 */
+    @ApiOperation(value = "接单去维修", notes = "接单去维修")
     @UserLoginToken @CrossOrigin
     @PostMapping("/repair/{repairId}")
     public ResultDTO acceptRepair(@PathVariable("repairId") Integer repairId,
@@ -55,7 +58,7 @@ public class OkRepairController {
         return resultDTO;
     }
 
-    /* 查询已接维护 */
+    @ApiOperation(value = "查询已接维护", notes = "查询已接维护")
     @UserLoginToken @CrossOrigin
     @GetMapping("/yes/repair/{okRepairUserId}")
     public ResultDTO doSelectAcceptRepair(@PathVariable("okRepairUserId") Integer okRepairUserId,
