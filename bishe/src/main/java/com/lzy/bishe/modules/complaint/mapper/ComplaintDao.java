@@ -2,7 +2,6 @@ package com.lzy.bishe.modules.complaint.mapper;
 
 
 import com.lzy.bishe.modules.complaint.model.entry.Complaint;
-import com.lzy.bishe.modules.complaint.model.entry.PublishComplaint;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
@@ -13,12 +12,12 @@ import java.util.List;
  */
 @Mapper
 @Repository
-public interface PublishComplaintDao {
+public interface ComplaintDao {
 
     @Insert("Insert into complaint " +
-            "(userId,username,complaintContent,complaintTime,communityId,userEmail,userPhone,complaintStatus) values " +
-            "(#{userId},#{username},#{complaintContent},#{complaintTime},#{communityId},#{userEmail},#{userPhone},#{complaintStatus})")
-    void publishComplaint(PublishComplaint publishComplaint);
+            "(userId,complaintContent,complaintTime,userEmail,userPhone,status) values " +
+            "(#{userId},#{complaintContent},#{complaintTime},#{userEmail},#{userPhone},#{status})")
+    void publishComplaint(Complaint publishComplaint);
 
     @Select("select * from complaint where userId = #{userId}")
     List<Complaint> selectMyComplaint(Integer userId);
@@ -30,9 +29,16 @@ public interface PublishComplaintDao {
             "complaintContent = #{complaintContent} " +
             "where " +
             "complaintId = #{complaintId}")
-    void updateMyComplaint(PublishComplaint publishComplaint);
+    void updateMyComplaint(Complaint publishComplaint);
 
     @Delete("delete from complaint where complaintId = #{complaintId}")
     void deleteMyComplaint(Integer complaintId);
+
+    @Update("update complaint set " +
+            "status = #{status} ," +
+            "finishTime = #{finishTime} " +
+            "where " +
+            "complaintId = #{complaintId}")
+    void finish(Complaint complaint);
 
 }

@@ -12,13 +12,18 @@ import com.lzy.bishe.modules.tie.model.entry.V_TieUser;
 import com.lzy.bishe.modules.tie.service.TieService;
 import com.lzy.bishe.modules.user.service.UserService;
 import com.lzy.bishe.util.ResultDTO;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 
 
+/**
+ * @author Lzy
+ */
 @RestController
 @RequestMapping("/api/comment")
+@Api(tags = {"CommentController"}, description = "评论相关接口")
 public class CommentController {
 
     @Autowired

@@ -6,6 +6,7 @@ import com.lzy.bishe.modules.tie.service.TieService;
 import com.lzy.bishe.modules.user.service.UserService;
 import com.lzy.bishe.util.JWTInfo;
 import com.lzy.bishe.util.ResultDTO;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @RestController
 @RequestMapping("/api/tie")
+@Api(tags = {"TieController"}, description = "帖子相关接口")
 public class TieController {
 
     @Autowired

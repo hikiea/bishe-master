@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class Complaint {
+public class V_ComplaintUser {
 
     @ApiModelProperty(notes = "主键id")
     private Integer complaintId;
@@ -31,6 +31,19 @@ public class Complaint {
     private String status;
 
     @ApiModelProperty(notes = "完成时间")
-    private LocalDateTime finishTime;
+    private LocalDateTime finshTime;
+
+    @ApiModelProperty(notes = "邮件")
+    private Integer userEmail;
+
+    @ApiModelProperty(notes = "用户电话")
+    private String userPhone;
+
+    @ApiModelProperty(notes = "小区id")
+    private Integer communityId;
+
+    @ApiModelProperty(notes = "昵称")
+    private String nickName;
+
 
 }

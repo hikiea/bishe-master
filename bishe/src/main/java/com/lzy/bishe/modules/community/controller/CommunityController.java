@@ -4,6 +4,7 @@ import com.lzy.bishe.annotation.UserLoginToken;
 import com.lzy.bishe.modules.community.model.Community;
 import com.lzy.bishe.modules.community.service.CommunityService;
 import com.lzy.bishe.util.ResultDTO;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/house")
 @CrossOrigin
 @Slf4j
+@Api(tags = {"CommunityController"}, description = "小区相关接口")
 public class CommunityController {
 
     @Autowired

@@ -2,6 +2,7 @@ package com.lzy.bishe.modules.picture.controller;
 
 import com.lzy.bishe.util.ResultDTO;
 import com.lzy.bishe.modules.picture.service.PictureService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
  */
 @RestController
 @RequestMapping("/api/picture")
+@Api(tags = {"PictureController"}, description = "图片上传相关接口")
 public class PictureController {
 
     @Autowired

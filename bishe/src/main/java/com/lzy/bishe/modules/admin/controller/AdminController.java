@@ -5,6 +5,7 @@ import com.lzy.bishe.modules.admin.service.AdminService;
 import com.lzy.bishe.modules.tie.service.TieService;
 import com.lzy.bishe.util.ResultDTO;
 import com.lzy.bishe.modules.user.model.dto.requestDTO.UserLoginDTO;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/api/admin")
 @CrossOrigin
 @Slf4j
+@Api(tags = {"AdminController"}, description = "管理员相关接口")
 public class AdminController {
 
     @Autowired

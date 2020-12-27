@@ -6,6 +6,7 @@ import com.lzy.bishe.modules.repair.model.entry.Repair;
 import com.lzy.bishe.modules.repair.service.OkRepairServer;
 import com.lzy.bishe.modules.repair.service.RepairService;
 import com.lzy.bishe.util.ResultDTO;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +17,7 @@ import java.util.Date;
 
 @RestController
 @RequestMapping("/api/worker")
+@Api(tags = {"OkRepairController"}, description = "完成维修相关接口")
 public class OkRepairController {
 
     @Autowired

@@ -6,6 +6,7 @@ import com.lzy.bishe.modules.repair.model.entry.Repair;
 import com.lzy.bishe.modules.repair.service.RepairService;
 import com.lzy.bishe.util.JWTInfo;
 import com.lzy.bishe.util.ResultDTO;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/api/repair")
 @CrossOrigin
 @Slf4j
+@Api(tags = {"RepairController"}, description = "报修相关接口")
 public class RepairController {
 
     @Autowired

@@ -3,6 +3,7 @@ package com.lzy.bishe.modules.notify.controller;
 
 import com.lzy.bishe.modules.notify.service.NotifyService;
 import com.lzy.bishe.util.ResultDTO;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/api/notify")
 @CrossOrigin
 @Slf4j
+@Api(tags = {"NotifyController"}, description = "消息通知相关接口")
 public class NotifyController {
 
     @Autowired

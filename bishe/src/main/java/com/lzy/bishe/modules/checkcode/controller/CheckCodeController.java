@@ -4,6 +4,7 @@ import com.lzy.bishe.annotation.PassToken;
 import com.lzy.bishe.modules.checkcode.model.entity.CheckCode;
 import com.lzy.bishe.modules.checkcode.service.CheckCodeService;
 import com.lzy.bishe.redis.RedisCodeUtil;
+import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,7 @@ import java.io.IOException;
 @RequestMapping("api")
 @Slf4j
 @CrossOrigin
+@Api(tags = {"CheckCodeController"}, description = "验证码相关接口")
 public class CheckCodeController {
 
     @Autowired

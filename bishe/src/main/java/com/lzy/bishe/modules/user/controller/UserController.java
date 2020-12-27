@@ -6,6 +6,7 @@ import com.lzy.bishe.modules.user.model.dto.requestDTO.UserLoginDTO;
 import com.lzy.bishe.modules.user.model.dto.responseDTO.UpdateUserInfoDTO;
 import com.lzy.bishe.modules.user.model.entity.User;
 import com.lzy.bishe.modules.user.service.UserService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author lizhongyi
  *
  */
+@Api(tags = {"UserController"}, description = "用户相关接口")
 @RestController
 @RequestMapping("/api/user")
 @CrossOrigin

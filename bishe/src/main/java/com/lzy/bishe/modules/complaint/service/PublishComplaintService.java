@@ -3,14 +3,14 @@ package com.lzy.bishe.modules.complaint.service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.lzy.bishe.modules.complaint.mapper.PublishComplaintDao;
+import com.lzy.bishe.modules.complaint.mapper.ComplaintDao;
 import com.lzy.bishe.modules.complaint.model.entry.Complaint;
-import com.lzy.bishe.modules.complaint.model.entry.PublishComplaint;
 import com.lzy.bishe.util.ResultDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -18,40 +18,46 @@ import java.util.List;
 public class PublishComplaintService {
 
     @Autowired
-    private PublishComplaintDao publishComplaintDao;
+    private ComplaintDao complaintDao;
 
-    public ResultDTO publishComplaint(PublishComplaint publishComplaint){
-        Date now = new Date();
-        String nowTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(now);
-        publishComplaint.setComplaintTime(nowTime);
-        publishComplaint.setComplaintStatus("等待管理人员联系");
-        publishComplaintDao.publishComplaint(publishComplaint);
+    public ResultDTO publishComplaint(Complaint publishComplaint){
+        publishComplaint.setComplaintTime(LocalDateTime.now());
+        publishComplaint.setStatus("等待管理人员联系");
+        complaintDao.publishComplaint(publishComplaint);
         return ResultDTO.successOf("发表投诉建议成功",publishComplaint);
-
     }
 
     public ResultDTO selectMyComplaint(Integer respondComplaintUserId, Integer page, Integer size) {
         PageHelper.startPage(page,size);
-        List<Complaint> complaints = publishComplaintDao.selectMyComplaint(respondComplaintUserId);
+        List<Complaint> complaints = complaintDao.selectMyComplaint(respondComplaintUserId);
         PageInfo pageInfo = new PageInfo(complaints);
         return ResultDTO.successOf("我的投诉建议获取成功",pageInfo);
     }
 
     public ResultDTO selectCommunityComplaint(Integer communityId,Integer page, Integer size) {
         PageHelper.startPage(page,size);
-        List<Complaint> complaints = publishComplaintDao.selectCommunityComplaint(communityId);
+        List<Complaint> complaints = complaintDao.selectCommunityComplaint(communityId);
         PageInfo pageInfo = new PageInfo(complaints);
         return ResultDTO.successOf("小区投诉建议获取成功",pageInfo);
     }
 
-    public ResultDTO updateMyComplaint(Integer complaintId, PublishComplaint publishComplaint) {
+    public ResultDTO updateMyComplaint(Integer complaintId, Complaint publishComplaint) {
         publishComplaint.setComplaintId(complaintId);
-        publishComplaintDao.updateMyComplaint(publishComplaint);
+        complaintDao.updateMyComplaint(publishComplaint);
         return ResultDTO.successOf("投诉建议修改完成",publishComplaint.getComplaintContent());
     }
 
     public ResultDTO deleteMyComplaint(Integer complaintId) {
-        publishComplaintDao.deleteMyComplaint(complaintId);
+        complaintDao.deleteMyComplaint(complaintId);
         return ResultDTO.successOf("删除成功");
+    }
+
+    public ResultDTO finish(Integer complaintId) {
+        Complaint complaint = new Complaint();
+        complaint.setComplaintId(complaintId);
+        complaint.setStatus("已完成");
+        complaint.setFinishTime(LocalDateTime.now());
+        complaintDao.finish(complaint);
+        return ResultDTO.successOf("修改成功");
     }
 }
