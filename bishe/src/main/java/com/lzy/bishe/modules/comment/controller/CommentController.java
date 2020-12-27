@@ -6,7 +6,9 @@ import com.lzy.bishe.modules.comment.model.entry.SecondComment;
 import com.lzy.bishe.modules.comment.service.CommentService;
 import com.lzy.bishe.modules.comment.service.SecondCommentService;
 import com.lzy.bishe.modules.notify.service.NotifyService;
+import com.lzy.bishe.modules.tie.mapper.TieDao;
 import com.lzy.bishe.modules.tie.model.entry.Tie;
+import com.lzy.bishe.modules.tie.model.entry.V_TieUser;
 import com.lzy.bishe.modules.tie.service.TieService;
 import com.lzy.bishe.modules.user.service.UserService;
 import com.lzy.bishe.util.ResultDTO;
@@ -34,13 +36,16 @@ public class CommentController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private TieDao tieDao;
+
     /* 发表一级评论 */
     @PostMapping("/first/comment")
     @UserLoginToken
     @CrossOrigin
     public ResultDTO doPublishComment(@RequestBody Comment comment,
                                       HttpServletRequest httpServletRequest){
-        Tie tie = tieService.selectByTieId(comment.getTieId());
+        V_TieUser tie = tieDao.selectOneTie(comment.getTieId());
         notifyService.send(
                 httpServletRequest,
                 comment.getCommentUsername()+" 评论了你：" + comment.getCommentContent(),

@@ -11,7 +11,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class Tie {
+public class V_TieUser {
+
+    @ApiModelProperty(notes = "主键id")
+    private Integer id;
 
     @ApiModelProperty(notes = "主键id")
     private Integer tieId;
@@ -49,5 +52,10 @@ public class Tie {
     @ApiModelProperty(notes = "帖子属性")
     private String tieStatus;
 
+    @ApiModelProperty(notes = "用户昵称")
+    private String nickName;
+
+    @ApiModelProperty(notes = "用户头像")
+    private String headUrl;
 
 }

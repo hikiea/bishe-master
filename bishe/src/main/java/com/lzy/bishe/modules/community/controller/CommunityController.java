@@ -3,7 +3,6 @@ package com.lzy.bishe.modules.community.controller;
 import com.lzy.bishe.annotation.UserLoginToken;
 import com.lzy.bishe.modules.community.model.Community;
 import com.lzy.bishe.modules.community.service.CommunityService;
-import com.lzy.bishe.modules.user.model.dto.requestDTO.UserLoginDTO;
 import com.lzy.bishe.util.ResultDTO;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;

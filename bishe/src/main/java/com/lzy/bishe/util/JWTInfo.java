@@ -31,5 +31,9 @@ public class JWTInfo<T> {
         return JWT.decode(httpServletRequest.getHeader("token")).getAudience().get(4);
     }
 
+    public static Integer getUserCommunityId(HttpServletRequest httpServletRequest){
+        return Integer.parseInt(JWT.decode(httpServletRequest.getHeader("token")).getAudience().get(5));
+    }
+
 
 }

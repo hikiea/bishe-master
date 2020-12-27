@@ -8,6 +8,7 @@ import com.lzy.bishe.modules.comment.model.entry.Comment;
 import com.lzy.bishe.modules.notify.service.NotifyService;
 import com.lzy.bishe.modules.tie.mapper.TieDao;
 import com.lzy.bishe.modules.tie.model.entry.Tie;
+import com.lzy.bishe.modules.tie.model.entry.V_TieUser;
 import com.lzy.bishe.modules.tie.service.TieService;
 import com.lzy.bishe.util.JWTInfo;
 import com.lzy.bishe.util.ResultDTO;
@@ -82,7 +83,7 @@ public class AdminService {
     public ResultDTO deleteTie(Integer tieId, HttpServletRequest httpServletRequest) {
         String userName = JWTInfo.getUserName(httpServletRequest);
         tieService.delete(tieId);
-        Tie tie = tieDao.selectOneTie(tieId);
+        V_TieUser tie = tieDao.selectOneTie(tieId);
         String data = "您的帖子已被管理员："+ userName + "删除";
         notifyService.send(httpServletRequest,data,tie.getUserId());
         return ResultDTO.successOf("帖子已删除成功，并通知当事人");

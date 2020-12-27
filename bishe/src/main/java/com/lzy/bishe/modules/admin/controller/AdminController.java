@@ -2,6 +2,7 @@ package com.lzy.bishe.modules.admin.controller;
 
 import com.lzy.bishe.annotation.UserLoginToken;
 import com.lzy.bishe.modules.admin.service.AdminService;
+import com.lzy.bishe.modules.tie.service.TieService;
 import com.lzy.bishe.util.ResultDTO;
 import com.lzy.bishe.modules.user.model.dto.requestDTO.UserLoginDTO;
 import io.swagger.annotations.ApiOperation;
@@ -21,7 +22,19 @@ import javax.servlet.http.HttpServletRequest;
 public class AdminController {
 
     @Autowired
+    private TieService tieService;
+
+    @Autowired
     private AdminService adminService;
+
+    @CrossOrigin @UserLoginToken
+    @ApiOperation(value = "查询所有帖子", notes = "查询所有帖子")
+    @GetMapping("/query")
+    public ResultDTO deSelectAllTie2(@RequestParam(name = "page", defaultValue = "1") Integer page,
+                                     @RequestParam(name = "size", defaultValue = "5") Integer size){
+        ResultDTO resultDTO = tieService.selectAllTie(page, size);
+        return resultDTO;
+    }
 
     @PostMapping("/login")
     @CrossOrigin
