@@ -55,7 +55,7 @@ public class TieController {
     public ResultDTO doSelectPersonTie(HttpServletRequest httpServletRequest,
                                        @RequestParam(name = "page", defaultValue = "1") Integer page,
                                        @RequestParam(name = "size",defaultValue = "5") Integer size){
-        Integer userIdINT = JWTInfo.getUserIdINT(httpServletRequest);
+        Integer userIdINT = JWTInfo.getUserId_int(httpServletRequest);
         ResultDTO resultDTO = tieService.selectPersonTie(userIdINT, page, size);
         return resultDTO;
     }

@@ -16,9 +16,6 @@ public class V_TieUser {
     @ApiModelProperty(notes = "主键id")
     private Integer id;
 
-    @ApiModelProperty(notes = "主键id")
-    private Integer tieId;
-
     @ApiModelProperty(notes = "发帖人 id")
     private Integer userId;
 

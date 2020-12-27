@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class Repair {
+public class V_ReplaceUser {
 
     @ApiModelProperty(notes = "主键id")
     public Integer repairId;
@@ -45,5 +45,14 @@ public class Repair {
 
     @ApiModelProperty(notes = "当前状态")
     public String repairStatus;
+
+    @ApiModelProperty(notes = "报修人姓名")
+    public Integer nickname;
+
+    @ApiModelProperty(notes = "小区id")
+    public String communityId;
+
+    @ApiModelProperty(notes = "接单人姓名")
+    public String workerName;
 
 }

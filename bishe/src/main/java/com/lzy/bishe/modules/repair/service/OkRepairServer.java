@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.lzy.bishe.modules.notify.service.NotifyService;
 import com.lzy.bishe.modules.repair.mapper.RepairDao;
 import com.lzy.bishe.modules.repair.model.entry.Repair;
+import com.lzy.bishe.modules.repair.model.entry.V_ReplaceUser;
 import com.lzy.bishe.util.JWTInfo;
 import com.lzy.bishe.util.ResultDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class OkRepairServer {
 
     public ResultDTO doSelectNoRepair(Integer page, Integer size) {
         PageHelper.startPage(page,size);
-        List<Repair> repairs = repairDao.doSelectNoRepair();
+        List<V_ReplaceUser> repairs = repairDao.doSelectNoRepair();
         PageInfo pageInfo = new PageInfo(repairs);
         return ResultDTO.successOf("获取成功",pageInfo);
     }
@@ -38,7 +39,7 @@ public class OkRepairServer {
 
     public ResultDTO doSelectAcceptRepair(Integer okRepairUserId, Integer page, Integer size) {
         PageHelper.startPage(page,size);
-        List<Repair> repairs = repairDao.doSelectAcceptRepair(okRepairUserId);
+        List<V_ReplaceUser> repairs = repairDao.doSelectAcceptRepair(okRepairUserId);
         PageInfo pageInfo = new PageInfo(repairs);
         return ResultDTO.successOf("获取成功",pageInfo);
     }

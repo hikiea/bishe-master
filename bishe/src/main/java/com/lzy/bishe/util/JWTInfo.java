@@ -15,7 +15,7 @@ public class JWTInfo<T> {
         return JWT.decode(httpServletRequest.getHeader("token")).getAudience().get(0);
     }
 
-    public static Integer getUserIdINT(HttpServletRequest httpServletRequest){
+    public static Integer getUserId_int(HttpServletRequest httpServletRequest){
         return  Integer.parseInt(JWT.decode(httpServletRequest.getHeader("token")).getAudience().get(0));
     }
 

@@ -38,7 +38,7 @@ public class PublishComplaintController {
                                        @RequestParam(name = "page",defaultValue = "1") Integer page,
                                        @RequestParam(name = "size",defaultValue = "5") Integer size
                                        ){
-        Integer userId = JWTInfo.getUserIdINT(httpServletRequest);
+        Integer userId = JWTInfo.getUserId_int(httpServletRequest);
         ResultDTO resultDTO = publishComplaintService.selectMyComplaint(userId, page, size);
         return resultDTO;
     }

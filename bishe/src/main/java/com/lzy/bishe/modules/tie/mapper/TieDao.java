@@ -17,9 +17,9 @@ public interface TieDao {
 
     /*发帖*/
     @Insert("insert into tie " +
-            "(userId,communityId,title,content,label,publishTime,picture,tieTypes,tieStatus) " +
+            "(userId,title,content,label,publishTime,picture,tieTypes,tieStatus) " +
             "values " +
-            "(#{userId},#{communityId},#{title},#{content},#{label},#{publishTime},#{picture},#{tieTypes},#{tieStatus})")
+            "(#{userId},#{title},#{content},#{label},#{publishTime},#{picture},#{tieTypes},#{tieStatus})")
     void publish(Tie tie);
 
     /*删帖*/

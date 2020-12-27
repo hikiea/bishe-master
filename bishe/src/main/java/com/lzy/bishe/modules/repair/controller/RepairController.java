@@ -4,49 +4,56 @@ package com.lzy.bishe.modules.repair.controller;
 import com.lzy.bishe.annotation.UserLoginToken;
 import com.lzy.bishe.modules.repair.model.entry.Repair;
 import com.lzy.bishe.modules.repair.service.RepairService;
+import com.lzy.bishe.util.JWTInfo;
 import com.lzy.bishe.util.ResultDTO;
+import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 
 @RestController
 @RequestMapping("/api/repair")
+@CrossOrigin
+@Slf4j
 public class RepairController {
 
     @Autowired
     private RepairService repairService;
 
-    /* 用户报修发布 */
-    @UserLoginToken
-    @CrossOrigin
+    @UserLoginToken @CrossOrigin
     @PostMapping("/repair")
+    @ApiOperation(value = "用户报修发布", notes = "用户报修发布")
     public ResultDTO doPublishRepair(@RequestBody Repair repair){
         ResultDTO resultDTO = repairService.publishRepair(repair);
         return resultDTO;
     }
 
-    /* 用户报修删除 */
     @UserLoginToken @CrossOrigin
     @DeleteMapping("/repair/{repairId}")
+    @ApiOperation(value = "用户报修删除", notes = "用户报修删除")
     public ResultDTO doDeleteRepair(@PathVariable("repairId") Integer repairId){
         ResultDTO resultDTO = repairService.deleteRepair(repairId);
         return resultDTO;
     }
 
-    /* 完成维修后用户修改状态 */
     @UserLoginToken @CrossOrigin
     @PostMapping("/repair/ok/{repairId}")
+    @ApiOperation(value = "完成维修后用户修改状态", notes = "完成维修后用户修改状态")
     public ResultDTO repairFinish(@PathVariable("repairId") Integer repairId){
         ResultDTO resultDTO = repairService.repairFinished(repairId);
         return resultDTO;
     }
 
-    /* 查看自己所有的报修记录 */
     @UserLoginToken @CrossOrigin
-    @GetMapping("/repair/{repairUserId}")
-    public ResultDTO selectMyRepair(@PathVariable("repairUserId") Integer repairUserId,
+    @ApiOperation(value = "查看自己所有的报修记录", notes = "查看自己所有的报修记录")
+    @GetMapping("/repair")
+    public ResultDTO selectMyRepair(HttpServletRequest httpServletRequest,
                                     @RequestParam(name = "page",defaultValue = "1") Integer page,
                                     @RequestParam(name = "size",defaultValue = "5") Integer size){
+        Integer repairUserId = JWTInfo.getUserId_int(httpServletRequest);
         ResultDTO resultDTO = repairService.doSelectMyRepair(repairUserId, page, size);
         return resultDTO;
     }

@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.lzy.bishe.modules.repair.mapper.RepairDao;
 import com.lzy.bishe.modules.repair.model.entry.Repair;
+import com.lzy.bishe.modules.repair.model.entry.V_ReplaceUser;
 import com.lzy.bishe.util.ResultDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,21 +42,21 @@ public class RepairService {
 
     public ResultDTO doSelectMyRepair(Integer repairUserId, Integer page, Integer num) {
         PageHelper.startPage(page,num);
-        List<Repair> repairs = repairDao.doSelectMyRepair(repairUserId);
-        PageInfo pageInfo = new PageInfo(repairs);
+        List<V_ReplaceUser> v_replaceUsers = repairDao.doSelectMyRepair(repairUserId);
+        PageInfo pageInfo = new PageInfo(v_replaceUsers);
         return ResultDTO.successOf("查询成功",pageInfo);
     }
 
     public boolean findRepairByUserId(Integer userId) {
-        Repair repairUser = repairDao.findRepairUserId(userId);
-        if (repairUser.getRepairUserId() != userId){
+        V_ReplaceUser repairUserId = repairDao.findRepairUserId(userId);
+        if (repairUserId.getRepairUserId() != userId){
             return false;
         }
         return true;
     }
 
     public boolean findRepairByRepairId(Integer repairId, Integer userId) {
-        Repair repair = repairDao.findRepairByRepairId(repairId);
+        V_ReplaceUser repair = repairDao.findRepairByRepairId(repairId);
         if ((repair.getRepairUserId()).equals(userId)){
             return true;
         }else {
@@ -63,8 +64,8 @@ public class RepairService {
         }
     }
 
-    public Repair findByUserId(Integer userId) {
-        Repair repair = repairDao.findRepairByRepairId(userId);
+    public V_ReplaceUser findByUserId(Integer userId) {
+        V_ReplaceUser repair = repairDao.findRepairByRepairId(userId);
         return repair;
     }
 }
