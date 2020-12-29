@@ -1,8 +1,8 @@
 package com.lzy.bishe.common;
 
 public enum UserStatusCode implements BaseCode{
-    NORMAL(0,"正常用户"),
-    NO_TALK(1,"没有找到这个游戏"),
+    NORMAL(0,"正常"),
+    NO_TALK(1,"被禁言"),
     ;
 
 

@@ -24,8 +24,8 @@ public interface UserMapper {
     @Select("SELECT * FROM user where id=#{id}")
     User findUserById(String id);
 
-    @Insert("insert into user(username,password,power,nickname,tel,headUrl,communityId,address,createTime,sex,status,email) " +
-            "values(#{username},#{password},#{power},#{nickname},#{tel},#{headUrl},#{communityId},#{address},#{createTime},#{sex},#{status},#{email})")
+    @Insert("insert into user(username,password,power,nickname,tel,headUrl,communityId,address,createTime,sex,publishStatus,email) " +
+            "values(#{username},#{password},#{power},#{nickname},#{tel},#{headUrl},#{communityId},#{address},#{createTime},#{sex},#{publishStatus},#{email})")
     void registerUser(User user);
 
     @Select("select * from user where id = #{id}")
@@ -36,4 +36,7 @@ public interface UserMapper {
 
     @Select("select * from user where username = #{username}")
     User checkEqualUsername(String username);
+
+    @Update("update user set headUrl = #{headUrl} where id = #{id}")
+    void changeHead(Integer id, String headUrl);
 }

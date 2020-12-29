@@ -46,22 +46,21 @@ public class AdminController {
         return resultDTO;
     }
 
-
     @GetMapping("/allUser")
     @UserLoginToken @CrossOrigin
     @ApiOperation(value = "获取所有用户信息", notes = "获取所有用户信息")
     public ResultDTO getAllUserInfo(@RequestParam(name = "page", defaultValue = "1") Integer page,
-                                    @RequestParam(name = "size", defaultValue = "5") Integer size){
-        ResultDTO allUserInfo = adminService.getAllUserInfo(page,size);
+                                    @RequestParam(name = "size", defaultValue = "5") Integer size,
+                                    @RequestParam(name = "username") String username){
+        ResultDTO allUserInfo = adminService.getAllUserInfo(page,size,username);
         return allUserInfo;
     }
 
-    @GetMapping("/update")
+    @GetMapping("/updateStatus/{id}")
     @UserLoginToken @CrossOrigin
     @ApiOperation(value = "更改用户状态", notes = "更改用户状态")
-    public ResultDTO updateUserStatus(@RequestParam(name = "id") Integer id,
-                                      @RequestParam(name = "status") Integer status){
-        ResultDTO allUserInfo = adminService.updateUserStatus(id,status);
+    public ResultDTO updateUserStatus(@PathVariable("id") Integer id){
+        ResultDTO allUserInfo = adminService.updateUserStatus(id);
         return allUserInfo;
     }
 

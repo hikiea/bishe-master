@@ -36,7 +36,8 @@ public class UserController {
         return resultDTO;
     }
 
-    @PostMapping("/register") @CrossOrigin
+    @PostMapping("/register")
+    @CrossOrigin
     @ApiOperation(value = "用户注册接口",notes = "用户注册接口")
     public ResultDTO registerUser(@RequestBody User user){
         ResultDTO userMessage = userService.registerUser(user);
@@ -45,9 +46,17 @@ public class UserController {
     
     @UserLoginToken @CrossOrigin
     @GetMapping("/info")
-    @ApiOperation(value = "获取用户信息",notes = "获取用户信息")
+    @ApiOperation(value = "获取自己的信息",notes = "获取自己的信息")
     public ResultDTO getUserMessage(HttpServletRequest httpServletRequest){
         ResultDTO userMessage = userService.getUserMessage(httpServletRequest);
+        return userMessage;
+    }
+
+    @UserLoginToken @CrossOrigin
+    @GetMapping("/oneInfo/{id}")
+    @ApiOperation(value = "获取用户信息",notes = "获取用户信息")
+    public ResultDTO getOneUser(@PathVariable String id){
+        ResultDTO userMessage = userService.getOneUser(id);
         return userMessage;
     }
 
@@ -57,6 +66,15 @@ public class UserController {
     public ResultDTO updateUserMessage(@RequestBody UpdateUserInfoDTO userInfo){
         ResultDTO userMessage = userService.updateUserMessage(userInfo);
         return userMessage;
+    }
+
+    @UserLoginToken @CrossOrigin
+    @GetMapping("/changeHead")
+    @ApiOperation(value = "用户更换头像",notes = "用户更换头像")
+    public ResultDTO changeHead(HttpServletRequest httpServletRequest,
+                            String headUrl){
+        ResultDTO logout = userService.changeHead(httpServletRequest,headUrl);
+        return logout;
     }
 
     @UserLoginToken @CrossOrigin

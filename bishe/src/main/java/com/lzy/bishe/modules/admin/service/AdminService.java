@@ -64,15 +64,27 @@ public class AdminService {
         }
     }
 
-    public ResultDTO getAllUserInfo(Integer page, Integer size) {
-        PageHelper.startPage(page,size);
-        List<User> allUserInfo = adminMapper.getAllUserInfo();
-        PageInfo pageInfo = new PageInfo(allUserInfo);
-        return ResultDTO.successOf("获取成功",pageInfo);
+    public ResultDTO getAllUserInfo(Integer page, Integer size, String username) {
+        if (username.isEmpty()){
+            PageHelper.startPage(page,size);
+            List<User> allUserInfo = adminMapper.getAllUserInfo();
+            PageInfo pageInfo = new PageInfo(allUserInfo);
+            return ResultDTO.successOf("获取成功",pageInfo);
+        }else{
+            PageHelper.startPage(page,size);
+            List<User> allUserInfo = adminMapper.getAllUserInfoByUsername(username);
+            PageInfo pageInfo = new PageInfo(allUserInfo);
+            return ResultDTO.successOf("获取成功",pageInfo);
+        }
     }
 
-    public ResultDTO updateUserStatus(Integer id,Integer status) {
-        adminMapper.updateUserStatus(id, status);
+    public ResultDTO updateUserStatus(Integer id) {
+        User user = userMapper.findUserById(id.toString());
+        if (user.getPublishStatus().equals(1)){
+            adminMapper.updateUserStatus(id, 0);
+        }else{
+            adminMapper.updateUserStatus(id, 1);
+        }
         return ResultDTO.successOf("修改状态成功");
     }
 

@@ -21,9 +21,12 @@ public interface AdminMapper {
     @Select("select * from user")
     List<User> getAllUserInfo();
 
-    @Update("update user set status = #{status} where id = #{id}")
+    @Update("update user set publishStatus = #{status} where id = #{id}")
     void updateUserStatus(Integer id, Integer status);
 
     @Delete("delete from user where id = #{id}")
     void deleteUser(Integer id);
+
+    @Select("select * from user where username = #{username}")
+    List<User> getAllUserInfoByUsername(String username);
 }

@@ -38,8 +38,8 @@ public class User {
     @ApiModelProperty(notes = "头像")
     private String headUrl;
 
-    @ApiModelProperty(notes = "小区id")
-    private Integer communityId;
+    @ApiModelProperty(notes = "小区")
+    private String communityId;
 
     @ApiModelProperty(notes = "门牌号")
     private String address;
@@ -52,7 +52,7 @@ public class User {
     private String sex;
 
     @ApiModelProperty(notes = "状态")
-    private Integer status;
+    private Integer publishStatus;
 
     @ApiModelProperty(notes = "EMail")
     private String email;

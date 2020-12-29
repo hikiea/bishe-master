@@ -1,5 +1,6 @@
 package com.lzy.bishe.modules.picture.controller;
 
+import com.lzy.bishe.annotation.UserLoginToken;
 import com.lzy.bishe.util.ResultDTO;
 import com.lzy.bishe.modules.picture.service.PictureService;
 import io.swagger.annotations.Api;
@@ -21,6 +22,7 @@ public class PictureController {
     private PictureService pictureService;
 
     @PostMapping("/upload")
+    @UserLoginToken @CrossOrigin
     @ApiOperation(value = "图片上传", notes = "图片上传")
     public ResultDTO uploadPicture(@RequestParam("file") MultipartFile file){
         ResultDTO resultDTO = pictureService.doUploadPicture(file);
@@ -28,6 +30,7 @@ public class PictureController {
     }
 
     @GetMapping("/static/picture/图片名")
+    @UserLoginToken @CrossOrigin
     @ApiOperation(value = "图片查看", notes = "图片查看")
     public ResultDTO seePicture(){
         return null;

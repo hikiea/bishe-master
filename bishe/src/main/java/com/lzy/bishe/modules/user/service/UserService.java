@@ -3,6 +3,7 @@ package com.lzy.bishe.modules.user.service;
 import com.alibaba.fastjson.JSONObject;
 import com.auth0.jwt.JWT;
 import com.lzy.bishe.modules.email.service.EmailService;
+import com.lzy.bishe.util.JWTInfo;
 import com.lzy.bishe.util.ResultDTO;
 import com.lzy.bishe.modules.jwt.service.TokenService;
 import com.lzy.bishe.modules.user.mapper.UserMapper;
@@ -78,16 +79,14 @@ public class UserService {
             return ResultDTO.errorOf(500,"用户名不可重复");
         }else{
             user.setCreateTime(LocalDateTime.now());
-            user.setNickname(UUID.randomUUID().toString());
-            user.setPower("user");
-            user.setStatus(0);
+            user.setPublishStatus(0);
             userMapper.registerUser(user);
             try{
 //                emailService.sendEmail(user.getEmail(),"大小一家欢迎您","大小一家欢迎您的加入，请体验我们的服务");
             }catch (Exception e){
                 return ResultDTO.errorOf(500,"邮件服务调用失败");
             }
-            return ResultDTO.successOf("用户注册成功","请及时更改昵称");
+            return ResultDTO.successOf("用户注册成功");
         }
     }
 
@@ -101,7 +100,6 @@ public class UserService {
     }
 
     public ResultDTO checkLogin(UserLoginDTO userLoginInfo) {
-        Object code2 = redisCodeUtil.get(userLoginInfo.getCode());
         String code = userLoginInfo.getCode();
         JSONObject jsonObject=new JSONObject();
 /*        if (!code.equals(code2)){
@@ -137,4 +135,14 @@ public class UserService {
         }
     }
 
+    public ResultDTO getOneUser(String id) {
+        User userMessage = userMapper.getUserMessage(id);
+        return ResultDTO.successOf("获取成功",userMessage);
+    }
+
+    public ResultDTO changeHead(HttpServletRequest httpServletRequest, String headUrl) {
+        Integer id = JWTInfo.getUserId_int(httpServletRequest);
+        userMapper.changeHead(id,headUrl);
+        return null;
+    }
 }
