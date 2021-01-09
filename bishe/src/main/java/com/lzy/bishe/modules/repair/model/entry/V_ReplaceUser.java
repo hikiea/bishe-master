@@ -47,7 +47,7 @@ public class V_ReplaceUser {
     public String repairStatus;
 
     @ApiModelProperty(notes = "报修人姓名")
-    public Integer nickname;
+    public String nickname;
 
     @ApiModelProperty(notes = "小区id")
     public String communityId;

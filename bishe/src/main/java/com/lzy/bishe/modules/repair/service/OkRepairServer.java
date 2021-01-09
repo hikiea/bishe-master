@@ -23,9 +23,10 @@ public class OkRepairServer {
     @Autowired
     private NotifyService notifyService;
 
-    public ResultDTO doSelectNoRepair(Integer page, Integer size) {
+    public ResultDTO doSelectNoRepair(Integer page, Integer size, HttpServletRequest httpServletRequest) {
+        String id = JWTInfo.getUserCommunityId(httpServletRequest);
         PageHelper.startPage(page,size);
-        List<V_ReplaceUser> repairs = repairDao.doSelectNoRepair();
+        List<V_ReplaceUser> repairs = repairDao.doSelectNoRepair(id);
         PageInfo pageInfo = new PageInfo(repairs);
         return ResultDTO.successOf("获取成功",pageInfo);
     }

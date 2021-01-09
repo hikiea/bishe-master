@@ -1,9 +1,12 @@
 package com.lzy.bishe.modules.repair.model.entry;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
 
 /**
  * @author Lzy
@@ -41,7 +44,8 @@ public class Repair {
     public Integer okRepairUserId;
 
     @ApiModelProperty(notes = "维修时间")
-    public String okRepairTime;
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    public LocalDateTime okRepairTime;
 
     @ApiModelProperty(notes = "当前状态")
     public String repairStatus;

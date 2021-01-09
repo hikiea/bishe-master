@@ -26,15 +26,10 @@ public interface RepairDao {
     @Select("select * from v_replace_user where repairUserId = #{repairUserId}")
     List<V_ReplaceUser> doSelectMyRepair(Integer repairUserId);
 
-    @Select("select * from v_replace_user where okRepairUserId is null")
-    List<V_ReplaceUser> doSelectNoRepair();
+    @Select("select * from v_replace_user where okRepairUserId is null and communityId = #{id}")
+    List<V_ReplaceUser> doSelectNoRepair(String id);
 
-    @Update("update repair set" +
-            " okRepairUserId = #{okRepairUserId}," +
-            "okRepairTime = #{okRepairTime}," +
-            "repairStatus = #{repairStatus} " +
-            "where " +
-            "repairId = #{repairId}")
+    @Update("update repair set okRepairUserId = #{okRepairUserId}, okRepairTime = #{okRepairTime},repairStatus = #{repairStatus} where repairId = #{repairId}")
     void doAcceptRepair(Repair repair);
 
     @Select("select * from v_replace_user where okRepairUserId = #{okRepairUserId}")
