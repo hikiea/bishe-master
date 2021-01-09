@@ -57,7 +57,7 @@ public class AdminService {
         User user = userMapper.checkEqualUsername(userLoginInfo.getUsername());
         if (user == null){
             return ResultDTO.errorOf(500,"用户不存在");
-        }else if(user.getPower().equals("admin") && user != null ){
+        }else if(!user.getPower().equals("user") && user != null ){
             return userService.checkLogin(userLoginInfo);
         }else{
             return ResultDTO.errorOf(403,"权限不足");

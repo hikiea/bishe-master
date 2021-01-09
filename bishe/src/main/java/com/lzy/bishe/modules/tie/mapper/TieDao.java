@@ -53,7 +53,7 @@ public interface TieDao {
 
     /* 查询某一个小区的帖子 */
     @Select("select * from v_tie_user where communityId = #{communityId}")
-    List<V_TieUser> selectCommunityTie(Integer communityId);
+    List<V_TieUser> selectCommunityTie(String communityId);
 
     /* 点赞帖子 */
     @Update("update tie set likes = #{likes} where tieId = #{tieId}")

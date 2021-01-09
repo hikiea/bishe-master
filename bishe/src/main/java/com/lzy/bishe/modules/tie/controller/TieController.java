@@ -76,7 +76,7 @@ public class TieController {
     public ResultDTO doSelectCommunityTie(HttpServletRequest httpServletRequest,
                                           @RequestParam(name = "page",defaultValue = "1") Integer page,
                                           @RequestParam(name = "size",defaultValue = "5") Integer size){
-        Integer communityId = JWTInfo.getUserCommunityId(httpServletRequest);
+        String communityId = JWTInfo.getUserCommunityId(httpServletRequest);
         ResultDTO resultDTO = tieService.selectCommunityTie(communityId, page, size);
         return resultDTO;
     }

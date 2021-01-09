@@ -1,6 +1,7 @@
 package com.lzy.bishe.modules.picture.controller;
 
 import com.lzy.bishe.annotation.UserLoginToken;
+import com.lzy.bishe.modules.user.service.UserService;
 import com.lzy.bishe.util.ResultDTO;
 import com.lzy.bishe.modules.picture.service.PictureService;
 import io.swagger.annotations.Api;
@@ -8,6 +9,8 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletRequest;
 
 
 /**
@@ -29,11 +32,5 @@ public class PictureController {
         return resultDTO;
     }
 
-    @GetMapping("/static/picture/图片名")
-    @UserLoginToken @CrossOrigin
-    @ApiOperation(value = "图片查看", notes = "图片查看")
-    public ResultDTO seePicture(){
-        return null;
-    }
 
 }

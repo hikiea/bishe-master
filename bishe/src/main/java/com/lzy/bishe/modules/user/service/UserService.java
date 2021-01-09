@@ -143,6 +143,6 @@ public class UserService {
     public ResultDTO changeHead(HttpServletRequest httpServletRequest, String headUrl) {
         Integer id = JWTInfo.getUserId_int(httpServletRequest);
         userMapper.changeHead(id,headUrl);
-        return null;
+        return ResultDTO.successOf("头像更改成功");
     }
 }

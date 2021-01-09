@@ -47,4 +47,12 @@ public class CommunityController {
         return resultDTO;
     }
 
+    @GetMapping("/queryByName")
+    @CrossOrigin @UserLoginToken
+    @ApiOperation(value = "根据小区名获取小区id", notes = "新增小区")
+    public ResultDTO queryByName(@RequestParam String name){
+        ResultDTO resultDTO = communityService.queryByName(name);
+        return resultDTO;
+    }
+
 }

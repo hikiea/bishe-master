@@ -25,4 +25,7 @@ public interface CommunityMapper {
     @Insert("insert into community(communityName,communityAddress) " +
             "values (#{communityName},#{communityAddress})")
     void addCommunity(Community community);
+
+    @Select("select * from community where communityName = #{name}")
+    Community queryByName(String name);
 }

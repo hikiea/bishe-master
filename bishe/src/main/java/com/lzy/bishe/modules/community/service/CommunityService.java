@@ -31,4 +31,8 @@ public class CommunityService {
         communityMapper.addCommunity(community);
         return ResultDTO.successOf("小区添加成功");
     }
+
+    public ResultDTO queryByName(String name) {
+        return ResultDTO.successOf("获取成功",communityMapper.queryByName(name));
+    }
 }

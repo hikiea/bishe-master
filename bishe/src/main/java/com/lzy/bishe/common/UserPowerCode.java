@@ -4,7 +4,7 @@ public enum UserPowerCode implements BaseCode{
     ADMIN(0,"系统管理员"),
     USER(1,"用户"),
     WORKER(2,"维修工人"),
-    COMMUNITY_ADMIN(3,"小区管理员"),
+    C_ADMIN(3,"小区管理员"),
     ;
 
 

@@ -34,14 +34,14 @@ public interface ItemsMapper {
     void deleteItem(Integer id);
 
     @Select("select * from v_items_user where address = #{address} and communityId = #{communityId} and isBuy = '0'")
-    List<V_ItemsUser> queryBuy(String address, Integer communityId);
+    List<V_ItemsUser> queryBuy(String address, String communityId);
 
     @Select("select * from v_items_user where address = #{address} and communityId = #{communityId} and isBuy = '1'")
-    List<V_ItemsUser> queryNoBuy(String address, Integer communityId);
+    List<V_ItemsUser> queryNoBuy(String address, String communityId);
 
     @Select("select * from v_items_user " +
             "where address = #{address} " +
             "and communityId = #{communityId} " +
             "and itemName like '%${itemName}%'")
-    List<V_ItemsUser> queryByName(String address, Integer communityId, String itemName);
+    List<V_ItemsUser> queryByName(String address, String communityId, String itemName);
 }

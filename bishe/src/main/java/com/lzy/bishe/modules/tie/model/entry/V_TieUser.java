@@ -20,7 +20,7 @@ public class V_TieUser {
     private Integer userId;
 
     @ApiModelProperty(notes = "发帖人小区Id")
-    private Integer communityId;
+    private String communityId;
 
     @ApiModelProperty(notes = "标题")
     private String title;

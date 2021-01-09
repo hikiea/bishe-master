@@ -45,22 +45,21 @@ public class ItemsService {
 
     public ResultDTO queryBuy(HttpServletRequest httpServletRequest) {
         String address = JWTInfo.getAddress(httpServletRequest);
-        Integer userCommunityId = JWTInfo.getUserCommunityId(httpServletRequest);
+        String userCommunityId = JWTInfo.getUserCommunityId(httpServletRequest);
         List<V_ItemsUser> list = itemsMapper.queryBuy(address, userCommunityId);
         return ResultDTO.successOf("获取成功",list);
     }
 
     public ResultDTO queryNoBuy(HttpServletRequest httpServletRequest) {
         String address = JWTInfo.getAddress(httpServletRequest);
-        Integer userCommunityId = JWTInfo.getUserCommunityId(httpServletRequest);
+        String userCommunityId = JWTInfo.getUserCommunityId(httpServletRequest);
         List<V_ItemsUser> list = itemsMapper.queryNoBuy(address, userCommunityId);
         return ResultDTO.successOf("获取成功",list);
     }
 
     public ResultDTO queryByName(HttpServletRequest httpServletRequest, String itemName) {
         String address = JWTInfo.getAddress(httpServletRequest);
-        Integer userCommunityId = JWTInfo.getUserCommunityId(httpServletRequest);
-        List<V_ItemsUser> list = itemsMapper.queryByName(address, userCommunityId, itemName);
+        List<V_ItemsUser> list = itemsMapper.queryByName(address, JWTInfo.getUserCommunityId(httpServletRequest), itemName);
         return ResultDTO.successOf("获取成功",list);
     }
 }

@@ -69,12 +69,12 @@ public class UserController {
     }
 
     @UserLoginToken @CrossOrigin
-    @GetMapping("/changeHead")
+    @PostMapping("/changeHead/{headUrl}")
     @ApiOperation(value = "用户更换头像",notes = "用户更换头像")
     public ResultDTO changeHead(HttpServletRequest httpServletRequest,
-                            String headUrl){
-        ResultDTO logout = userService.changeHead(httpServletRequest,headUrl);
-        return logout;
+                            @PathVariable String headUrl){
+        ResultDTO result = userService.changeHead(httpServletRequest,headUrl);
+        return result;
     }
 
     @UserLoginToken @CrossOrigin

@@ -39,20 +39,33 @@ public class ComplaintController {
     @UserLoginToken @CrossOrigin
     public ResultDTO doSelectComplaint(HttpServletRequest httpServletRequest,
                                        @RequestParam(name = "page",defaultValue = "1") Integer page,
-                                       @RequestParam(name = "size",defaultValue = "5") Integer size
-                                       ){
+                                       @RequestParam(name = "size",defaultValue = "5") Integer size){
         Integer userId = JWTInfo.getUserId_int(httpServletRequest);
         ResultDTO resultDTO = publishComplaintService.selectMyComplaint(userId, page, size);
         return resultDTO;
     }
 
     @ApiOperation(value = "查看小区所有投诉", notes = "查看小区所有投诉")
-    @GetMapping("/queryByCommunityId/{communityId}")
+    @GetMapping("/queryByCommunityId")
     @UserLoginToken @CrossOrigin
-    public ResultDTO doSelectCommunityComplaint(@PathVariable("communityId") Integer communityId,
+    public ResultDTO doSelectCommunityComplaint(HttpServletRequest httpServletRequest,
+                                                @RequestParam String content,
                                                 @RequestParam(name = "page",defaultValue = "1") Integer page,
                                                 @RequestParam(name = "size",defaultValue = "5") Integer size){
-        ResultDTO resultDTO = publishComplaintService.selectCommunityComplaint(communityId, page, size);
+        String communityId = JWTInfo.getUserCommunityId(httpServletRequest);
+        ResultDTO resultDTO = publishComplaintService.selectCommunityComplaint(communityId, page, size,content);
+        return resultDTO;
+    }
+
+    @ApiOperation(value = "查看小区未完成投诉", notes = "查看小区未完成投诉")
+    @GetMapping("/queryByCommunityId_no")
+    @UserLoginToken @CrossOrigin
+    public ResultDTO doSelectCommunityComplaint_no(HttpServletRequest httpServletRequest,
+                                                   @RequestParam String content,
+                                                   @RequestParam(name = "page",defaultValue = "1") Integer page,
+                                                   @RequestParam(name = "size",defaultValue = "5") Integer size){
+        String communityId = JWTInfo.getUserCommunityId(httpServletRequest);
+        ResultDTO resultDTO = publishComplaintService.doSelectCommunityComplaint_no(communityId, page, size,content);
         return resultDTO;
     }
 
@@ -73,11 +86,20 @@ public class ComplaintController {
         return resultDTO;
     }
 
-    @ApiOperation(value = "整改时间", notes = "整改时间")
+    @ApiOperation(value = "投诉已跟进", notes = "投诉已跟进")
     @PostMapping("/finish/{complaintId}")
     @UserLoginToken @CrossOrigin
     public ResultDTO finish(@PathVariable("complaintId") Integer complaintId){
         ResultDTO resultDTO = publishComplaintService.finish(complaintId);
         return resultDTO;
     }
+
+    @ApiOperation(value = "已解决，未解决，总数量", notes = "已解决，未解决，总数量")
+    @GetMapping("/number")
+    @UserLoginToken @CrossOrigin
+    public ResultDTO number(HttpServletRequest httpServletRequest){
+        ResultDTO resultDTO = publishComplaintService.number(httpServletRequest);
+        return resultDTO;
+    }
+
 }
