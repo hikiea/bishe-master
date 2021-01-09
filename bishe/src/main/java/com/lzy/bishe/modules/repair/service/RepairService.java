@@ -73,7 +73,7 @@ public class RepairService {
     }
 
     public ResultDTO number(HttpServletRequest httpServletRequest) {
-        String id = JWTInfo.getUserCommunityId(httpServletRequest);
+        Integer id = JWTInfo.getUserId_int(httpServletRequest);
         JSONObject jsonObject=new JSONObject();
         jsonObject.put("noRepair",repairDao.noRepair());
         jsonObject.put("noFinish",repairDao.noFinish(id));

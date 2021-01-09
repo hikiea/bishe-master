@@ -45,8 +45,8 @@ public interface RepairDao {
     Integer noRepair();
 
     @Select("select count(*) from v_replace_user where repairStatus = '等待维修' and okRepairUserId = #{id}")
-    Integer noFinish(String id);
+    Integer noFinish(Integer id);
 
     @Select("select count(*) from v_replace_user where repairStatus = '已完成' and okRepairUserId = #{id}")
-    Integer finish(String id);
+    Integer finish(Integer id);
 }

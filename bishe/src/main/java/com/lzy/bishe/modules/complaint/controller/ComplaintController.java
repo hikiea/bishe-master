@@ -69,15 +69,6 @@ public class ComplaintController {
         return resultDTO;
     }
 
-    @ApiOperation(value = "修改投诉建议", notes = "修改投诉建议")
-    @PostMapping("/update/{complaintId}")
-    @UserLoginToken @CrossOrigin
-    public ResultDTO doUpdateMyComplaint(@PathVariable("complaintId") Integer complaintId,
-                                         @RequestBody Complaint publishComplaint){
-        ResultDTO resultDTO = publishComplaintService.updateMyComplaint(complaintId, publishComplaint);
-        return resultDTO;
-    }
-
     @ApiOperation(value = "删除投诉建议", notes = "删除投诉建议")
     @PostMapping("/delete/{complaintId}")
     @UserLoginToken @CrossOrigin
