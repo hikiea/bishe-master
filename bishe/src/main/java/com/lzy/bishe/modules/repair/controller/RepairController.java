@@ -63,4 +63,12 @@ public class RepairController {
         return resultDTO;
     }
 
+    @ApiOperation(value = "维修数据", notes = "维修数据")
+    @GetMapping("/number")
+    @UserLoginToken @CrossOrigin
+    public ResultDTO number(HttpServletRequest httpServletRequest){
+        ResultDTO resultDTO = repairService.number(httpServletRequest);
+        return resultDTO;
+    }
+
 }

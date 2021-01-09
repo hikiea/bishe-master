@@ -1,14 +1,17 @@
 package com.lzy.bishe.modules.repair.service;
 
+import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.lzy.bishe.modules.repair.mapper.RepairDao;
 import com.lzy.bishe.modules.repair.model.entry.Repair;
 import com.lzy.bishe.modules.repair.model.entry.V_ReplaceUser;
+import com.lzy.bishe.util.JWTInfo;
 import com.lzy.bishe.util.ResultDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -67,5 +70,14 @@ public class RepairService {
     public V_ReplaceUser findByUserId(Integer userId) {
         V_ReplaceUser repair = repairDao.findRepairByRepairId(userId);
         return repair;
+    }
+
+    public ResultDTO number(HttpServletRequest httpServletRequest) {
+        String id = JWTInfo.getUserCommunityId(httpServletRequest);
+        JSONObject jsonObject=new JSONObject();
+        jsonObject.put("noRepair",repairDao.noRepair());
+        jsonObject.put("noFinish",repairDao.noFinish(id));
+        jsonObject.put("finish",repairDao.finish(id));
+        return ResultDTO.successOf("维修数据",jsonObject);
     }
 }

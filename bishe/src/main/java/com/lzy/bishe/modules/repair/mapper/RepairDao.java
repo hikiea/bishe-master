@@ -41,4 +41,12 @@ public interface RepairDao {
     @Select("select * from v_replace_user where repairId = #{repairId}")
     V_ReplaceUser findRepairByRepairId(Integer repairId);
 
+    @Select("select count(*) from v_replace_user where repairStatus = '等待维修人员联系'")
+    Integer noRepair();
+
+    @Select("select count(*) from v_replace_user where repairStatus = '等待维修' and okRepairUserId = #{id}")
+    Integer noFinish(String id);
+
+    @Select("select count(*) from v_replace_user where repairStatus = '已完成' and okRepairUserId = #{id}")
+    Integer finish(String id);
 }
