@@ -52,8 +52,8 @@ public interface TieDao {
     void rememberBrowse(Integer browse,Integer tieId);
 
     /* 查询某一个小区的帖子 */
-    @Select("select * from v_tie_user where communityId = #{communityId}")
-    List<V_TieUser> selectCommunityTie(String communityId);
+    @Select("select * from v_tie_user where communityId = #{communityId} and tieStatus = #{status} ")
+    List<V_TieUser> selectCommunityTie(String communityId, String status);
 
     /* 点赞帖子 */
     @Update("update tie set likes = #{likes} where tieId = #{tieId}")

@@ -28,9 +28,6 @@ public class V_TieUser {
     @ApiModelProperty(notes = "内容")
     private String content;
 
-    @ApiModelProperty(notes = "标签")
-    private String label;
-
     @ApiModelProperty(notes = "发表时间")
     private String publishTime;
 

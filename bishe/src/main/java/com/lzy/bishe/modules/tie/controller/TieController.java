@@ -74,10 +74,11 @@ public class TieController {
     @ApiOperation(value = "查询小区所有帖子", notes = "查询小区所有帖子")
     @GetMapping("/community")
     public ResultDTO doSelectCommunityTie(HttpServletRequest httpServletRequest,
+                                          @RequestParam(name = "status") String status,
                                           @RequestParam(name = "page",defaultValue = "1") Integer page,
                                           @RequestParam(name = "size",defaultValue = "5") Integer size){
         String communityId = JWTInfo.getUserCommunityId(httpServletRequest);
-        ResultDTO resultDTO = tieService.selectCommunityTie(communityId, page, size);
+        ResultDTO resultDTO = tieService.selectCommunityTie(communityId, page, size,status);
         return resultDTO;
     }
 

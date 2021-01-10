@@ -68,9 +68,9 @@ public class TieService {
     }
 
     /*查询小区的帖子*/
-    public ResultDTO selectCommunityTie(String communityId, Integer page, Integer size) {
+    public ResultDTO selectCommunityTie(String communityId, Integer page, Integer size, String status) {
         PageHelper.startPage(page,size);
-        List<V_TieUser> ties = tieDao.selectCommunityTie(communityId);
+        List<V_TieUser> ties = tieDao.selectCommunityTie(communityId,status);
         PageInfo pageInfo = new PageInfo(ties);
         return ResultDTO.successOf("获取成功",pageInfo);
 
