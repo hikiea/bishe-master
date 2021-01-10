@@ -26,11 +26,12 @@ public class ComplaintController {
     private PublishComplaintService publishComplaintService;
 
     @ApiOperation(value = "发表投诉", notes = "发表投诉")
-    @PostMapping("/publish")
+    @PostMapping("/publish/{content}")
     @UserLoginToken
     @CrossOrigin
-    public ResultDTO doPublishRealNameComplaint(@RequestBody Complaint publishComplaint){
-        ResultDTO resultDTO = publishComplaintService.publishComplaint(publishComplaint);
+    public ResultDTO doPublishRealNameComplaint(HttpServletRequest httpServletRequest,
+                                                @PathVariable(name = "content") String content){
+        ResultDTO resultDTO = publishComplaintService.publishComplaint(content,httpServletRequest);
         return resultDTO;
     }
 

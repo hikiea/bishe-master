@@ -16,12 +16,12 @@ import java.util.List;
 public interface ComplaintDao {
 
     @Insert("Insert into complaint " +
-            "(userId,complaintContent,complaintTime,userEmail,userPhone,status) values " +
-            "(#{userId},#{complaintContent},#{complaintTime},#{userEmail},#{userPhone},#{status})")
+            "(userId,complaintContent,complaintTime,status) values " +
+            "(#{userId},#{complaintContent},#{complaintTime},#{status})")
     void publishComplaint(Complaint publishComplaint);
 
-    @Select("select * from complaint where userId = #{userId}")
-    List<Complaint> selectMyComplaint(Integer userId);
+    @Select("select * from v_complaint_user where userId = #{userId}")
+    List<V_ComplaintUser> selectMyComplaint(Integer userId);
 
     @Select("select * from v_complaint_user where communityId = #{communityId}")
     List<V_ComplaintUser> selectCommunityComplaint(String communityId);

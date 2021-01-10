@@ -26,24 +26,22 @@ public class PublishComplaintService {
     @Autowired
     private ComplaintDao complaintDao;
 
-    public ResultDTO publishComplaint(Complaint publishComplaint){
-        publishComplaint.setComplaintTime(LocalDateTime.now());
-        publishComplaint.setStatus("等待管理人员联系");
-        complaintDao.publishComplaint(publishComplaint);
-        return ResultDTO.successOf("发表投诉建议成功",publishComplaint);
+    public ResultDTO publishComplaint(String content, HttpServletRequest httpServletRequest){
+        Integer userId = JWTInfo.getUserId_int(httpServletRequest);
+        Complaint complaint = new Complaint();
+        complaint.setUserId(userId);
+        complaint.setComplaintContent(content);
+        complaint.setComplaintTime(LocalDateTime.now());
+        complaint.setStatus("等待管理人员联系");
+        complaintDao.publishComplaint(complaint);
+        return ResultDTO.successOf("发表投诉建议成功",complaint);
     }
 
     public ResultDTO selectMyComplaint(Integer respondComplaintUserId, Integer page, Integer size) {
         PageHelper.startPage(page,size);
-        List<Complaint> complaints = complaintDao.selectMyComplaint(respondComplaintUserId);
+        List<V_ComplaintUser> complaints = complaintDao.selectMyComplaint(respondComplaintUserId);
         PageInfo pageInfo = new PageInfo(complaints);
         return ResultDTO.successOf("我的投诉建议获取成功",pageInfo);
-    }
-
-    public ResultDTO updateMyComplaint(Integer complaintId, Complaint publishComplaint) {
-        publishComplaint.setComplaintId(complaintId);
-        complaintDao.updateMyComplaint(publishComplaint);
-        return ResultDTO.successOf("投诉建议修改完成",publishComplaint.getComplaintContent());
     }
 
     public ResultDTO deleteMyComplaint(Integer complaintId) {
