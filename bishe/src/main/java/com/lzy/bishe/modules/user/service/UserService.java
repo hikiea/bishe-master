@@ -70,7 +70,7 @@ public class UserService {
         blackToken.setUsername(JWT.decode(token).getAudience().get(1));
         blackToken.setTime(DateUtil.getNowDate());
         redisTokenUtil.set(token,blackToken);
-        log.info("用户：" + JWT.decode(token).getAudience().get(1) + "已登出");
+        log.info("用户：" + JWT.decode(token).getAudience().get(3) + "已登出");
         return ResultDTO.successOf("登出成功");
     }
 

@@ -28,16 +28,17 @@ public class RepairController {
     @Autowired
     private RepairService repairService;
 
-    @UserLoginToken @CrossOrigin
-    @PostMapping("/repair")
     @ApiOperation(value = "用户报修发布", notes = "用户报修发布")
-    public ResultDTO doPublishRepair(@RequestBody Repair repair){
-        ResultDTO resultDTO = repairService.publishRepair(repair);
+    @PostMapping("/add")
+    @UserLoginToken @CrossOrigin
+    public ResultDTO doPublishRepair(@RequestBody Repair repair,
+                                     HttpServletRequest httpServletRequest){
+        ResultDTO resultDTO = repairService.publishRepair(repair,httpServletRequest);
         return resultDTO;
     }
 
     @UserLoginToken @CrossOrigin
-    @GetMapping("/repair/{repairId}")
+    @GetMapping("/delete/{repairId}")
     @ApiOperation(value = "用户报修删除", notes = "用户报修删除")
     public ResultDTO doDeleteRepair(@PathVariable("repairId") Integer repairId){
         ResultDTO resultDTO = repairService.deleteRepair(repairId);
@@ -45,7 +46,7 @@ public class RepairController {
     }
 
     @UserLoginToken @CrossOrigin
-    @PostMapping("/repair/ok/{repairId}")
+    @PostMapping("/ok/{repairId}")
     @ApiOperation(value = "完成维修后用户修改状态", notes = "完成维修后用户修改状态")
     public ResultDTO repairFinish(@PathVariable("repairId") Integer repairId){
         ResultDTO resultDTO = repairService.repairFinished(repairId);

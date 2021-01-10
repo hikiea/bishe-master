@@ -28,17 +28,9 @@ public class Repair {
     @ApiModelProperty(notes = "图片")
     public String repairPicture;
 
-    @ApiModelProperty(notes = "房间id")
-    public String homeId;
-
-    @ApiModelProperty(notes = "电话")
-    public String repairPhone;
-
-    @ApiModelProperty(notes = "邮件")
-    public String repairEmail;
-
     @ApiModelProperty(notes = "报修时间")
-    public String repairTime;
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    public LocalDateTime repairTime;
 
     @ApiModelProperty(notes = "维修人id")
     public Integer okRepairUserId;

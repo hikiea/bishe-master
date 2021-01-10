@@ -35,7 +35,7 @@ public class TokenService {
                     // 生成 签名的时间
                     .withIssuedAt(new Date())
                     // 生成 签名的有效期,分钟
-                    .withExpiresAt(DateUtil.offset(new Date(),10080, Calendar.MINUTE))
+                    .withExpiresAt(DateUtil.offset(new Date(),100800, Calendar.MINUTE))
                     // 以 password 作为 token 的密钥
                     .sign(Algorithm.HMAC256(user.getPassword()));
         }catch (Exception e){

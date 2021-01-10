@@ -49,7 +49,7 @@ public class OkRepairController {
         Repair repair = new Repair();
         repair.setOkRepairUserId(JWTInfo.getUserId_int(httpServletRequest));
         repair.setRepairStatus("等待维修");
-        repair.setOkRepairTime(LocalDateTime.now());
+        repair.setOkRepairTime(LocalDateTime.now().plusHours(8));
         repair.setRepairId(repairId);
         ResultDTO resultDTO = okRepairServer.doAcceptRepair(repair, httpServletRequest);
         return resultDTO;

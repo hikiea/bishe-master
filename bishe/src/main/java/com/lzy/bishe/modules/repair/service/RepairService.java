@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -22,11 +23,9 @@ public class RepairService {
     @Autowired
     private RepairDao repairDao;
 
-    public ResultDTO publishRepair(Repair repair){
-        /*获取当前时间*/
-        Date date = new Date();
-        String nowTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
-        repair.setRepairTime(nowTime);
+    public ResultDTO publishRepair(Repair repair, HttpServletRequest httpServletRequest){
+        repair.setRepairUserId(JWTInfo.getUserId_int(httpServletRequest));
+        repair.setRepairTime(LocalDateTime.now().plusHours(8));
         repair.setRepairStatus("等待维修人员联系");
         repairDao.publishRepair(repair);
         return ResultDTO.successOf("发表成功",repair);

@@ -27,8 +27,7 @@ public class ComplaintController {
 
     @ApiOperation(value = "发表投诉", notes = "发表投诉")
     @PostMapping("/publish/{content}")
-    @UserLoginToken
-    @CrossOrigin
+    @UserLoginToken @CrossOrigin
     public ResultDTO doPublishRealNameComplaint(HttpServletRequest httpServletRequest,
                                                 @PathVariable(name = "content") String content){
         ResultDTO resultDTO = publishComplaintService.publishComplaint(content,httpServletRequest);

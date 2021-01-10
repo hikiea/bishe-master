@@ -12,9 +12,9 @@ import java.util.List;
 public interface RepairDao {
 
     @Insert("insert into repair " +
-            "(repairUserId,repairContent,repairPicture,homeId,repairPhone,repairEmail,repairTime,repairStatus) " +
+            "(repairUserId,repairContent,repairPicture,repairTime,repairStatus) " +
             "values " +
-            "(#{repairUserId},#{repairContent},#{repairPicture},#{homeId},#{repairPhone},#{repairEmail},#{repairTime},#{repairStatus})")
+            "(#{repairUserId},#{repairContent},#{repairPicture},#{repairTime},#{repairStatus})")
     void publishRepair(Repair repair);
 
     @Delete("delete from repair where repairId = #{repairId}")
