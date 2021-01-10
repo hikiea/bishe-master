@@ -10,6 +10,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -98,5 +99,14 @@ public class TieController {
         return resultDTO;
     }
 
+    @CrossOrigin
+    @GetMapping("/getWeather/{city}")
+    public Object test(@PathVariable(name = "city") String city){
+        RestTemplate restTemplate = new RestTemplate();
+        String url = "https://api.seniverse.com/v3/weather/now.json?key=SiuwJAueYhN7oaicw&location=" + city +"&language=zh-Hans&unit=c";
+        System.out.println(url);
+        String trans = restTemplate.getForObject(url,String.class);
+        return trans;
+    }
 
 }
