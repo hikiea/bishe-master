@@ -39,5 +39,8 @@ public class JWTInfo<T> {
         return JWT.decode(httpServletRequest.getHeader("token")).getAudience().get(5);
     }
 
+    public static String getPublishStatus(HttpServletRequest httpServletRequest){
+        return JWT.decode(httpServletRequest.getHeader("token")).getAudience().get(6);
+    }
 
 }

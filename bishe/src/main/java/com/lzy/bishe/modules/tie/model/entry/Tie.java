@@ -1,9 +1,12 @@
 package com.lzy.bishe.modules.tie.model.entry;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
 
 /**
  * @author Lzy
@@ -26,16 +29,14 @@ public class Tie {
     private String content;
 
     @ApiModelProperty(notes = "发表时间")
-    private String publishTime;
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    private LocalDateTime publishTime;
 
     @ApiModelProperty(notes = "图片地址")
     private String picture;
 
     @ApiModelProperty(notes = "浏览次数")
     private Integer browse;
-
-    @ApiModelProperty(notes = "帖子类型")
-    private Integer tieTypes;
 
     @ApiModelProperty(notes = "点赞次数")
     private Integer likes;

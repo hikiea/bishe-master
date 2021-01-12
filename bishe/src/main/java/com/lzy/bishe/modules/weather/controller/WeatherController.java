@@ -17,7 +17,6 @@ public class WeatherController {
     public Object test(@PathVariable(name = "city") String city){
         RestTemplate restTemplate = new RestTemplate();
         String url = "https://api.seniverse.com/v3/weather/now.json?key=SiuwJAueYhN7oaicw&location=" + city +"&language=zh-Hans&unit=c";
-        System.out.println(url);
         String trans = restTemplate.getForObject(url,String.class);
         return trans;
     }

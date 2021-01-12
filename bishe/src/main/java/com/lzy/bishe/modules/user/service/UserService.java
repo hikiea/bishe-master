@@ -52,7 +52,7 @@ public class UserService {
         return userMapper.findByUsernameToToken(username);
     }
 
-    public User findUserById(String userId) {
+    public User findUserById(Integer userId) {
         return userMapper.findUserById(userId);
     }
 
@@ -117,7 +117,7 @@ public class UserService {
             redisCodeUtil.del(code);
             String token = tokenService.getToken(userForBase);
             jsonObject.put("token", token);
-            User u = userService.findUserById(JWT.decode(token).getAudience().get(0));
+            User u = userService.findUserById(Integer.parseInt(JWT.decode(token).getAudience().get(0)));
             u.setPassword("****************");
             jsonObject.put("user", u);
             log.info("用户：" + userLoginInfo.getUsername() + "登录");

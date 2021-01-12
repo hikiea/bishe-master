@@ -79,7 +79,7 @@ public class AdminService {
     }
 
     public ResultDTO updateUserStatus(Integer id) {
-        User user = userMapper.findUserById(id.toString());
+        User user = userMapper.findUserById(id);
         if (user.getPublishStatus().equals(1)){
             adminMapper.updateUserStatus(id, 0);
         }else{

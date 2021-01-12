@@ -1,9 +1,12 @@
 package com.lzy.bishe.modules.comment.model.entry;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
 
 /**
  * @author Lzy
@@ -26,7 +29,8 @@ public class Comment {
     public String commentContent;
 
     @ApiModelProperty(notes = "时间")
-    public String commentTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    public LocalDateTime commentTime;
 
     @ApiModelProperty(notes = "点赞数")
     public Integer commentLikes;

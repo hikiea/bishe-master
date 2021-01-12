@@ -12,6 +12,7 @@ import com.lzy.bishe.modules.user.model.entity.User;
 import com.lzy.bishe.modules.user.service.UserService;
 import com.lzy.bishe.redis.RedisTokenUtil;
 import com.lzy.bishe.util.DateUtil;
+import com.lzy.bishe.util.JWTInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -82,9 +83,9 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                     throw new RuntimeException("请重新登录");
                 }
                 // 获取 token 中的 user id
-                String userId;
+                Integer userId;
                 try {
-                    userId = JWT.decode(token).getAudience().get(0);
+                    userId = JWTInfo.getUserId_int(httpServletRequest);
                 } catch (JWTDecodeException j) {
                     throw new RuntimeException("401");
                 }

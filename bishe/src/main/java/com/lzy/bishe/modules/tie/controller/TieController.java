@@ -28,9 +28,11 @@ public class TieController {
 
     @CrossOrigin @UserLoginToken
     @ApiOperation(value = "发帖", notes = "发帖")
-    @PostMapping("/ties")
-    public ResultDTO doPublish(@RequestBody Tie tie){
-        ResultDTO result = tieService.publish(tie);
+    @PostMapping("/do")
+    public ResultDTO doPublish(@RequestBody Tie tie,
+                               HttpServletRequest httpServletRequest
+                               ){
+        ResultDTO result = tieService.publish(tie,httpServletRequest);
         return result;
     }
 

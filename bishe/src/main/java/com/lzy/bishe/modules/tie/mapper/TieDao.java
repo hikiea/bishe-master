@@ -17,9 +17,9 @@ public interface TieDao {
 
     /*发帖*/
     @Insert("insert into tie " +
-            "(userId,title,content,label,publishTime,picture,tieTypes,tieStatus) " +
+            "(userId,title,content,publishTime,picture,tieStatus) " +
             "values " +
-            "(#{userId},#{title},#{content},#{label},#{publishTime},#{picture},#{tieTypes},#{tieStatus})")
+            "(#{userId},#{title},#{content},#{publishTime},#{picture},#{tieStatus})")
     void publish(Tie tie);
 
     /*删帖*/
@@ -44,7 +44,7 @@ public interface TieDao {
     List<V_TieUser> selectPersonTie(Integer userId);
 
     /* 查询某一个帖子 */
-    @Select("select * from v_tie_user where tieId = #{tieId}")
+    @Select("select * from v_tie_user where id = #{tieId}")
     V_TieUser selectOneTie(Integer tieId);
 
     /* 查询某一个帖子时，增加浏览数 */

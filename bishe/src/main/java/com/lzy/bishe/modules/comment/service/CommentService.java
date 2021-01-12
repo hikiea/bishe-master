@@ -1,5 +1,6 @@
 package com.lzy.bishe.modules.comment.service;
 
+import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.lzy.bishe.modules.comment.mapper.CommentDao;
 import com.lzy.bishe.modules.comment.model.entry.Comment;
@@ -7,11 +8,14 @@ import com.lzy.bishe.modules.comment.model.entry.SecondComment;
 import com.lzy.bishe.modules.comment.model.entry.V_CommentUser;
 import com.lzy.bishe.modules.tie.service.TieService;
 import com.lzy.bishe.modules.user.service.UserService;
+import com.lzy.bishe.util.JWTInfo;
 import com.lzy.bishe.util.ResultDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -21,18 +25,16 @@ public class CommentService {
     @Autowired
     private CommentDao commentDao;
 
-    public ResultDTO doPublishComment(Comment comment){
-        /*获取当前时间*/
-        Date date = new Date();
-        String nowTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
-        comment.setCommentTime(nowTime);
-        /* 放入一级评论标志 */
+    public ResultDTO doPublishComment(Comment comment, HttpServletRequest httpServletRequest){
+        comment.setCommentUserId(JWTInfo.getUserId_int(httpServletRequest));
+        comment.setCommentTime(LocalDateTime.now());
         comment.setCommentTypes(0);
         commentDao.publishComment(comment);
-        return ResultDTO.successOf("发送成功",comment);
+        return ResultDTO.successOf("发送成功");
     }
 
-    public ResultDTO selectTeiComment(Integer tieId) {
+    public ResultDTO selectTeiComment(Integer tieId,Integer page, Integer size) {
+        PageHelper.startPage(page,size);
         List<V_CommentUser> comments = commentDao.selectTeiComment(tieId);
         PageInfo pageInfo = new PageInfo(comments);
         return ResultDTO.successOf("获取成功",pageInfo);

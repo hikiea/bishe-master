@@ -34,7 +34,7 @@ public class CommentController {
     @Autowired
     private TieDao tieDao;
 
-    @PostMapping("/first/comment")
+    @PostMapping("/first/do")
     @UserLoginToken
     @CrossOrigin
     @ApiOperation(value = "发表一级评论", notes = "发表一级评论")
@@ -45,20 +45,22 @@ public class CommentController {
                 httpServletRequest,
                 JWTInfo.getUserName(httpServletRequest)+" 评论了你：" + comment.getCommentContent(),
                 tie.getUserId());
-        ResultDTO resultDTO = commentService.doPublishComment(comment);
+        ResultDTO resultDTO = commentService.doPublishComment(comment,httpServletRequest);
         return resultDTO;
     }
 
     @ApiOperation(value = "查看帖子的一级评论", notes = "查看帖子的一级评论")
-    @GetMapping("/first/comment/{tieId}")
+    @GetMapping("/first/{tieId}")
     @UserLoginToken @CrossOrigin
-    public ResultDTO tieComment(@PathVariable("tieId") Integer tieId){
-        ResultDTO resultDTO = commentService.selectTeiComment(tieId);
+    public ResultDTO tieComment(@PathVariable("tieId") Integer tieId,
+                                @RequestParam(name = "page",defaultValue = "1") Integer page,
+                                @RequestParam(name = "size",defaultValue = "5") Integer size){
+        ResultDTO resultDTO = commentService.selectTeiComment(tieId,page,size);
         return resultDTO;
     }
 
     @ApiOperation(value = "删除一级评论,二级评论 ", notes = "删除一级评论,二级评论 ")
-    @PostMapping("/comment/{commentId}")
+    @PostMapping("/delete/{commentId}")
     @UserLoginToken @CrossOrigin
     public ResultDTO deDeleteTieComment(@PathVariable("commentId") Integer commentId){
         ResultDTO resultDTO = commentService.deleteTieComment(commentId);
@@ -66,7 +68,7 @@ public class CommentController {
     }
 
     @ApiOperation(value = "发布二级评论", notes = "发布二级评论")
-    @PostMapping("/second/comment")
+    @PostMapping("/second")
     @UserLoginToken @CrossOrigin
     public ResultDTO doPublishSecondComment(@RequestBody SecondComment secondComment,
                                             HttpServletRequest httpServletRequest){
@@ -80,14 +82,14 @@ public class CommentController {
     }
 
     @ApiOperation(value = "查询一条评论的二级评论", notes = "查询一条评论的二级评论")
-    @GetMapping("/second/comment/{replyCommentId}")
+    @GetMapping("/second/{replyCommentId}")
     @UserLoginToken @CrossOrigin
     public ResultDTO doSelectSecondComment(@PathVariable("replyCommentId") Integer replyCommentId){
         ResultDTO resultDTO = commentService.doSelectSecondComment(replyCommentId);
         return resultDTO;
     }
 
-    @PostMapping("/like/comment/{commentId}")
+    @PostMapping("/like/{commentId}")
     @ApiOperation(value = "点赞一级评论", notes = "点赞一级评论")
     @UserLoginToken @CrossOrigin
     public ResultDTO doLikeComment(@PathVariable("commentId") Integer commentId) {
@@ -96,7 +98,7 @@ public class CommentController {
     }
 
     @ApiOperation(value = "取消点赞一级评论", notes = "取消点赞一级评论")
-    @PostMapping("/notLike/comment/{commentId}")
+    @PostMapping("/notLike/{commentId}")
     @UserLoginToken @CrossOrigin
     public ResultDTO doNotLikeComment(@PathVariable("commentId") Integer commentId) {
         ResultDTO resultDTO = commentService.notLikeComment(commentId);

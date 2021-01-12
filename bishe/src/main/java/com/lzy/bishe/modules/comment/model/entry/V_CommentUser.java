@@ -43,4 +43,7 @@ public class V_CommentUser {
     @ApiModelProperty(notes = "评论人昵称")
     public String nickname;
 
+    @ApiModelProperty(notes = "评论人头像")
+    public String headUrl;
+
 }

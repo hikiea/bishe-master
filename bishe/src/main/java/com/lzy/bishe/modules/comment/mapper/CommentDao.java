@@ -11,11 +11,11 @@ import java.util.List;
 @Repository
 public interface CommentDao {
 
-    @Insert("Insert into comment (tieId,commentUserId,commentContent,commentTime,commentTypes,commentPicture) values " +
-            "(#{tieId},#{commentUserId},#{commentContent},#{commentTime},#{commentTypes},#{commentPicture})")
+    @Insert("Insert into comment (tieId,commentUserId,commentContent,commentTime,commentTypes) values " +
+            "(#{tieId},#{commentUserId},#{commentContent},#{commentTime},#{commentTypes})")
     void publishComment(Comment comment);
 
-    @Select("Select * from v_comment_user where tieId = #{tieId}")
+    @Select("Select * from v_comment_user where tieId = #{tieId} and replyCommentId is null")
     List<V_CommentUser> selectTeiComment(Integer tieId);
 
     @Select("Select * from v_comment_user where commentId = #{commentId}")
