@@ -98,7 +98,7 @@ public class AdminService {
         tieService.delete(tieId);
         V_TieUser tie = tieDao.selectOneTie(tieId);
         String data = "您的帖子已被管理员："+ userName + "删除";
-        notifyService.send(httpServletRequest,data,tie.getUserId());
+        notifyService.send(httpServletRequest,data,tie.getUserId(),tie.getId());
         return ResultDTO.successOf("帖子已删除成功，并通知当事人");
     }
 
@@ -107,7 +107,7 @@ public class AdminService {
         commentDao.deleteTieComment(id);
         V_CommentUser comment = commentDao.selectOneComment(id);
         String data = "您的回复已被管理员："+ userName + "删除";
-        notifyService.send(httpServletRequest,data,comment.getCommentUserId());
+        notifyService.send(httpServletRequest,data,comment.getCommentUserId(),comment.getTieId());
         return ResultDTO.successOf("评论已删除成功，并通知当事人");
     }
 }

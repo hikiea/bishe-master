@@ -49,4 +49,5 @@ public interface RepairDao {
 
     @Select("select count(*) from v_replace_user where repairStatus = '已完成' and okRepairUserId = #{id}")
     Integer finish(Integer id);
+
 }

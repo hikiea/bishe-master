@@ -70,10 +70,7 @@ public class CommentService {
     }
 
     public ResultDTO doPublishSecondComment(SecondComment secondComment) {
-        /*获取当前时间*/
-        Date date = new Date();
-        String nowTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
-        secondComment.setCommentTime(nowTime);
+        secondComment.setCommentTime(LocalDateTime.now());
         /* 放入二级评论标志 */
         secondComment.setCommentTypes(1);
         commentDao.publishSecondComment(secondComment);

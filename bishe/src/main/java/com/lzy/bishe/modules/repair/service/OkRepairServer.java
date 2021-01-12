@@ -33,7 +33,8 @@ public class OkRepairServer {
 
     public ResultDTO doAcceptRepair(Repair repair, HttpServletRequest httpServletRequest) {
         String data = "您的报修已被接单,请等待工作人员联系";
-        notifyService.send(httpServletRequest,data,repair.getRepairUserId());
+        V_ReplaceUser repairUser = repairDao.findRepairByRepairId(repair.getRepairId());
+        notifyService.send(httpServletRequest,data,repairUser.getRepairUserId(),null);
         repairDao.doAcceptRepair(repair);
         return ResultDTO.successOf("接单成功",repair);
     }

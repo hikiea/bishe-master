@@ -40,6 +40,9 @@ public class V_CommentUser {
     @ApiModelProperty(notes = "目标评论id")
     public Integer replyCommentId;
 
+    @ApiModelProperty(notes = "目标评论人名称")
+    public String replyNickname;
+
     @ApiModelProperty(notes = "评论人昵称")
     public String nickname;
 

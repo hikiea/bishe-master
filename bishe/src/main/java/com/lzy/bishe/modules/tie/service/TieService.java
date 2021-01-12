@@ -31,7 +31,6 @@ public class TieService {
 
     public ResultDTO publish(Tie tie, HttpServletRequest httpServletRequest){
         tie.setPublishTime(LocalDateTime.now());
-        tie.setTieStatus(TieStatusCode.NORMAL.getMessage());
         tie.setUserId(JWTInfo.getUserId_int(httpServletRequest));
         User user = userMapper.findUserById(JWTInfo.getUserId_int(httpServletRequest));
         if (user.getPublishStatus() == 1){

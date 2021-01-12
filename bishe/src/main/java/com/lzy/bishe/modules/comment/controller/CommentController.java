@@ -43,8 +43,8 @@ public class CommentController {
         V_TieUser tie = tieDao.selectOneTie(comment.getTieId());
         notifyService.send(
                 httpServletRequest,
-                JWTInfo.getUserName(httpServletRequest)+" 评论了你：" + comment.getCommentContent(),
-                tie.getUserId());
+                JWTInfo.getUserNickName(httpServletRequest)+" 评论了你：" + comment.getCommentContent(),
+                tie.getUserId(),tie.getId());
         ResultDTO resultDTO = commentService.doPublishComment(comment,httpServletRequest);
         return resultDTO;
     }
@@ -72,12 +72,17 @@ public class CommentController {
     @UserLoginToken @CrossOrigin
     public ResultDTO doPublishSecondComment(@RequestBody SecondComment secondComment,
                                             HttpServletRequest httpServletRequest){
-        V_CommentUser info = commentService.selectByComplaintId(secondComment.getCommentId());
+        if (secondComment.getCommentContent().equals("")){
+            return ResultDTO.errorOf(500,"评论不能为空");
+        }
+        V_CommentUser info = commentService.selectByComplaintId(secondComment.getReplyCommentId());
+        secondComment.setCommentUserId(JWTInfo.getUserId_int(httpServletRequest));
+        ResultDTO resultDTO = commentService.doPublishSecondComment(secondComment);
         notifyService.send(
                 httpServletRequest,
-                JWTInfo.getUserName(httpServletRequest)+" 评论了你：" + secondComment.getCommentContent(),
-                info.getCommentId());
-        ResultDTO resultDTO = commentService.doPublishSecondComment(secondComment);
+                JWTInfo.getUserNickName(httpServletRequest)+" 评论了你：" + secondComment.getCommentContent(),
+                info.getCommentUserId(),
+                info.getTieId());
         return resultDTO;
     }
 

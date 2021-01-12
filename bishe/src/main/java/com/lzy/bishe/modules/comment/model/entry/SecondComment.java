@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 /**
  * @author Lzy
  */
@@ -26,7 +28,7 @@ public class SecondComment {
     public String commentContent;
 
     @ApiModelProperty(notes = "时间")
-    public String commentTime;
+    public LocalDateTime commentTime;
 
     @ApiModelProperty(notes = "评论类型")
     public Integer commentTypes;

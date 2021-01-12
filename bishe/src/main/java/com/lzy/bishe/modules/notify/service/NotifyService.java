@@ -25,13 +25,14 @@ public class NotifyService {
 
     public void send(HttpServletRequest httpServletRequest,
                      String data,
-                     Integer targetId) {
+                     Integer targetId,Integer tieId) {
         Notify notify = new Notify();
         notify.setNotifierId(Integer.parseInt(JWTInfo.getUserId(httpServletRequest)));
         notify.setReceiverId(targetId);
         notify.setData(data);
         notify.setStatus(NotifyStatusCode.NO_READ.getCode());
         notify.setNotifyTime(LocalDateTime.now());
+        notify.setTieId(tieId);
         notifyMapper.send(notify);
     }
 
@@ -60,5 +61,18 @@ public class NotifyService {
         int id = Integer.parseInt(JWTInfo.getUserId(httpServletRequest));
         notifyMapper.delete(id);
         return ResultDTO.successOf("删除成功");
+    }
+
+    public ResultDTO queryNoSee(HttpServletRequest httpServletRequest, Integer page, Integer size) {
+        int id = Integer.parseInt(JWTInfo.getUserId(httpServletRequest));
+        PageHelper.startPage(page,size);
+        List<Notify> list = notifyMapper.queryNoSee(id);
+        PageInfo pageInfo = new PageInfo(list);
+        return ResultDTO.successOf("通知获取成功",pageInfo);
+    }
+
+    public Integer newNumber(HttpServletRequest httpServletRequest) {
+        Integer id = JWTInfo.getUserId_int(httpServletRequest);
+        return notifyMapper.newNumber(id);
     }
 }

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author Lzy
  */
 @RestController
-@RequestMapping("/api/notify")
+@RequestMapping("/api/news")
 @CrossOrigin
 @Slf4j
 @Api(tags = {"NotifyController"}, description = "消息通知相关接口")
@@ -28,17 +28,27 @@ public class NotifyController {
     @CrossOrigin
     @ApiOperation(value = "发起通知", notes = "发起通知")
     public ResultDTO doNotify(HttpServletRequest httpServletRequest){
-        notifyService.send(httpServletRequest,"测试",123);
+        notifyService.send(httpServletRequest,"测试",123,null);
         return ResultDTO.successOf("通知发送成功");
     }
 
-    @PostMapping("/query")
+    @GetMapping("/query")
     @CrossOrigin
     @ApiOperation(value = "查看自己所有的通知", notes = "查看自己所有的通知")
     public ResultDTO query(HttpServletRequest httpServletRequest,
                            @RequestParam(name = "page", defaultValue = "1") Integer page,
                            @RequestParam(name = "size", defaultValue = "5") Integer size){
         ResultDTO query = notifyService.query(httpServletRequest, page, size);
+        return ResultDTO.successOf("获取通知成功",query);
+    }
+
+    @GetMapping("/queryNoSee")
+    @CrossOrigin
+    @ApiOperation(value = "查看未读通知", notes = "查看未读通知")
+    public ResultDTO queryNoSee(HttpServletRequest httpServletRequest,
+                           @RequestParam(name = "page", defaultValue = "1") Integer page,
+                           @RequestParam(name = "size", defaultValue = "5") Integer size){
+        ResultDTO query = notifyService.queryNoSee(httpServletRequest, page, size);
         return ResultDTO.successOf("获取通知成功",query);
     }
 
@@ -62,6 +72,14 @@ public class NotifyController {
     @ApiOperation(value = "删除所有通知", notes = "删除所有通知")
     public ResultDTO delete(HttpServletRequest httpServletRequest){
         return notifyService.delete(httpServletRequest);
+    }
+
+
+    @GetMapping("/newNumber")
+    @CrossOrigin
+    @ApiOperation(value = "未读通知数", notes = "未读通知数")
+    public Integer newNumber(HttpServletRequest httpServletRequest){
+        return notifyService.newNumber(httpServletRequest);
     }
 
 }

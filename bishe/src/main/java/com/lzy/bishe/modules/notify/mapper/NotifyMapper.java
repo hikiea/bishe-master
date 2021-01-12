@@ -13,8 +13,8 @@ import java.util.List;
 @Repository
 public interface NotifyMapper {
 
-    @Insert("insert into notify(notifierId,receiverId,status,data,notifyTime)" +
-            "value (#{notifierId},#{receiverId},#{status},#{data},#{notifyTime})")
+    @Insert("insert into notify(notifierId,receiverId,status,data,notifyTime,tieId)" +
+            "value (#{notifierId},#{receiverId},#{status},#{data},#{notifyTime},#{tieId})")
     void send(Notify notify);
 
     @Select("select * from notify where receiverId = #{id}")
@@ -28,4 +28,10 @@ public interface NotifyMapper {
 
     @Delete("delete from notify where receiverId = #{id}")
     void delete(Integer id);
+
+    @Select("select * from notify where receiverId = #{id} and status = '0'")
+    List<Notify> queryNoSee(int id);
+
+    @Select("select count(*) from notify where receiverId = #{id} and status = '0'")
+    Integer newNumber(Integer id);
 }

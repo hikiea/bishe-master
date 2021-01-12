@@ -1,5 +1,6 @@
 package com.lzy.bishe.modules.notify.model.entry;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -31,6 +32,10 @@ public class Notify {
     private String data;
 
     @ApiModelProperty(notes = "通知时间")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime notifyTime;
+
+    @ApiModelProperty(notes = "帖子id")
+    private Integer tieId;
 
 }
