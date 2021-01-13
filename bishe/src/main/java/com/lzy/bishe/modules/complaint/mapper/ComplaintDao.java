@@ -20,10 +20,10 @@ public interface ComplaintDao {
             "(#{userId},#{complaintContent},#{complaintTime},#{status})")
     void publishComplaint(Complaint publishComplaint);
 
-    @Select("select * from v_complaint_user where userId = #{userId}")
+    @Select("select * from v_complaint_user where userId = #{userId} order by complaintTime desc")
     List<V_ComplaintUser> selectMyComplaint(Integer userId);
 
-    @Select("select * from v_complaint_user where communityId = #{communityId}")
+    @Select("select * from v_complaint_user where communityId = #{communityId} order by complaintTime desc")
     List<V_ComplaintUser> selectCommunityComplaint(String communityId);
 
     @Update("update complaint set " +
@@ -42,13 +42,13 @@ public interface ComplaintDao {
             "complaintId = #{complaintId}")
     void finish(Complaint complaint);
 
-    @Select("select * from v_complaint_user where communityId = #{communityId} and status <> '已跟进'")
+    @Select("select * from v_complaint_user where communityId = #{communityId} and status <> '已跟进' order by complaintTime desc")
     List<V_ComplaintUser> doSelectCommunityComplaint_no(String communityId);
 
-    @Select("select * from v_complaint_user where communityId = #{communityId} and complaintContent like '%${content}%' ")
+    @Select("select * from v_complaint_user where communityId = #{communityId} and complaintContent like '%${content}%' order by complaintTime desc")
     List<V_ComplaintUser> queryByContent(String communityId, String content);
 
-    @Select("select * from v_complaint_user where communityId = #{communityId} and complaintContent like '%${content}%' and status <> '已跟进'")
+    @Select("select * from v_complaint_user where communityId = #{communityId} and complaintContent like '%${content}%' and status <> '已跟进' order by complaintTime desc")
     List<V_ComplaintUser> queryByContent_no(String communityId, String content);
 
     @Select("SELECT COUNT(*) FROM v_complaint_user where communityId =  #{id} ")

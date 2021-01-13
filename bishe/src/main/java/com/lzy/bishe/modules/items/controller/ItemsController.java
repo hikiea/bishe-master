@@ -34,11 +34,10 @@ public class ItemsController {
     }
 
     @ApiOperation(value = "修改物品", notes = "修改物品")
-    @PostMapping("/updateItem")
+    @PostMapping("/updateItem/{id}")
     @UserLoginToken @CrossOrigin
-    public ResultDTO updateItem(@RequestBody Items items,
-                             HttpServletRequest httpServletRequest){
-        return itemsService.updateItem(items,httpServletRequest);
+    public ResultDTO updateItem(@PathVariable("id")Integer id){
+        return itemsService.updateItem(id);
     }
 
     @ApiOperation(value = "删除物品", notes = "删除物品")
@@ -52,15 +51,19 @@ public class ItemsController {
     @ApiOperation(value = "查看家里已经购买的物品", notes = "查看家里已经购买的物品")
     @GetMapping("/queryBuy")
     @UserLoginToken @CrossOrigin
-    public ResultDTO queryBuy(HttpServletRequest httpServletRequest){
-        return itemsService.queryBuy(httpServletRequest);
+    public ResultDTO queryBuy(HttpServletRequest httpServletRequest,
+                              @RequestParam(name = "page",defaultValue = "1") Integer page,
+                              @RequestParam(name = "size",defaultValue = "5") Integer size){
+        return itemsService.queryBuy(httpServletRequest,page,size);
     }
 
     @ApiOperation(value = "查看未购买的物品", notes = "查看家里已经购买的物品")
     @GetMapping("/queryNoBuy")
     @UserLoginToken @CrossOrigin
-    public ResultDTO queryNoBuy(HttpServletRequest httpServletRequest){
-        return itemsService.queryNoBuy(httpServletRequest);
+    public ResultDTO queryNoBuy(HttpServletRequest httpServletRequest,
+                                @RequestParam(name = "page",defaultValue = "1") Integer page,
+                                @RequestParam(name = "size",defaultValue = "5") Integer size){
+        return itemsService.queryNoBuy(httpServletRequest,page,size);
     }
 
     @ApiOperation(value = "通过名字模糊查询", notes = "通过名字模糊查询")

@@ -41,7 +41,7 @@ public class V_ItemsUser {
     private String nickname;
 
     @ApiModelProperty(notes = "小区id")
-    private Integer communityId;
+    private String communityId;
 
     @ApiModelProperty(notes = "门牌号")
     private String address;

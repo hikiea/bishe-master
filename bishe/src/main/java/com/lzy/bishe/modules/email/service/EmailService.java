@@ -1,9 +1,6 @@
 package com.lzy.bishe.modules.email.service;
 
-import com.lzy.bishe.util.ResultDTO;
-import com.sun.istack.internal.NotNull;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
+
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class EmailService {
 
-    @NotNull
+   /* @NotNull
     private JavaMailSenderImpl mailSender;
 
     public JavaMailSenderImpl getMailSender() {
@@ -31,6 +28,6 @@ public class EmailService {
         message.setFrom("594183034@qq.com");
         getMailSender().send(message);
         return ResultDTO.successOf("发送成功",message);
-    }
+    }*/
 
 }

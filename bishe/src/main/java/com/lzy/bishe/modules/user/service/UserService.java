@@ -100,12 +100,13 @@ public class UserService {
     }
 
     public ResultDTO checkLogin(UserLoginDTO userLoginInfo) {
+        Object code2 = redisCodeUtil.get(userLoginInfo.getCode());
         String code = userLoginInfo.getCode();
         JSONObject jsonObject=new JSONObject();
-/*        if (!code.equals(code2)){
+        if (!code.equals(code2)){
             redisCodeUtil.del(code);
             return ResultDTO.errorOf(500,"验证码错误");
-        }*/
+        }
         User userForBase=userService.findByUsername(userLoginInfo.getUsername());
         if(userForBase==null){
             redisCodeUtil.del(code);

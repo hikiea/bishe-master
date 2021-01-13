@@ -111,4 +111,14 @@ public class TieController {
         return trans;
     }
 
+    @CrossOrigin
+    @GetMapping("/getGiteeHTML")
+    public Object getGiteeHTML(){
+        RestTemplate restTemplate = new RestTemplate();
+        String url = "https://gitee.com/oauth/authorize?client_id=d5c2460b0d184927c832ab2d71e7d24ce5b656c352ea28308b66e3f5a6503b75&redirect_uri=http://localhost:8893/callBack&response_type=code";
+        System.out.println(url);
+        String trans = restTemplate.getForObject(url,String.class);
+        return trans;
+    }
+
 }

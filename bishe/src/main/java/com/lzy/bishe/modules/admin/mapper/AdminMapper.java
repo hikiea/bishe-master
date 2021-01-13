@@ -27,6 +27,6 @@ public interface AdminMapper {
     @Delete("delete from user where id = #{id}")
     void deleteUser(Integer id);
 
-    @Select("select * from user where username = #{username}")
+    @Select("select * from user where username = #{username} order by createTime desc")
     List<User> getAllUserInfoByUsername(String username);
 }

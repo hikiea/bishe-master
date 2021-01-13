@@ -18,17 +18,8 @@ public interface ItemsMapper {
             "values (#{userId},#{itemName},#{itemNum},#{itemPicture},#{isBuy},#{money},#{addTime})")
     void addItems(Items items);
 
-    @Update("update items set " +
-            "userId = #{userId}," +
-            "itemName = #{itemName}," +
-            "itemNum = #{itemNum}," +
-            "isBuy = #{isBuy}," +
-            "money = #{money}," +
-            "addTime = #{addTime}," +
-            "itemPicture = #{itemPicture} " +
-            "where " +
-            "id = #{id}")
-    void updateItem(Items items);
+    @Update("update items set isBuy = '0' where id = #{id}")
+    void updateItem(Integer items);
 
     @Delete("delete from items where id = #{id}")
     void deleteItem(Integer id);

@@ -15,7 +15,7 @@ public interface CommentDao {
             "(#{tieId},#{commentUserId},#{commentContent},#{commentTime},#{commentTypes})")
     void publishComment(Comment comment);
 
-    @Select("Select * from v_comment_user where tieId = #{tieId} and replyCommentId is null")
+    @Select("Select * from v_comment_user where tieId = #{tieId} and replyCommentId is null order by commentTime desc")
     List<V_CommentUser> selectTeiComment(Integer tieId);
 
     @Select("Select * from v_comment_user where commentId = #{commentId}")
@@ -28,7 +28,7 @@ public interface CommentDao {
             "(#{tieId},#{commentUserId},#{commentContent},#{commentTime},#{commentTypes},#{replyCommentId})")
     void publishSecondComment(SecondComment secondComment);
 
-    @Select("Select * from v_comment_user where replyCommentId = #{replyCommentId} and commentTypes = #{commentTypes}")
+    @Select("Select * from v_comment_user where replyCommentId = #{replyCommentId} and commentTypes = #{commentTypes} order by commentTime desc")
     List<V_CommentUser> doSelectSecondComment(Integer replyCommentId, Integer commentTypes);
 
     @Update("Update comment set commentLikes = #{commentLikes} where commentId = #{commentId}")

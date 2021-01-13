@@ -36,4 +36,9 @@ public class UpdateUserInfoDTO {
     @ApiModelProperty(notes = "门牌号")
     private String address;
 
+    @ApiModelProperty(notes = "门牌号")
+    private String power;
+
+
+
 }

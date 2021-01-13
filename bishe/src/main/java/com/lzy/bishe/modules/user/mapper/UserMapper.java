@@ -31,7 +31,7 @@ public interface UserMapper {
     @Select("select * from user where id = #{id}")
     User getUserMessage(String id);
 
-    @Update("update user set password = #{password},nickname = #{nickname},tel = #{tel},headUrl = #{headUrl},communityId = #{communityId},address = #{address} where id = #{id}")
+    @Update("update user set password = #{password},nickname = #{nickname},tel = #{tel},headUrl = #{headUrl},communityId = #{communityId},address = #{address},power = #{power} where id = #{id}")
     void updateUserMessage(UpdateUserInfoDTO userInfo);
 
     @Select("select * from user where username = #{username}")
