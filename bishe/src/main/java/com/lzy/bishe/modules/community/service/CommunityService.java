@@ -1,5 +1,7 @@
 package com.lzy.bishe.modules.community.service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.lzy.bishe.modules.community.mapper.CommunityMapper;
 import com.lzy.bishe.modules.community.model.Community;
 import com.lzy.bishe.util.ResultDTO;
@@ -17,9 +19,11 @@ public class CommunityService {
     @Autowired
     private CommunityMapper communityMapper;
 
-    public ResultDTO getAllCommunity() {
+    public ResultDTO getAllCommunity(Integer page, Integer size) {
+        PageHelper.startPage(page,size);
         List<Community> allCommunity = communityMapper.getAllCommunity();
-        return ResultDTO.successOf("小区获取成功",allCommunity);
+        PageInfo pageInfo = new PageInfo(allCommunity);
+        return ResultDTO.successOf("小区获取成功",pageInfo);
     }
 
     public ResultDTO deleteCommunity(Integer id) {

@@ -1,5 +1,7 @@
 package com.lzy.bishe.modules.community.controller;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.lzy.bishe.annotation.UserLoginToken;
 import com.lzy.bishe.modules.community.model.Community;
 import com.lzy.bishe.modules.community.service.CommunityService;
@@ -24,10 +26,11 @@ public class CommunityController {
     private CommunityService communityService;
 
     @GetMapping("/getAllCommunity")
-    @CrossOrigin @UserLoginToken
+    @CrossOrigin
     @ApiOperation(value = "查询所有小区", notes = "查询所有小区")
-    public ResultDTO getAllCommunity(){
-        ResultDTO resultDTO = communityService.getAllCommunity();
+    public ResultDTO getAllCommunity(@RequestParam(name = "page",defaultValue = "1") Integer page,
+                                     @RequestParam(name = "size",defaultValue = "5") Integer size){
+        ResultDTO resultDTO = communityService.getAllCommunity(page,size);
         return resultDTO;
     }
 
