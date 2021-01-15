@@ -67,10 +67,10 @@ public class ItemsController {
     }
 
     @ApiOperation(value = "通过名字模糊查询", notes = "通过名字模糊查询")
-    @GetMapping("/queryByName")
+    @GetMapping("/queryByName/{itemName}")
     @UserLoginToken @CrossOrigin
     public ResultDTO queryByName(HttpServletRequest httpServletRequest,
-                                 @RequestParam(name = "itemName") String itemName){
+                                 @PathVariable("itemName") String itemName){
         return itemsService.queryByName(httpServletRequest,itemName);
     }
 
