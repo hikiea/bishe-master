@@ -1,7 +1,7 @@
 package com.lzy.bishe.common;
 
 public enum TieStatusCode implements BaseCode{
-    NORMAL(0,"普通帖"),
+    NORMAL(0,"普通贴"),
     ANNOUNCEMENT (1,"公告贴"),
 
     ;

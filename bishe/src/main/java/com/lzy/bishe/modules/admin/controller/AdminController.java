@@ -30,7 +30,7 @@ public class AdminController {
     private AdminService adminService;
 
     @CrossOrigin @UserLoginToken
-    @ApiOperation(value = "查询所有帖子", notes = "查询所有帖子")
+    @ApiOperation(value = "查询所有贴子", notes = "查询所有贴子")
     @GetMapping("/query")
     public ResultDTO deSelectAllTie2(@RequestParam(name = "page", defaultValue = "1") Integer page,
                                      @RequestParam(name = "size", defaultValue = "5") Integer size){
@@ -74,7 +74,7 @@ public class AdminController {
 
     @GetMapping("/deleteTie/{tieId}")
     @UserLoginToken @CrossOrigin
-    @ApiOperation(value = "删除帖子与评论", notes = "删除帖子与评论")
+    @ApiOperation(value = "删除贴子与评论", notes = "删除贴子与评论")
     public ResultDTO deleteTie(@PathVariable("tieId") Integer tieId, HttpServletRequest httpServletRequest){
         ResultDTO allUserInfo = adminService.deleteTie(tieId,httpServletRequest);
         return allUserInfo;

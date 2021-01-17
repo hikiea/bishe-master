@@ -97,9 +97,9 @@ public class AdminService {
         String userName = JWTInfo.getUserName(httpServletRequest);
         tieService.delete(tieId);
         V_TieUser tie = tieDao.selectOneTie(tieId);
-        String data = "您的帖子已被管理员："+ userName + "删除";
+        String data = "您的贴子已被管理员："+ userName + "删除";
         notifyService.send(httpServletRequest,data,tie.getUserId(),tie.getId());
-        return ResultDTO.successOf("帖子已删除成功，并通知当事人");
+        return ResultDTO.successOf("贴子已删除成功，并通知当事人");
     }
 
     public ResultDTO deleteComment(Integer id, HttpServletRequest httpServletRequest) {

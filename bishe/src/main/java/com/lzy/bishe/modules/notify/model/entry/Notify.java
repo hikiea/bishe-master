@@ -35,7 +35,7 @@ public class Notify {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime notifyTime;
 
-    @ApiModelProperty(notes = "帖子id")
+    @ApiModelProperty(notes = "贴子id")
     private Integer tieId;
 
 }

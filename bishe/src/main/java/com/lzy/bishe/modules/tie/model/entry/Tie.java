@@ -19,7 +19,7 @@ public class Tie {
     @ApiModelProperty(notes = "主键id")
     private Integer tieId;
 
-    @ApiModelProperty(notes = "发帖人 id")
+    @ApiModelProperty(notes = "发贴人 id")
     private Integer userId;
 
     @ApiModelProperty(notes = "标题")
@@ -41,7 +41,7 @@ public class Tie {
     @ApiModelProperty(notes = "点赞次数")
     private Integer likes;
 
-    @ApiModelProperty(notes = "帖子属性")
+    @ApiModelProperty(notes = "贴子属性")
     private String tieStatus;
 
 

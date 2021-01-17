@@ -34,16 +34,16 @@ public class TieService {
         tie.setUserId(JWTInfo.getUserId_int(httpServletRequest));
         User user = userMapper.findUserById(JWTInfo.getUserId_int(httpServletRequest));
         if (user.getPublishStatus() == 1){
-            return ResultDTO.errorOf(500,"您已被禁言，不能发帖");
+            return ResultDTO.errorOf(500,"您已被禁言，不能发贴");
         }else{
             tieDao.publish(tie);
-            return ResultDTO.successOf("发帖成功");
+            return ResultDTO.successOf("发贴成功");
         }
     }
 
     public ResultDTO delete(Integer tieId){
         tieDao.deleteTie(tieId);
-        return ResultDTO.successOf("删帖成功");
+        return ResultDTO.successOf("删贴成功");
     }
 
     public ResultDTO update(Tie tie) {

@@ -49,7 +49,7 @@ public class CommentController {
         return resultDTO;
     }
 
-    @ApiOperation(value = "查看帖子的一级评论", notes = "查看帖子的一级评论")
+    @ApiOperation(value = "查看贴子的一级评论", notes = "查看贴子的一级评论")
     @GetMapping("/first/{tieId}")
     @UserLoginToken @CrossOrigin
     public ResultDTO tieComment(@PathVariable("tieId") Integer tieId,

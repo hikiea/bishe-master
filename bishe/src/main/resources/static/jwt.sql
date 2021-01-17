@@ -23,7 +23,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment`  (
   `commentId` int(11) NOT NULL AUTO_INCREMENT COMMENT '评论id',
-  `tieId` int(11) NULL DEFAULT NULL COMMENT '帖子id',
+  `tieId` int(11) NULL DEFAULT NULL COMMENT '贴子id',
   `commentUserId` int(11) NULL DEFAULT NULL COMMENT '评论人id',
   `commentContent` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '评论内容',
   `commentTime` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '评论时间',
@@ -86,7 +86,7 @@ CREATE TABLE `notify`  (
   `status` int(255) NULL DEFAULT 0 COMMENT '标记是否已读',
   `data` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '通知所携带数据',
   `notifyTime` datetime(0) NULL DEFAULT NULL COMMENT '通知时间',
-  `tieId` int(255) NULL DEFAULT NULL COMMENT '帖子Id',
+  `tieId` int(255) NULL DEFAULT NULL COMMENT '贴子Id',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 90 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
@@ -111,16 +111,16 @@ CREATE TABLE `repair`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `tie`;
 CREATE TABLE `tie`  (
-  `tieId` int(11) NOT NULL AUTO_INCREMENT COMMENT '帖子id',
+  `tieId` int(11) NOT NULL AUTO_INCREMENT COMMENT '贴子id',
   `userId` int(11) NULL DEFAULT NULL COMMENT '用户id',
-  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '帖子标题',
-  `content` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '帖子内容',
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '贴子标题',
+  `content` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '贴子内容',
   `publishTime` datetime(0) NULL DEFAULT NULL COMMENT '发布时间',
   `picture` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '图片地址',
   `browse` int(255) NULL DEFAULT 0 COMMENT '浏览次数',
-  `tieTypes` int(255) NULL DEFAULT NULL COMMENT '帖子类型',
+  `tieTypes` int(255) NULL DEFAULT NULL COMMENT '贴子类型',
   `likes` int(255) NULL DEFAULT 0 COMMENT '点赞次数',
-  `tieStatus` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '帖子属性',
+  `tieStatus` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '贴子属性',
   PRIMARY KEY (`tieId`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 100 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 

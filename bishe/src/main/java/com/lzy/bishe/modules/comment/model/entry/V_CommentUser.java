@@ -16,7 +16,7 @@ public class V_CommentUser {
     @ApiModelProperty(notes = "主键id")
     public Integer commentId;
 
-    @ApiModelProperty(notes = "帖子id")
+    @ApiModelProperty(notes = "贴子id")
     public Integer tieId;
 
     @ApiModelProperty(notes = "用户id")

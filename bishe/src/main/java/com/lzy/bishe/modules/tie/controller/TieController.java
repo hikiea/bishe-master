@@ -20,14 +20,14 @@ import javax.servlet.http.HttpServletRequest;
  */
 @RestController
 @RequestMapping("/api/tie")
-@Api(tags = {"TieController"}, description = "帖子相关接口")
+@Api(tags = {"TieController"}, description = "贴子相关接口")
 public class TieController {
 
     @Autowired
     private TieService tieService;
 
     @CrossOrigin @UserLoginToken
-    @ApiOperation(value = "发帖", notes = "发帖")
+    @ApiOperation(value = "发贴", notes = "发贴")
     @PostMapping("/do")
     public ResultDTO doPublish(@RequestBody Tie tie,
                                HttpServletRequest httpServletRequest
@@ -37,7 +37,7 @@ public class TieController {
     }
 
     @CrossOrigin @UserLoginToken
-    @ApiOperation(value = "删帖", notes = "删帖")
+    @ApiOperation(value = "删贴", notes = "删贴")
     @PostMapping("/delete/{tieId}")
     public ResultDTO deDelete(@PathVariable("tieId") Integer tieId){
         ResultDTO result = tieService.delete(tieId);
@@ -55,7 +55,7 @@ public class TieController {
     }
 
     @CrossOrigin @UserLoginToken
-    @ApiOperation(value = "查看个人所有帖子", notes = "查看个人所有帖子")
+    @ApiOperation(value = "查看个人所有贴子", notes = "查看个人所有贴子")
     @GetMapping("/queryByUserId")
     public ResultDTO doSelectPersonTie(HttpServletRequest httpServletRequest,
                                        @RequestParam(name = "page", defaultValue = "1") Integer page,
@@ -66,7 +66,7 @@ public class TieController {
     }
 
     @CrossOrigin @UserLoginToken
-    @ApiOperation(value = "查询某一个帖子", notes = "查询某一个帖子")
+    @ApiOperation(value = "查询某一个贴子", notes = "查询某一个贴子")
     @GetMapping("/queryById/{tieId}")
     public ResultDTO doSelectOneTie(@PathVariable("tieId") Integer tieId){
         ResultDTO resultDTO = tieService.selectOneTie(tieId);
@@ -74,7 +74,7 @@ public class TieController {
     }
 
     @CrossOrigin @UserLoginToken
-    @ApiOperation(value = "查询小区所有帖子", notes = "查询小区所有帖子")
+    @ApiOperation(value = "查询小区所有贴子", notes = "查询小区所有贴子")
     @GetMapping("/community")
     public ResultDTO doSelectCommunityTie(HttpServletRequest httpServletRequest,
                                           @RequestParam(name = "status") String status,
@@ -86,7 +86,7 @@ public class TieController {
     }
 
     @CrossOrigin @UserLoginToken
-    @ApiOperation(value = "点赞帖子", notes = "点赞帖子")
+    @ApiOperation(value = "点赞贴子", notes = "点赞贴子")
     @PostMapping("/like/{tieId}")
     public ResultDTO doLikeTie(@PathVariable("tieId") Integer tieId){
         ResultDTO resultDTO = tieService.likeTie(tieId);
@@ -94,7 +94,7 @@ public class TieController {
     }
 
     @CrossOrigin @UserLoginToken
-    @ApiOperation(value = "取消点赞帖子", notes = "取消点赞帖子")
+    @ApiOperation(value = "取消点赞贴子", notes = "取消点赞贴子")
     @PostMapping("/notLike/{tieId}")
     public ResultDTO doNotLikeTie(@PathVariable("tieId") Integer tieId){
         ResultDTO resultDTO = tieService.NotLikeTie(tieId);

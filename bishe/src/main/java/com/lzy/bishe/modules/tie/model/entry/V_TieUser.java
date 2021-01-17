@@ -16,10 +16,10 @@ public class V_TieUser {
     @ApiModelProperty(notes = "主键id")
     private Integer id;
 
-    @ApiModelProperty(notes = "发帖人 id")
+    @ApiModelProperty(notes = "发贴人 id")
     private Integer userId;
 
-    @ApiModelProperty(notes = "发帖人小区Id")
+    @ApiModelProperty(notes = "发贴人小区Id")
     private String communityId;
 
     @ApiModelProperty(notes = "标题")
@@ -37,13 +37,13 @@ public class V_TieUser {
     @ApiModelProperty(notes = "浏览次数")
     private Integer browse;
 
-    @ApiModelProperty(notes = "帖子类型")
+    @ApiModelProperty(notes = "贴子类型")
     private Integer tieTypes;
 
     @ApiModelProperty(notes = "点赞次数")
     private Integer likes;
 
-    @ApiModelProperty(notes = "帖子属性")
+    @ApiModelProperty(notes = "贴子属性")
     private String tieStatus;
 
     @ApiModelProperty(notes = "用户昵称")
