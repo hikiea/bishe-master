@@ -81,11 +81,6 @@ public class UserService {
             user.setCreateTime(LocalDateTime.now());
             user.setPublishStatus(0);
             userMapper.registerUser(user);
-            try{
-//                emailService.sendEmail(user.getEmail(),"大小一家欢迎您","大小一家欢迎您的加入，请体验我们的服务");
-            }catch (Exception e){
-                return ResultDTO.errorOf(500,"邮件服务调用失败");
-            }
             return ResultDTO.successOf("用户注册成功");
         }
     }
@@ -102,11 +97,11 @@ public class UserService {
     public ResultDTO checkLogin(UserLoginDTO userLoginInfo) {
         String code = userLoginInfo.getCode();
         JSONObject jsonObject=new JSONObject();
-/*        Object code2 = redisCodeUtil.get(userLoginInfo.getCode());
+        Object code2 = redisCodeUtil.get(userLoginInfo.getCode());
         if (!code.equals(code2)){
             redisCodeUtil.del(code);
             return ResultDTO.errorOf(500,"验证码错误");
-        }*/
+        }
         User userForBase=userService.findByUsername(userLoginInfo.getUsername());
         if(userForBase==null){
             redisCodeUtil.del(code);

@@ -18,7 +18,7 @@ import java.util.List;
 @Repository
 public interface AdminMapper {
 
-    @Select("select * from user")
+    @Select("select * from user order by createTime asc")
     List<User> getAllUserInfo();
 
     @Update("update user set publishStatus = #{status} where id = #{id}")

@@ -78,7 +78,6 @@ public class TieService {
         List<V_TieUser> ties = tieDao.selectCommunityTie(communityId,status);
         PageInfo pageInfo = new PageInfo(ties);
         return ResultDTO.successOf("获取成功",pageInfo);
-
     }
 
     public ResultDTO likeTie(Integer tieId) {
