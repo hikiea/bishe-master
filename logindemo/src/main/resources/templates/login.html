@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="/css/community.css">
+<script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/bootstrap.min.js" type="application/javascript"></script>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- Loding font -->
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,700" rel="stylesheet">
+<!-- Custom Styles -->
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+</head>
+<body>
+
+<div id="login-bg" class="container-fluid">
+    <div class="bg-img"></div>
+    <div class="bg-color"></div>
+</div>
+
+<div class="container" id="login">
+    <div class="row justify-content-center">
+        <div class="col-lg-12">
+            <div class="login">
+
+                <h2>先登录吧！</h2>
+                <!-- Loging form -->
+                <form action="/login" method="post">
+                    <!--账号-->
+                    <div class="form-group">
+                        <input name="username" id="username" type="text" class="form-control"
+                               aria-describedby="emailHelp" placeholder="在此输入账号">
+                    </div>
+                    <!--密码-->
+                    <div class="form-group">
+                        <input name="password" id="password" type="password" class="form-control"
+                               placeholder="在此输入账号密码">
+                    </div>
+
+                    <div class="form-check">
+                        <a style="color: #00B72E;" class="forgot-password" href="register">还未注册？</a>
+                    </div>
+
+                    <br>
+                    <button style="margin-top: 10px" type="submit" class="btn btn-lg btn-block btn-success">登录</button>
+                </form>
+                <!-- End Loging form -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+</script>
+
+</body>
+</html>

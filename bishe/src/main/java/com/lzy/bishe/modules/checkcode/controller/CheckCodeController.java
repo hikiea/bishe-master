@@ -43,10 +43,7 @@ public class CheckCodeController {
             //设置长宽
             CheckCode checkCode = checkCodeService.generate(80, 28);
             String code = checkCode.getCode();
-            //将VerifyCode绑定session
-            request.getSession().setAttribute("code", code);
             redisCodeUtil.set(code,code);
-            System.out.println("获取验证码图片接口中的值:" + request.getSession().getAttribute("code"));
             //设置响应头
             response.setHeader("Pragma", "no-cache");
             //设置响应头
@@ -57,7 +54,6 @@ public class CheckCodeController {
             response.setContentType("image/jpeg");
             response.getOutputStream().write(checkCode.getImgBytes());
             response.getOutputStream().flush();
-
         } catch (IOException e) {
             e.printStackTrace();
         }

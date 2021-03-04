@@ -24,8 +24,8 @@ public class PictureService {
             //防止图片名字重复
             String resultName = hToken + ".jpg";
             // 地址改成服务器地址就ok了
-//            String filePath = "C:\\Users\\Lzy\\Desktop\\img\\";
-            String filePath = "C:\\Users\\Administrator\\Desktop\\img\\";
+            String filePath = "C:\\Users\\Lzy\\Desktop\\img\\";
+//            String filePath = "C:\\Users\\Administrator\\Desktop\\img\\";
             // 图片的路径 = 文件夹地址 + 新名字
             String fileAddress = filePath + resultName;
             try{

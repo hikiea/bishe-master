@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/community.css">
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/bootstrap.min.js" type="application/javascript"></script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Loding font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>用户注册</title>
+    </head>
+<body>
+
+<div id="login-bg" class="container-fluid">
+    <div class="bg-img"></div>
+    <div class="bg-color"></div>
+</div>
+
+<div class="container" id="login">
+    <div class="row justify-content-center">
+        <div class="col-lg-12">
+            <div class="login">
+
+                <h2>欢迎注册</h2>
+                <!-- Loging form -->
+                <form action="/register" method="post">
+                    <div class="form-group">
+                        <input input name="username" id="username" type="text" placeholder="别取奇怪的名字呗"
+                               class="form-control" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <input name="password" id="password" type="password" class="form-control"
+                               placeholder="密码不能少于6位哦">
+                    </div>
+
+                    <div class="form-check">
+
+                        <label class="switch">
+                            <input type="checkbox">
+                        </label>
+
+                        <label class="forgot-password">
+                            <a href="login">已有账号？去登录吧</a>
+                        </label>
+
+                    </div>
+
+                    <br>
+                    <button type="submit" class="btn btn-lg btn-block btn-success">注册</button>
+                </form>
+                <!-- End Loging form -->
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+</body>
+</html>

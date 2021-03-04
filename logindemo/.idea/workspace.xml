@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="49358fe5-739b-47b9-8b37-c0d720159cb6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzy/bishe/BisheApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzy/bishe/modules/user/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzy/bishe/modules/user/mapper/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzy/bishe/modules/user/model/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzy/bishe/modules/user/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzy/bishe/util/ResultDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap-theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap-theme.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap-theme.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap-theme.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/community.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/down.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/myCss.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/doComment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/jquery-3.4.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/myJs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/npm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/secondComment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/picture/error.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/picture/head/123.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/picture/head/53f82521-8703-4a87-8a08-ce05fdeb68ad湖边.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/picture/lunbotu/a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/picture/lunbotu/b.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/picture/lunbotu/c.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/picture/lunbotu/d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/picture/lunbotu/e.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/css/bootstrap-grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/css/bootstrap-grid.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/css/bootstrap-grid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/css/bootstrap-grid.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/css/bootstrap-reboot.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/css/bootstrap-reboot.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/css/bootstrap-reboot.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/css/bootstrap-reboot.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/css/resumeStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/css/font-awesome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/css/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/fonts/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/fonts/fontawesome-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/less/animated.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/less/bordered-pulled.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/less/core.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/less/fixed-width.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/less/font-awesome.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/less/icons.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/less/larger.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/less/list.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/less/mixins.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/less/path.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/less/rotated-flipped.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/less/screen-reader.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/less/stacked.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/less/variables.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/scss/_animated.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/scss/_bordered-pulled.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/scss/_core.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/scss/_fixed-width.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/scss/_icons.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/scss/_larger.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/scss/_list.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/scss/_mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/scss/_path.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/scss/_rotated-flipped.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/scss/_screen-reader.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/scss/_stacked.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/scss/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/fonts/scss/font-awesome.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/js/bootstrap.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/js/bootstrap.bundle.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/js/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/js/bootstrap.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/js/bootstrap.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/js/jquery-3.3.1.slim.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/picture/Placeholder.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/picture/c.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resumeStatic/picture/zyCommunity.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/loginError.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/welcome.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/lzy/bishe/BisheApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bishe/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bishe/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bishe/src/main/java/com/lzy/bishe/BisheApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bishe/src/main/java/com/lzy/bishe/BisheApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bishe/src/main/java/com/lzy/bishe/config/ImgConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bishe/src/main/java/com/lzy/bishe/config/ImgConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bishe/src/main/java/com/lzy/bishe/modules/checkcode/controller/CheckCodeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bishe/src/main/java/com/lzy/bishe/modules/checkcode/controller/CheckCodeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bishe/src/main/java/com/lzy/bishe/modules/picture/service/PictureService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bishe/src/main/java/com/lzy/bishe/modules/picture/service/PictureService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bishe/src/main/java/com/lzy/bishe/modules/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bishe/src/main/java/com/lzy/bishe/modules/user/controller/UserController.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Users\Lzy\.m2\wrapper\dists\apache-maven-3.6.3-bin\1iopthnavndlasol9gbrbg6bf2\apache-maven-3.6.3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1koGXGqtYw2664UCMIg7bGxktJr" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\IDEA\Spring_Boot\logindemo\src\main\resources\templates" />
+      <recent name="F:\IDEA\Spring_Boot\logindemo\src\main\resources" />
+      <recent name="F:\IDEA\Spring_Boot\logindemo\src\main\resources\static" />
+      <recent name="F:\IDEA\Spring_Boot\bishe" />
+      <recent name="F:\IDEA\Spring_Boot\bishe\src\main\resources\static" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lzy.bishe.modules.article.model.entry" />
+      <recent name="com.lzy.bishe.modules.news.Service" />
+      <recent name="com.lzy.bishe.modules.items.model.entry" />
+      <recent name="com.lzy.bishe.modules.repair.model.view" />
+      <recent name="com.lzy.bishe.common" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\IDEA\Spring_Boot\bishe\src\main\resources\static" />
+      <recent name="F:\IDEA\Spring_Boot\bishe\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="BisheApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="bishe" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lzy.bishe.BisheApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="49358fe5-739b-47b9-8b37-c0d720159cb6" name="Default Changelist" comment="" />
+      <created>1606359572715</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606359572715</updated>
+      <workItem from="1606359576091" duration="963000" />
+      <workItem from="1608605136895" duration="7285000" />
+      <workItem from="1608625335850" duration="856000" />
+      <workItem from="1608628009535" duration="2861000" />
+      <workItem from="1608790627123" duration="12543000" />
+      <workItem from="1608947750820" duration="13721000" />
+      <workItem from="1609047957640" duration="1138000" />
+      <workItem from="1609049239874" duration="18073000" />
+      <workItem from="1609214577369" duration="28799000" />
+      <workItem from="1609334941891" duration="509000" />
+      <workItem from="1610158471402" duration="24546000" />
+      <workItem from="1610252126187" duration="28019000" />
+      <workItem from="1610335147754" duration="2621000" />
+      <workItem from="1610353926688" duration="1621000" />
+      <workItem from="1610422894707" duration="11119000" />
+      <workItem from="1610442651370" duration="16179000" />
+      <workItem from="1610504854731" duration="29914000" />
+      <workItem from="1610709539954" duration="5334000" />
+      <workItem from="1610878827174" duration="1800000" />
+      <workItem from="1610977010768" duration="1161000" />
+      <workItem from="1611022381918" duration="7970000" />
+      <workItem from="1611377326759" duration="425000" />
+      <workItem from="1611455106423" duration="1196000" />
+      <workItem from="1611885168104" duration="568000" />
+      <workItem from="1611889413358" duration="1370000" />
+      <workItem from="1612259745961" duration="714000" />
+      <workItem from="1614494444070" duration="67000" />
+      <workItem from="1614560195260" duration="1193000" />
+      <workItem from="1614650354797" duration="52000" />
+      <workItem from="1614755703896" duration="595000" />
+      <workItem from="1614763754762" duration="1257000" />
+      <workItem from="1614765506672" duration="1693000" />
+      <workItem from="1614820525993" duration="3476000" />
+      <workItem from="1614824257691" duration="9431000" />
+      <workItem from="1614845029792" duration="78000" />
+      <workItem from="1614845149642" duration="599000" />
+    </task>
+    <task id="LOCAL-00001" summary="结构搭建">
+      <created>1606360825108</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1606360825108</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fix: 修复验证码校验功能">
+      <created>1608629408127</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1608629408127</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: 新增验证码清除定时任务">
+      <created>1608630827658</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1608630827658</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: 新增帖子、上传图片相关代码;&#10;fix: 修复登录缺陷">
+      <created>1608803171839</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1608803171839</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: 新增邮件服务">
+      <created>1608949215603</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1608949215603</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat: 新增投诉建议功能">
+      <created>1608950800355</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1608950800355</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat: 新增小区报修功能">
+      <created>1608951342441</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1608951342441</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat: 新增通知服务">
+      <created>1608958930053</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1608958930053</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feat: 修改部分接口">
+      <created>1608959617679</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1608959617679</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fix: 修改图片名">
+      <created>1608961498190</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1608961498190</updated>
+    </task>
+    <task id="LOCAL-00011" summary="feat: 新增小区管理">
+      <created>1609056297576</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1609056297576</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fix: 更新贴子服务">
+      <created>1609058125270</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1609058125270</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fix: 修改报修功能数据冗余的问题">
+      <created>1609060068370</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1609060068370</updated>
+    </task>
+    <task id="LOCAL-00014" summary="fix: 修改投诉建议相关接口">
+      <created>1609062747426</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1609062747426</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fix: 修改评论相关接口">
+      <created>1609063857328</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1609063857328</updated>
+    </task>
+    <task id="LOCAL-00016" summary="fix: 完善swagger信息">
+      <created>1609064388601</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1609064388601</updated>
+    </task>
+    <task id="LOCAL-00017" summary="feat: 新增家居物品管理功能">
+      <created>1609068737018</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1609068737018</updated>
+    </task>
+    <task id="LOCAL-00018" summary="fix: 完善swagger页面信息">
+      <created>1609068923272</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1609068923272</updated>
+    </task>
+    <task id="LOCAL-00019" summary="fix: 更改部分接口适配前端">
+      <created>1609248673573</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1609248673573</updated>
+    </task>
+    <task id="LOCAL-00020" summary="fix: 修改投诉建议相关接口">
+      <created>1610176850617</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1610176850617</updated>
+    </task>
+    <task id="LOCAL-00021" summary="fix: 修改报修相关接口">
+      <created>1610186670083</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1610186670083</updated>
+    </task>
+    <task id="LOCAL-00022" summary="fix: 完善维修功能接口">
+      <created>1610187500556</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1610187500556</updated>
+    </task>
+    <task id="LOCAL-00023" summary="fix: 修改数据接口">
+      <created>1610191531524</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1610191531524</updated>
+    </task>
+    <task id="LOCAL-00024" summary="fix: 修改投诉功能部分接口">
+      <created>1610260293053</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1610260293054</updated>
+    </task>
+    <task id="LOCAL-00025" summary="fix: 修复时间不一致缺陷">
+      <created>1610279493356</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1610279493356</updated>
+    </task>
+    <task id="LOCAL-00026" summary="fix: 修改帖子展示问题">
+      <created>1610295325625</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1610295325626</updated>
+    </task>
+    <task id="LOCAL-00027" summary="feat: 新增天气API">
+      <created>1610299085268</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1610299085272</updated>
+    </task>
+    <task id="LOCAL-00028" summary="fix: 修改部分接口适配前端需求">
+      <created>1610440621183</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1610440621183</updated>
+    </task>
+    <task id="LOCAL-00029" summary="fix: 修改部分接口适配前端需求">
+      <created>1610470153946</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1610470153946</updated>
+    </task>
+    <task id="LOCAL-00030" summary="feat: 新增物品管理接口">
+      <created>1610517952576</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1610517952576</updated>
+    </task>
+    <task id="LOCAL-00031" summary="fix: 修复部分缺陷">
+      <created>1610535336083</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1610535336083</updated>
+    </task>
+    <task id="LOCAL-00032" summary="fix: 修复报修总计的缺陷">
+      <created>1610714956787</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1610714956788</updated>
+    </task>
+    <task id="LOCAL-00033" summary="feat: 添加sql文件">
+      <created>1610718304152</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1610718304152</updated>
+    </task>
+    <task id="LOCAL-00034" summary="fix:更改贴子字体错误">
+      <created>1610879005102</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1610879005102</updated>
+    </task>
+    <task id="LOCAL-00035" summary="fix: 修改部分缺陷">
+      <created>1611889506206</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1611889506206</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="feat: 修改部分接口" />
+    <MESSAGE value="fix: 修改图片名" />
+    <MESSAGE value="feat: 新增小区管理" />
+    <MESSAGE value="fix: 更新贴子服务" />
+    <MESSAGE value="fix: 修改报修功能数据冗余的问题" />
+    <MESSAGE value="fix: 修改评论相关接口" />
+    <MESSAGE value="fix: 完善swagger信息" />
+    <MESSAGE value="feat: 新增家居物品管理功能" />
+    <MESSAGE value="fix: 完善swagger页面信息" />
+    <MESSAGE value="fix: 更改部分接口适配前端" />
+    <MESSAGE value="fix: 修改投诉建议相关接口" />
+    <MESSAGE value="fix: 修改报修相关接口" />
+    <MESSAGE value="fix: 完善维修功能接口" />
+    <MESSAGE value="fix: 修改数据接口" />
+    <MESSAGE value="fix: 修改投诉功能部分接口" />
+    <MESSAGE value="fix: 修复时间不一致缺陷" />
+    <MESSAGE value="fix: 修改帖子展示问题" />
+    <MESSAGE value="feat: 新增天气API" />
+    <MESSAGE value="fix: 修改部分接口适配前端需求" />
+    <MESSAGE value="feat: 新增物品管理接口" />
+    <MESSAGE value="fix: 修复部分缺陷" />
+    <MESSAGE value="fix: 修复报修总计的缺陷" />
+    <MESSAGE value="feat: 添加sql文件" />
+    <MESSAGE value="fix:更改贴子字体错误" />
+    <MESSAGE value="fix: 修改部分缺陷" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: 修改部分缺陷" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="502" y="240" key="#Notifications" timestamp="1609061960927">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="502" y="240" key="#Notifications/0.0.1536.834@0.0.1536.834" timestamp="1609061960927" />
+    <state x="249" y="0" key="#Project_Structure" timestamp="1610715249289">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="249" y="0" key="#Project_Structure/0.0.1536.834@0.0.1536.834" timestamp="1610715249289" />
+    <state x="499" y="172" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1609061211463">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="499" y="172" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1536.834@0.0.1536.834" timestamp="1609061211463" />
+    <state x="496" y="217" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1610715712487">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="496" y="217" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.834@0.0.1536.834" timestamp="1610715712487" />
+    <state x="574" y="101" key="#com.intellij.ide.util.MemberChooser" timestamp="1609244867104">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="574" y="101" key="#com.intellij.ide.util.MemberChooser/0.0.1536.834@0.0.1536.834" timestamp="1609244867104" />
+    <state x="473" y="188" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1610178185142">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="473" y="188" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1536.834@0.0.1536.834" timestamp="1610178185142" />
+    <state x="380" y="340" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1610710186882">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="380" y="340" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.834@0.0.1536.834" timestamp="1610710186882" />
+    <state x="328" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1609061081445">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="328" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.834@0.0.1536.834" timestamp="1609061081445" />
+    <state x="121" y="0" key="CommitChangelistDialog2" timestamp="1611889502554">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="121" y="0" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1611889502554" />
+    <state x="93" y="93" width="1350" height="648" key="DiffContextDialog" timestamp="1609056628101">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="93" y="93" width="1350" height="648" key="DiffContextDialog/0.0.1536.834@0.0.1536.834" timestamp="1609056628101" />
+    <state x="549" y="172" key="FileChooserDialogImpl" timestamp="1614845132246">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1614845132246" />
+    <state x="640" y="314" key="Github.ShareDialog" timestamp="1606360726652">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="640" y="314" key="Github.ShareDialog/0.0.1536.834@0.0.1536.834" timestamp="1606360726652" />
+    <state x="510" y="113" key="Github.UntrackedFilesDialog" timestamp="1606360748786">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="510" y="113" key="Github.UntrackedFilesDialog/0.0.1536.834@0.0.1536.834" timestamp="1606360748786" />
+    <state width="1493" height="418" key="GridCell.Tab.0.bottom" timestamp="1614844311930">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="418" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1614844311930" />
+    <state width="1493" height="418" key="GridCell.Tab.0.center" timestamp="1614844311930">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="418" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1614844311930" />
+    <state width="1493" height="418" key="GridCell.Tab.0.left" timestamp="1614844311930">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="418" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1614844311930" />
+    <state width="1493" height="418" key="GridCell.Tab.0.right" timestamp="1614844311930">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="418" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1614844311930" />
+    <state width="1493" height="418" key="GridCell.Tab.1.bottom" timestamp="1614844311930">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="418" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1614844311930" />
+    <state width="1493" height="418" key="GridCell.Tab.1.center" timestamp="1614844311930">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="418" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1614844311930" />
+    <state width="1493" height="418" key="GridCell.Tab.1.left" timestamp="1614844311930">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="418" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1614844311930" />
+    <state width="1493" height="418" key="GridCell.Tab.1.right" timestamp="1614844311930">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="418" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1614844311930" />
+    <state width="1493" height="364" key="GridCell.Tab.2.bottom" timestamp="1610718322064">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="364" key="GridCell.Tab.2.bottom/0.0.1536.834@0.0.1536.834" timestamp="1610718322064" />
+    <state width="1493" height="364" key="GridCell.Tab.2.center" timestamp="1610718322064">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="364" key="GridCell.Tab.2.center/0.0.1536.834@0.0.1536.834" timestamp="1610718322064" />
+    <state width="1493" height="364" key="GridCell.Tab.2.left" timestamp="1610718322064">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="364" key="GridCell.Tab.2.left/0.0.1536.834@0.0.1536.834" timestamp="1610718322064" />
+    <state width="1493" height="364" key="GridCell.Tab.2.right" timestamp="1610718322064">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="364" key="GridCell.Tab.2.right/0.0.1536.834@0.0.1536.834" timestamp="1610718322064" />
+    <state x="349" y="151" key="IDE.errors.dialog" timestamp="1609058152722">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="349" y="151" key="IDE.errors.dialog/0.0.1536.834@0.0.1536.834" timestamp="1609058152722" />
+    <state x="270" y="61" key="SettingsEditor" timestamp="1608608028856">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="270" y="61" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1608608028856" />
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1611889549343">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1611889549343" />
+    <state x="81" y="106" width="1350" height="648" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1609056628101">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="81" y="106" width="1350" height="648" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1536.834@0.0.1536.834" timestamp="1609056628101" />
+    <state x="93" y="93" width="1350" height="648" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1611885716816">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="93" y="93" width="1350" height="648" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.834@0.0.1536.834" timestamp="1611885716816" />
+    <state x="333" y="19" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1610508111710">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="333" y="19" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.834@0.0.1536.834" timestamp="1610508111710" />
+    <state x="574" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606360859410">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="574" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1606360859410" />
+    <state x="71" y="144" width="602" height="594" key="find.popup" timestamp="1614763809088">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="71" y="144" width="602" height="594" key="find.popup/0.0.1536.834@0.0.1536.834" timestamp="1614763809088" />
+    <state x="334" y="77" key="new project wizard" timestamp="1614821356781">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="334" y="77" key="new project wizard/0.0.1536.834@0.0.1536.834" timestamp="1614821356781" />
+    <state x="464" y="173" key="refactoring.ChangeSignatureDialog" timestamp="1610461341180">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="464" y="173" key="refactoring.ChangeSignatureDialog/0.0.1536.834@0.0.1536.834" timestamp="1610461341180" />
+    <state x="425" y="189" key="run.anything.popup" timestamp="1614826581146">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1614826581146" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="repair.repairContent" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>

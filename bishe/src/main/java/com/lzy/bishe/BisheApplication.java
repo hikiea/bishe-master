@@ -8,7 +8,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * @author Lzy
  */
 @SpringBootApplication
-//开启定时任务
 @EnableScheduling
 public class BisheApplication {
 

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../css/community.css">
+<script src="../js/bootstrap.min.js" type="application/javascript"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>错误页面</title>
+</head>
+<body>
+<!--注册错误，注册的用户名 或 密码不能为空-->
+<div th:if="${ != null && session.user == null }">
+    <p>注册的用户名 或 密码不能为空！</p>
+    <p>自己返回注册页面吧，懒得写Controller跳转代码了</p>
+</div>
+<!--登录错误-->
+<div th:if="${session.user != null}">
+    <p>账号和密码错了</p>
+    <p>自己返回登录页面吧，懒得写Controller跳转代码了</p>
+</div>
+<!--注册错误，已经被注册过了-->
+<div th:if="${CunZai == 1}">
+    <p>你注册的ID：<span th:text="${regiest_username}"></span>已经被注册过了，请重新注册</p>
+    <p>自己返回注册页面吧，懒得写Controller跳转代码了</p>
+</div>
+</body>
+</html>
