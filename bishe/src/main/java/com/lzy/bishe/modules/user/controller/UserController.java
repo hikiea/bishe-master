@@ -38,12 +38,6 @@ public class UserController {
         return resultDTO;
     }
 
-
-
-
-
-
-
     @PostMapping("/register")
     @CrossOrigin
     @ApiOperation(value = "用户注册接口",notes = "用户注册接口")
