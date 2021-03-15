@@ -32,7 +32,8 @@ public class TokenService {
                             user.getUsername(),
                             user.getNickname(),
                             user.getCommunityId(),
-                            user.getPublishStatus().toString())
+                            user.getPublishStatus().toString(),
+                            uuid)
                     // 生成 签名的时间
                     .withIssuedAt(new Date())
                     // 生成 签名的有效期,分钟
